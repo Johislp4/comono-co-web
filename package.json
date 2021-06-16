@@ -1,0 +1,19 @@
+{
+  "name": "comono-colombia",
+  "version": "1.0.0",
+  "description": "website of comono colombia",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/co-mo-no/comono-co-web.git"
+  },
+  "author": "Danilo Morales",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/co-mo-no/comono-co-web/issues"
+  },
+  "homepage": "https://github.com/co-mo-no/comono-co-web#readme"
+}
