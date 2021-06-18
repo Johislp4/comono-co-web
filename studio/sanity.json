@@ -1,10 +1,10 @@
 {
   "root": true,
   "project": {
-    "name": "comono-colombia-backend"
+    "name": "comono colombia"
   },
   "api": {
-    "projectId": "5pohhf6x",
+    "projectId": "af9rpnm9",
     "dataset": "production"
   },
   "plugins": [
