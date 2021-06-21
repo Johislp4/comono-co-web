@@ -3,6 +3,7 @@ import styles from '../styles/Home.module.css'
 import { sanityClient, urlFor } from '../lib/sanity'
 import Banner from '../components/Banner'
 
+
 export default function Home({data}) {
   
   const banner = data[0].banner
@@ -15,9 +16,7 @@ export default function Home({data}) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div>
-        <Banner text={banner}/>
-      </div>
+      <Banner text={banner}/>
 
 
     
@@ -32,7 +31,5 @@ const queryHome = `*[_type == 'home']{
 
 export async function getStaticProps(){
   const data = await sanityClient.fetch(queryHome)
-  console.log(data, '😻😻') 
-   
   return { props: { data }}
 }
