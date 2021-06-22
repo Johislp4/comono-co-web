@@ -1,19 +1,35 @@
 import React from "react";
-import Link from 'next/link'
+import Link from "next/link";
+import Image from "next/image";
 
 const NavBar = () => {
   return (
     <nav>
-      <div>
-        <img alt="icon" />
-      </div>
+      <Link href="/" > 
+        <a>
+        <div>
+          <Image src="/logo.svg" alt="icon" width={45.93} height={45.93} />
+        </div>
+        </a>
+      </Link>
+
       <div>
         <ul className="Menu-list">
-          <li className="Menu-list-item"><Link href="/">Home</Link></li>
-          <li className="Menu-list-item"><Link href="/">Nosotros</Link></li>
-          <li className="Menu-list-item"><Link href="/">Servicios</Link></li>
-          <li className="Menu-list-item"><Link href="/">Blog</Link></li>
-          <li className="Menu-list-item"><Link href="/">Contacto</Link></li>
+          <li className="Menu-list-item">
+            <Link href="/"><a>Home</a></Link>
+          </li>
+          <li className="Menu-list-item">
+            <Link href="/nosotros"><a>Nosotros</a></Link>
+          </li>
+          <li className="Menu-list-item">
+            <Link href="/servicios"><a>Servicios</a></Link>
+          </li>
+          <li className="Menu-list-item">
+            <Link href="/blog"><a>Blog</a></Link>
+          </li>
+          <li className="Menu-list-item">
+            <Link href="/contacto"><a>Contacto</a></Link>
+          </li>
         </ul>
       </div>
     </nav>

@@ -2,10 +2,17 @@ import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import { sanityClient, urlFor } from '../lib/sanity'
 import Banner from '../components/Banner'
+import Services from "../components/Services"
+import Team from '../components/Team'
+
 
 export default function Home({data}) {
+
+  console.log(data, 'this is data')
   
   const banner = data[0].banner
+  const bio = {title: data[0].bioTitle, imageTeam: data[0].imageTeam, description: data[0].description}
+  
   
  
   return (
@@ -15,9 +22,9 @@ export default function Home({data}) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div>
-        <Banner text={banner}/>
-      </div>
+      <Banner text={banner}/>
+      <Services/>
+      <Team  bio={bio} />
 
 
     
@@ -27,12 +34,15 @@ export default function Home({data}) {
 
 
 const queryHome = `*[_type == 'home']{
-  banner
+  _id,
+  banner,
+  "bioTitle": bio.bioTitle,
+  "imageTeam": bio.image.asset->url,
+  "description": bio.name
 }`
 
 export async function getStaticProps(){
   const data = await sanityClient.fetch(queryHome)
-  console.log(data, '😻😻') 
-   
+  console.log(data)
   return { props: { data }}
 }
