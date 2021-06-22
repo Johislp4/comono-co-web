@@ -11,7 +11,7 @@ export default function Home({data}) {
   console.log(data, 'this is data')
   
   const banner = data[0].banner
-  const bio = {title: data[0].bioTitle, imageTeam: data[0].imageTeam}
+  const bio = {title: data[0].bioTitle, imageTeam: data[0].imageTeam, description: data[0].description}
   
   
  
@@ -37,7 +37,8 @@ const queryHome = `*[_type == 'home']{
   _id,
   banner,
   "bioTitle": bio.bioTitle,
-  "imageTeam": bio.image.asset->url
+  "imageTeam": bio.image.asset->url,
+  "description": bio.name
 }`
 
 export async function getStaticProps(){
