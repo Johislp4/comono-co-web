@@ -5,6 +5,7 @@ import Banner from "../components/Banner";
 import Services from "../components/Services";
 import Team from "../components/Team";
 import Form from "../components/Form";
+import Project from "../components/Project"
 
 export default function Home({ data }) {
   console.log(data, "this is data");
@@ -26,6 +27,12 @@ export default function Home({ data }) {
       <Banner text={banner} />
       <Services />
       <Team bio={bio} />
+
+      <Project />
+
+
+
+
 
       <div className="container-form">
         <h1 className="form-title">Contáctanos</h1>
