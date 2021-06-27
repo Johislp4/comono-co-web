@@ -17,6 +17,10 @@ export default function Home({ data }) {
     description: data[0].description,
   };
 
+  const projects = data[0].projects
+
+  console.log(projects)
+
   return (
     <div className={styles.container}>
       <Head>
@@ -28,7 +32,7 @@ export default function Home({ data }) {
       <Services />
       <Team bio={bio} />
 
-      <Project />
+      <Project projectList={projects} />
 
 
 
@@ -37,17 +41,17 @@ export default function Home({ data }) {
       <div className="container-form">
         <h1 className="form-title">Contáctanos</h1>
         <div className="form">
-          <div>
-            <div>
+          <div className="left-form">
+            <div className="message-one">
               <h1>Gracias por llegar hasta aquí</h1>
             </div>
 
-            <div>
+            <div className="message-two">
               <p>Déjanos tus datos y nos pondremos en contacto contigo</p>
             </div>
           </div>
 
-          <div>
+          <div className="right-form">
             <Form />
           </div>
         </div>
@@ -56,9 +60,6 @@ export default function Home({ data }) {
       <style jsx>{`
         .container-form{
           width:100%;
-          height: 400px;
-          border: solid thin gray;
-          border-radius: 12px;
           margin:1rem;
         }
         .form-title{
@@ -68,7 +69,45 @@ export default function Home({ data }) {
 
         .form{
           display:flex;
-          padding:3rem
+          padding:3rem;
+          border: solid thin gray;
+          border-radius: 12px;
+        }
+
+        .left-form{
+          width:50%;
+       
+          display:flex;
+          flex-direction: column;
+          margin:auto;
+          
+        }
+
+        .right-form{
+          width:50%;
+          height:100%;
+        }
+
+        .message-one{
+       
+          padding:1rem;
+          margin-bottom:0;
+          display:flex;
+          flex-wrap:wrap;
+     
+        }
+
+        .message-one > h1 {
+          font-size: 3.5rem;
+        
+        }
+
+        .message-two{
+        
+         
+          margin-bottom:4rem;
+          
+          
         }
       
       `}</style>
@@ -81,7 +120,13 @@ const queryHome = `*[_type == 'home']{
   banner,
   "bioTitle": bio.bioTitle,
   "imageTeam": bio.image.asset->url,
-  "description": bio.name
+  "description": bio.name,
+  "projects": project[].project->{
+    "nameProject": name, 
+    description,
+    "imageProject": image.asset->url,
+    "link": href 
+    }
 }`;
 
 export async function getStaticProps() {
