@@ -31,6 +31,7 @@ const Team = ({ bio }) => {
           </div>
           {/* <img src="/bottom-wave.svg" /> */}
         </div>
+        <div className="bottom"></div>
       </div>
 
       <style jsx>{`
@@ -42,8 +43,8 @@ const Team = ({ bio }) => {
           overflow-x: hidden;
           overflow-y: scroll;
           position: relative;
-          border: solid 1px gray;
-          border-radius: 12px;
+          /* border: solid 1px gray;
+          border-radius: 12px; */
           perspective: 6.5px;
         }
 
@@ -52,6 +53,10 @@ const Team = ({ bio }) => {
           left: 0;
           right: 0;
           margin: 0 auto;
+        }
+
+        .parallax-container::-webkit-scrollbar{
+          width:12px;
         }
 
         .image-background {
@@ -141,6 +146,13 @@ const Team = ({ bio }) => {
 
         button > span {
             margin: 1rem;
+        }
+        .bottom{
+
+        position:relative;
+        bottom:0;
+        background:white;
+        height:40px;
         }
         
 
