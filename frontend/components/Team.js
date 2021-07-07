@@ -1,162 +1,139 @@
 import React from "react";
 import Image from "next/image";
-import {PortableText} from '../lib/sanity'
+import { PortableText } from "../lib/sanity";
 
 const Team = ({ bio }) => {
   return (
-    <div className="parallax-container">
-      <div className="image image-background">
-        <img src={bio.imageTeam} alt="Comono Team" />
-      </div>
-
-      <div className="image image-middle">
-        <img src="/top-wave.svg" />
-      </div>
-
-      <div className="image image-foreground">
-        <div className="container-description">
-
-          <div className="title">
-            <div className="block"></div>
-            <h2 className="bio-title">{bio.title}</h2>
-          </div>
-          
-          <div className="description">
-                <div className="portableText">
-                    <PortableText blocks={bio?.description}/>
-                    <button><span>Descubre más</span><span><img src="/row-right.svg" alt="row-right"/></span></button>   
-                </div>
-                
-               
-          </div>
-          {/* <img src="/bottom-wave.svg" /> */}
+    <>
+      <div className="parallax-container">
+        <div className="wave-top"></div>
+        <div className="image">
+          <img className="team-image" src={bio.imageTeam} alt="Comono Team" />
         </div>
-        <div className="bottom"></div>
+        <div className="wave-bottom">
+          <section className="head-wave-bottom">
+            <div className="block"></div>
+            <h1 className="bio-title">{bio.title}</h1>
+          </section>
+        </div>
+      </div>
+
+      <div className="description">
+        <div className="portableText">
+          
+          <PortableText blocks={bio?.description} />
+          
+          <button>
+            <span>Descubre más</span>
+            <span>
+              <img src="/row-right.svg" alt="row-right" />
+            </span>
+          </button>
+        </div>
       </div>
 
       <style jsx>{`
         .parallax-container {
-          margin-bottom: 4rem;
-          width: 100%;
-          height: 1000px;
-          overflow-x: hidden;
-          overflow-y: scroll;
+          display: flex;
+          height: 100vh;
           position: relative;
-          perspective: 6.5px;
-        }
-
-        .image {
-          position: absolute;
-          left: 0;
-          right: 0;
-          margin: 0 auto;
-        }
-
-        .parallax-container::-webkit-scrollbar{
-          width:12px;
-        }
-
-        .image-background {
-          transform: translateZ(4.3px) scale(0.4);
-          bottom: 0px;
-          top: 40px;
-          z-index: 1;
-        }
-
-        .image-background > img {
-          width: 110%;
-          height: 100%;
-          transform: translateZ(5px);
-        }
-
-        .image-middle {
           width: 100%;
+          background-attachment: fixed;
+          overflow-x: hidden;
+          overflow-y: sroll;
+          perspective: 4px;
+          perspective-origin: 50%;
+        }
+
+        .wave-top {
+          position: absolute;
           top: 0;
+          right: 0;
+          left: 0;
+          margin: auto 0;
+          background-image: url("/wave-top.svg");
+          background-size: cover;
+          background-position: top;
+          height: 100px;
+
           z-index: 3;
         }
 
-        .image-foreground {
-          width: 100%;
+        .wave-bottom {
+          position: absolute;
           bottom: 0;
-          background-image: url("/bottom-wave.svg");
+          left: 0;
+          right: 0;
+          background-image: url("/wave-bottom.svg");
           background-size: cover;
-          height: 400px;
-          z-index: 2;
+
+          height: 45%;
+
+          z-index: 3;
         }
 
-        img {
-          width: 100%;
-        }
-
-        .container-description {
-      
-          width: 100%;
+        .head-wave-bottom {
+          width: 50%;
           height: 100%;
           display: grid;
-          grid-template-columns: 1fr 1fr;
-          grid-template-rows: 0.7fr 1fr;
-        }
-
-        .title{
-            grid-column: 1/2;
-            grid-row:1/2;
-            display:grid;
-            grid-template-columns: 80px 1fr;
-            align-self: end;
-            
+          grid-template-columns: [start-full] minmax(1rem, 130px) [main] minmax(
+              0,
+              1fr
+            ) [end-full];
+          grid-gap: 1rem;
         }
 
         .block {
           display: block;
-          width: 66px;
+          width: 100%;
           height: 50px;
           background-color: #383838;
-          margin: auto 2rem auto 0;
-          grid-column: 1/2
+          grid-column: start-full / main;
+          align-self: center;
         }
 
-        .bio-title{
-            grid-column: 2/3;
+        .bio-title {
+          grid-column: main / end-full;
+          align-self: center;
+          font-size: 3rem;
         }
+
+        .image {
+          margin-bottom: auto;
+          height: calc(100%);
+          width: 100%;
+        }
+
+        .team-image {
+          height: inherit;
+          width: 100%;
+        }
+
 
         .description{
-            grid-column: 1/3;
-            grid-row:2/3;
-            display:grid;
-            grid-template-columns: 80px 1fr;
+          background: #fff;
+          display: grid;
+          grid-template-columns: 
+          [start-full] minmax(1rem, 130px) [main] minmax(0, 1fr) [end-full];
+          grid-gap: 1rem;
+          
         }
 
         .portableText{
-           grid-column: 2/3;
-           align-self:center;
-           padding-right: 4rem;
-           align-self:end;
-            
+          grid-column: main;
+          padding: 0 3rem 3rem 0;
+          font-size: 1.4rem;
         }
 
         button{
-            display:flex;
-            padding: 1rem;
-            margin: 1rem 0;
-            border:none;
-        }
-
-        button > span {
-            margin: 1rem;
-        }
-        .bottom{
-
-        position:relative;
-        bottom:0;
-        background:white;
-        height:40px;
-        }
-        
-
-       
+          background: #fff;
+          margin: 2rem 0;
+          border:none;
+          font-size: 2.5rem;
+          padding: 1rem  1rem 1 1rem 0;
         }
       `}</style>
-    </div>
+    </>
   );
 };
 
