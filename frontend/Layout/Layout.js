@@ -4,10 +4,10 @@ import Footer from "../components/Footer"
 
 const Layout = ({children}) => {
     return (
-        <div className="container">
+        <div className="base-layout">
         <NavBar />
             {children}
-        <Footer />
+        {/* <Footer /> */}
         </div>
     )
 }

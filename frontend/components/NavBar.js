@@ -4,31 +4,41 @@ import Image from "next/image";
 
 const NavBar = () => {
   return (
-    <nav>
-      <Link href="/" > 
+    <nav className="d-flex justify-content-between align-items-center">
+      <Link href="/">
         <a>
-        <div>
-          <Image src="/logo.svg" alt="icon" width={45.93} height={45.93} />
-        </div>
+          <div>
+            <Image src="/logo.svg" alt="icon" width={45.93} height={45.93} />
+          </div>
         </a>
       </Link>
 
-      <div>
-        <ul className="Menu-list">
+      <div className="Nav-menu">
+        <ul className="Menu-list d-flex">
           <li className="Menu-list-item">
-            <Link href="/"><a>Home</a></Link>
+            <Link href="/">
+              <a>Home</a>
+            </Link>
           </li>
           <li className="Menu-list-item">
-            <Link href="/nosotros"><a>Nosotros</a></Link>
+            <Link href="/nosotros">
+              <a>Nosotros</a>
+            </Link>
           </li>
           <li className="Menu-list-item">
-            <Link href="/servicios"><a>Servicios</a></Link>
+            <Link href="/servicios">
+              <a>Servicios</a>
+            </Link>
           </li>
           <li className="Menu-list-item">
-            <Link href="/blog"><a>Blog</a></Link>
+            <Link href="/blog">
+              <a>Blog</a>
+            </Link>
           </li>
           <li className="Menu-list-item">
-            <Link href="/contacto"><a>Contacto</a></Link>
+            <Link href="/contacto">
+              <a>Contacto</a>
+            </Link>
           </li>
         </ul>
       </div>
