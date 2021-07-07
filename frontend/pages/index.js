@@ -1,7 +1,7 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import { sanityClient, urlFor } from "../lib/sanity";
-import Banner from "../components/Banner";
+import Banner from "../components/Banner.js"
 import Services from "../components/Services";
 import Team from "../components/Team";
 import Form from "../components/Form";
@@ -22,20 +22,23 @@ export default function Home({ data }) {
   console.log(projects)
 
   return (
-    <div className={styles.container}>
+    <div>
       <Head>
         <title>Comono Colombia</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Banner text={banner} />
-      <Services />
+      <Banner text={banner}/>
+
+
+     <Services />
       <Team bio={bio} />
 
-      <Project projectList={projects} />
+
+      {/* <Project projectList={projects} />  */}
 
 
-
+ {/* 
 
 
       <div className="container-form">
@@ -56,6 +59,9 @@ export default function Home({ data }) {
           </div>
         </div>
       </div>
+
+      */}
+      
 
       <style jsx>{`
         .container-form{
