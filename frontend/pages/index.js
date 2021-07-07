@@ -35,7 +35,7 @@ export default function Home({ data }) {
       <Team bio={bio} />
 
 
-      {/* <Project projectList={projects} />  */}
+      <Project projectList={projects} /> 
 
 
  {/* 
