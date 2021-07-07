@@ -36,15 +36,12 @@ const Team = ({ bio }) => {
 
       <style jsx>{`
         .parallax-container {
-          margin-top: 2rem;
           margin-bottom: 4rem;
           width: 100%;
           height: 1000px;
           overflow-x: hidden;
           overflow-y: scroll;
           position: relative;
-          /* border: solid 1px gray;
-          border-radius: 12px; */
           perspective: 6.5px;
         }
 

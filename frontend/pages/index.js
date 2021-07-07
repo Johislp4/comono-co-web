@@ -6,6 +6,7 @@ import Services from "../components/Services";
 import Team from "../components/Team";
 import Form from "../components/Form";
 import Project from "../components/Project"
+import Technologies from "../components/Technologies"
 
 export default function Home({ data }) {
   console.log(data, "this is data");
@@ -29,9 +30,8 @@ export default function Home({ data }) {
       </Head>
 
       <Banner text={banner}/>
-
-
      <Services />
+     <Technologies />
       <Team bio={bio} />
 
 
