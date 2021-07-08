@@ -1,7 +1,16 @@
 html{
   font-size: 16px;
   box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
 }
+
+/* div{
+  outline: solid 1px red;
+}
+
+div > *{
+  outline: solid 1px blue;
+} */
 
 *,
 *::after,
@@ -20,7 +29,6 @@ html{
 .align-items-center{ align-items: center; }
 
 .base-layout{
-  width: 100vw;
   background-color:#F4F4F4;
 }
 
@@ -37,10 +45,6 @@ nav {
 a {
   color: inherit;
   text-decoration: none;
-}
-
-.Nav-menu{
-  outline: solid 2px hotpink;
 }
 
 

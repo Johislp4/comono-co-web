@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
+// import Image from "next/image";
 
 const NavBar = () => {
   return (
@@ -8,7 +8,7 @@ const NavBar = () => {
       <Link href="/">
         <a>
           <div>
-            <Image src="/logo.svg" alt="icon" width={45.93} height={45.93} />
+            <img src="/logo.svg" alt="icon" width={45.93} height={45.93} />
           </div>
         </a>
       </Link>

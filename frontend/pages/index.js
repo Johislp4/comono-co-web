@@ -4,7 +4,7 @@ import { sanityClient, urlFor } from "../lib/sanity";
 import Banner from "../components/Banner.js"
 import Services from "../components/Services";
 import Team from "../components/Team";
-import Form from "../components/Form";
+import Contact from "../components/Contact";
 import Project from "../components/Project"
 import Technologies from "../components/Technologies"
 
@@ -37,86 +37,10 @@ export default function Home({ data }) {
 
       <Project projectList={projects} /> 
 
+      <Contact />
 
- {/* 
 
 
-      <div className="container-form">
-        <h1 className="form-title">Contáctanos</h1>
-        <div className="form">
-          <div className="left-form">
-            <div className="message-one">
-              <h1>Gracias por llegar hasta aquí</h1>
-            </div>
-
-            <div className="message-two">
-              <p>Déjanos tus datos y nos pondremos en contacto contigo</p>
-            </div>
-          </div>
-
-          <div className="right-form">
-            <Form />
-          </div>
-        </div>
-      </div>
-
-      */}
-      
-
-      <style jsx>{`
-        .container-form{
-          width:100%;
-          margin:1rem;
-        }
-        .form-title{
-          text-align:center;
-          font-size:3rem;
-        }
-
-        .form{
-          display:flex;
-          padding:3rem;
-          border: solid thin gray;
-          border-radius: 12px;
-        }
-
-        .left-form{
-          width:50%;
-       
-          display:flex;
-          flex-direction: column;
-          margin:auto;
-          
-        }
-
-        .right-form{
-          width:50%;
-          height:100%;
-        }
-
-        .message-one{
-       
-          padding:1rem;
-          margin-bottom:0;
-          display:flex;
-          flex-wrap:wrap;
-     
-        }
-
-        .message-one > h1 {
-          font-size: 3.5rem;
-        
-        }
-
-        .message-two{
-        
-         
-          margin-bottom:4rem;
-          
-          
-        }
-      
-      `}</style>
     </div>
   );
 }

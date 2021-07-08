@@ -1,5 +1,5 @@
 import React from "react";
-import Image from "next/image";
+
 import { PortableText } from "../lib/sanity";
 
 const Team = ({ bio }) => {
@@ -54,7 +54,7 @@ const Team = ({ bio }) => {
           background-image: url("/wave-top.svg");
           background-size: cover;
           background-position: top;
-          height: 100px;
+          height: 130px;
 
           z-index: 3;
         }

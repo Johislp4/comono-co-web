@@ -131,7 +131,6 @@ const services = () => {
       .service > p {
         height:300px;
         color: white;
-        border: solid yellow;
         width: 66%;
         margin-right: 0;
         margin-left: auto;
