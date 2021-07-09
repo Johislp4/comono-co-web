@@ -40,9 +40,7 @@ const Banner = ({ text }) => {
           .bg-pieces {
             grid-column: second-main/full-end;
             background-image: url("/bg-banner.svg");
-            background-size: cover;
-            background-position: top;
-           
+            background-size: 100% 100%;
           }
 
           .background-text{
