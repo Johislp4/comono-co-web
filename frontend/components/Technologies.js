@@ -14,14 +14,29 @@ const Technologies = () => {
         <style jsx>{`
         .container{
             background-color: #fff;
-            height: 200px;
             width: 100%;
+            justify-content: center;
         }
         
         .technologies{
          flex-wrap:wrap;
          width: 64rem;
-         margin:auto;
+         margin: 2rem;
+        }
+
+        @media(max-width: 520px){
+            .container{
+                height: 120px;
+            }
+
+            .technologies{
+                margin: 2rem;
+            }
+            
+            img{
+                height: 50px;
+                width: 50px;
+            }
         }
         `}</style>
         </>

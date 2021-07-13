@@ -29,7 +29,7 @@ export default function Home({ data }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Banner text={banner}/>
+      <Banner text={banner}/> 
      <Services />
      <Technologies />
       <Team bio={bio} />
@@ -59,8 +59,9 @@ const queryHome = `*[_type == 'home']{
     }
 }`;
 
+
 export async function getStaticProps() {
   const data = await sanityClient.fetch(queryHome);
   console.log(data);
-  return { props: { data } };
+  return { props: { data },  revalidate: 10 };
 }

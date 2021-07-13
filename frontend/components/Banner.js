@@ -47,7 +47,7 @@ const Banner = ({ text }) => {
            color: white;
           font-size:6vw;
           font-weight: 700;
-          z-index: 0;
+         
           width: 150%;
           position: relative;
           padding: 1.5rem 0;
@@ -61,8 +61,25 @@ const Banner = ({ text }) => {
             font-weight: 700;
             width: 50%;
             line-height: 1.5;
-            z-index:10;
             color: black;
+          }
+
+          @media(max-width: 520px){
+
+            .Hero{
+              grid-template-columns: [full-start] minmax(0,40px) [first-main] minmax(0,1fr) [second-main] minmax(0,1fr) [thrid-main] minmax(1rem,130px) [full-end];
+            }
+            .block{
+              width: 100%;
+              height: 25px;
+              margin-top: 40px;
+             
+            
+            }
+
+            .banner-text{
+              top: 40px;
+            }
           }
 
          

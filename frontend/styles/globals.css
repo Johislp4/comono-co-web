@@ -32,20 +32,7 @@ div > *{
   background-color:#F4F4F4;
 }
 
-nav {
-  background-color: black;
-  padding: 1rem;
-}
 
-.Menu-list-item{
-  margin: 0 1rem;
-  color: #fff;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
 
 
 

@@ -34,7 +34,7 @@ const Team = ({ bio }) => {
 
       <style jsx>{`
         .parallax-container {
-          display: flex;
+       
           height: 100vh;
           position: relative;
           width: 100%;
@@ -60,7 +60,7 @@ const Team = ({ bio }) => {
         }
 
         .wave-bottom {
-          position: absolute;
+          position: sticky;
           bottom: 0;
           left: 0;
           right: 0;
@@ -105,7 +105,7 @@ const Team = ({ bio }) => {
         }
 
         .team-image {
-          height: inherit;
+         
           width: 100%;
         }
 
