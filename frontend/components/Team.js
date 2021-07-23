@@ -11,9 +11,6 @@ const Team = ({ bio }) => {
           backgroundImage: `url(${bio.imageTeam})`
         }}>
         <div className="wave-top"></div>
-        {/* <div className="image">
-          <img className="team-image" src={bio.imageTeam} alt="Comono Team" />
-        </div> */}
         <div className="wave-bottom">
           <section className="head-wave-bottom">
             <div className="block"></div>
@@ -56,7 +53,6 @@ const Team = ({ bio }) => {
           background-size: cover;
           background-position: top;
           height: 130px;
-          z-index: 3;
         }
 
         .wave-bottom {
@@ -67,7 +63,6 @@ const Team = ({ bio }) => {
           background-image: url("/wave-bottom.svg");
           background-size: cover;
           height: 45%;
-          z-index: 3;
         }
 
         .head-wave-bottom {

@@ -4,20 +4,19 @@ const Banner = ({ text }) => {
 
   return (
 
-      <section className="Hero">
-        <div className="block"></div>
-        <div className="background-text"> {text}
-          <div className="banner-text"> {text} </div>
-         </div>
-        
-        <div className="bg-pieces"></div>
-    
+    <section className="Hero">
+      <div className="block"></div>
+      <div className="background-text"> {text}
+        <div className="banner-text"> {text} </div>
+      </div>
 
-        <style jsx>{`
+      <div className="bg-pieces"></div>
+
+      <style jsx>{`
           .Hero{
             display:grid;
             grid-template-columns:
-              [full-start] minmax(1rem, 130px)
+              [full-start] minmax(0, 130px)
               [first-main] minmax(0, 1fr)
               [second-main] minmax(0, 1fr)
               [thrid-main] minmax(1rem, 130px)
@@ -25,14 +24,12 @@ const Banner = ({ text }) => {
             grid-gap: 1rem;
             width:100%;
             position: relative;
-           
           }
 
           .block {
             grid-column: [full-start]/[first-main];
-            display: block;
-            width: 100%;
-            height: 50px;
+            width: 8rem;
+            height: 3rem;
             background-color: #383838;
             margin-top: 150px;
           }
@@ -41,16 +38,17 @@ const Banner = ({ text }) => {
             grid-column: second-main/full-end;
             background-image: url("/bg-banner.svg");
             background-size: 100% 100%;
+            background-position: -10px center;
+            background-repeat: no-repeat;
           }
 
           .background-text{
-           color: white;
-          font-size:6vw;
+          color: white;
+          font-size: 5vw;
           font-weight: 700;
-         
-          width: 150%;
+          width: 120%;
           position: relative;
-          padding: 1.5rem 0;
+          padding: 4rem 0;
           }
 
           .banner-text{
@@ -64,29 +62,45 @@ const Banner = ({ text }) => {
             color: black;
           }
 
-          @media(max-width: 520px){
+          @media(max-width: 540px){
+            html{
+              font-size: 14px;
+              
+            }
 
             .Hero{
-              grid-template-columns: [full-start] minmax(0,40px) [first-main] minmax(0,1fr) [second-main] minmax(0,1fr) [thrid-main] minmax(1rem,130px) [full-end];
+              display:flex
             }
+
             .block{
-              width: 100%;
-              height: 25px;
-              margin-top: 40px;
-             
-            
+              display:none
+            }
+
+            .background-text{
+              font-size: 3rem;
+              margin-left:50px;
+              margin-rigth:0;
+              padding: 3rem 0;
             }
 
             .banner-text{
-              top: 40px;
+              font-size: 1.875rem;
+              top: 5rem;
+              width: 90%;
+            }
+
+            .bg-pieces{
+              display:none;
             }
           }
 
-         
+          @media(max-width: 320px){
+            html{
+              font-size:12px;
+            }
+          }
         `}</style>
-
-       
-      </section>
+    </section>
 
   );
 };
