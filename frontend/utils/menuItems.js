@@ -7,7 +7,7 @@ const menuItems = [
   {
     title: "Nosotros",
     className: "menu-list-item",
-    url: "#",
+    url: "/nosotros",
   },
   {
     title: "Servicios",
