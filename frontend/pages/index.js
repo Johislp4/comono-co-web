@@ -1,12 +1,12 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import { sanityClient, urlFor } from "../lib/sanity";
-import Banner from "../components/Banner.js"
+import Banner from "../components/Banner.js";
 import Services from "../components/Services";
 import Team from "../components/Team";
 import Contact from "../components/Contact";
-import Project from "../components/Project"
-import Technologies from "../components/Technologies"
+import Project from "../components/Project";
+import Technologies from "../components/Technologies";
 
 export default function Home({ data }) {
   console.log(data, "this is data");
@@ -18,9 +18,9 @@ export default function Home({ data }) {
     description: data[0].description,
   };
 
-  const projects = data[0].projects
+  const projects = data[0].projects;
 
-  console.log(projects)
+  console.log(projects);
 
   return (
     <div>
@@ -29,18 +29,14 @@ export default function Home({ data }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Banner text={banner}/> 
-     <Services />
-     <Technologies />
+      <Banner text={banner} />
+      <Services />
+      <Technologies />
       <Team bio={bio} />
 
-
-      <Project projectList={projects} /> 
+      <Project projectList={projects} />
 
       <Contact />
-
-
-
     </div>
   );
 }
@@ -59,9 +55,8 @@ const queryHome = `*[_type == 'home']{
     }
 }`;
 
-
 export async function getStaticProps() {
   const data = await sanityClient.fetch(queryHome);
   console.log(data);
-  return { props: { data },  revalidate: 10 };
+  return { props: { data }, revalidate: 10 };
 }
