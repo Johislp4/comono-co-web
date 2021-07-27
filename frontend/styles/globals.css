@@ -4,9 +4,9 @@ html {
   font-family: "Roboto", sans-serif;
 }
 
-div {
+/* div {
   outline: solid 1px red;
-}
+} */
 
 /*
 div > *{
@@ -61,5 +61,3 @@ div > *{
     font-size: 11px;
   }
 }
-
-
