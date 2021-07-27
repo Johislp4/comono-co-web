@@ -45,6 +45,7 @@ const Banner = ({ text }) => {
           .background-text{
           color: white;
           font-size: 5vw;
+          // font-size:3rem;
           font-weight: 700;
           width: 120%;
           position: relative;
@@ -56,6 +57,7 @@ const Banner = ({ text }) => {
             top:100px;
             left: 0;
             font-size:2.5vw;
+            // font-size: 1.875rem;
             font-weight: 700;
             width: 50%;
             line-height: 1.5;
@@ -63,13 +65,9 @@ const Banner = ({ text }) => {
           }
 
           @media(max-width: 540px){
-            html{
-              font-size: 14px;
-              
-            }
-
             .Hero{
-              display:flex
+              display:flex;
+              height:100vh;
             }
 
             .block{
@@ -77,26 +75,20 @@ const Banner = ({ text }) => {
             }
 
             .background-text{
-              font-size: 3rem;
+              font-size: 3.5rem;
               margin-left:50px;
               margin-rigth:0;
               padding: 3rem 0;
             }
 
             .banner-text{
-              font-size: 1.875rem;
+              font-size: 2.5rem;
               top: 5rem;
               width: 90%;
             }
 
             .bg-pieces{
               display:none;
-            }
-          }
-
-          @media(max-width: 320px){
-            html{
-              font-size:12px;
             }
           }
         `}</style>
