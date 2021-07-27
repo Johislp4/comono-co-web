@@ -32,8 +32,8 @@ export default function Home({ data }) {
       <Banner text={banner} />
       <Services />
       <Technologies />
-      {/* <Team bio={bio} /> */}
-      {/* <Project projectList={projects} /> */}
+      <Team bio={bio} />
+      <Project projectList={projects} />
       {/* <Contact /> */}
     </div>
   );

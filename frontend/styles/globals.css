@@ -40,9 +40,9 @@ div > *{
   align-items: center;
 }
 
-.base-layout {
+/* .base-layout {
   background-color: #f4f4f4;
-}
+} */
 
 @media (max-width: 540px) {
   html {

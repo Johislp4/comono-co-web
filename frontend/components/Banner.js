@@ -24,6 +24,7 @@ const Banner = ({ text }) => {
             grid-gap: 1rem;
             width:100%;
             position: relative;
+            background-color: #f4f4f4;
           }
 
           .block {
