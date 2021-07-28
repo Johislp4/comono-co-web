@@ -177,8 +177,6 @@ const Project = ({ projectList }) => {
           width: 50px;
         }
       }
-      
-        
       `}</style>
     </div>
   );
