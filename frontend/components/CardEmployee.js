@@ -1,22 +1,69 @@
-import React from "react";
+import * as React from "react";
+import { useWindowSize } from "../hooks/useWindowSize";
 import { PortableText, urlFor } from "../lib/sanity";
 
-const CardEmployee = ({ employee, orderFlex }) => {
+const CardEmployee = ({ employee, index, setBackgroundSlider }) => {
+  const slide = React.useRef(null);
+
+  const size = useWindowSize();
+
+  console.log(size);
+
+  React.useEffect(() => {
+    const observer = new IntersectionObserver(
+      function (entries) {
+        const { isIntersecting } = entries[0];
+
+        if (isIntersecting) {
+          setBackgroundSlider(entries[0].target.dataset.backgroundcolor);
+        }
+      },
+      { threshold: 1 }
+    );
+
+    observer.observe(slide.current);
+  }, [slide]);
+
   return (
     <>
-      <div className="container" style={employee?.colorBackground && {background: `#${employee?.colorBackground}`}}>
-        
-        <div className="employee-image" style={{order:orderFlex}}>
+      <div
+        id={employee._id}
+        className="container"
+        ref={slide}
+        style={
+          employee?.backgroundColor && {
+            background: `#${employee?.backgroundColor}`,
+          }
+        }
+        data-backgroundColor={`#${employee.backgroundColor}`}
+      >
+        {size.width >= "501" && (
+          <div
+            className="employee-image"
+            style={index % 2 === 0 ? { order: "0" } : { order: "1" }}
+          >
             <img src={urlFor(employee.imageURL).url()} alt={employee.name} />
-        </div>
+          </div>
+        )}
 
         <div className="employee-container">
           <div className="employee-info">
             <h2 className="employee-profile">{employee.profile}</h2>
-            <PortableText blocks={employee?.skill} />
+            <p>
+              <PortableText blocks={employee?.skill} />
+            </p>
           </div>
           <div className="employee-name">
-            <h1 style={employee?.colorFont && {color: `#${employee?.colorFont}`}}>{employee.name}</h1>
+            {size.width <= "500" && (
+              <img src={urlFor(employee.imageURL).url()} alt={employee.name} />
+            )}
+            <h1
+              style={
+                employee?.fontColor && { color: `#${employee?.fontColor}` }
+              }
+            >
+              {employee.name}
+            </h1>
           </div>
         </div>
       </div>
@@ -24,11 +71,15 @@ const CardEmployee = ({ employee, orderFlex }) => {
       <style jsx>{`
         .container {
           display: flex;
-          margin-right: 1rem;
-          min-width: 100%;
+          max-width: 65rem;
+          width: 100%;
+          height: 90vh;
+          padding: 0 1rem;
+          scroll-snap-align: center;
+          position: relative;
         }
 
-        .container:last-child{
+        .container:last-child {
           margin-right: 0;
         }
 
@@ -37,28 +88,33 @@ const CardEmployee = ({ employee, orderFlex }) => {
           display: flex;
           justify-content: center;
           align-items: center;
-
         }
 
         img {
           display: flex;
           justify-content: center;
           align-items: center;
-          width: 100%;
+          width: 90%;
           height: 90%;
         }
 
         .employee-container {
           width: 50%;
-          height: 100%;
           position: relative;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          min-height: 50vh;
+          min-width: 300px;
         }
 
         .employee-info {
-          position: absolute;
-          top: 10%;
-          left: 0;
-          right: 20%;
+          margin: 5rem 0;
+        }
+
+        .employee-info p {
+          margin-right: 3rem;
+          color: white;
         }
 
         .employee-profile {
@@ -67,41 +123,58 @@ const CardEmployee = ({ employee, orderFlex }) => {
           font-size: 1rem;
           padding: 1rem 1.5rem;
           margin-bottom: 2rem;
-          position:relative;
+          position: relative;
+          width: 70%;
         }
 
-        .employee-profile::before{
-          content:"";
+        .employee-profile::before {
+          content: "";
           background: white;
-          position:absolute;
+          position: absolute;
           width: 80%;
           height: 2px;
-          bottom:0;
-          left:0;
+          bottom: 0;
+          left: 0;
         }
-        /* .employee-profile::after{
-          content:"";
-          background: white;
-          position:absolute;
-          width: 5%;
-          height: 2px;
-          bottom:0;
-          left:-1rem;
-          transform: rotate(-45deg);
-          transform-origin: top right;
-        } */
 
         .employee-name {
-          position: absolute;
-          bottom: 10%;
-          left: 0;
-          right: 10%;
-        
+          margin-bottom: 1rem;
           letter-spacing: 0.7rem;
         }
 
-        h1{
-            font-size: 7rem;
+        h1 {
+          font-size: 8vw;
+        }
+
+        @media (max-width: 500px) {
+          .container {
+          }
+
+          .employee-container {
+            width: 100%;
+
+            display: block;
+            min-height: auto;
+          }
+
+          .employee-image {
+            width: 100%;
+          }
+          .employee-profile {
+            margin: 1rem auto;
+            text-align: center;
+          }
+
+          .employee-info {
+            margin-bottom: 3rem;
+          }
+          .employee-info > p {
+            margin: auto;
+          }
+          .employee-name > h1 {
+            text-align: center;
+            font-size: 4rem;
+          }
         }
       `}</style>
     </>
