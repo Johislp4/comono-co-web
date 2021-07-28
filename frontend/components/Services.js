@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 
 const services = () => {
   const [services, setService] = React.useState({
@@ -25,58 +25,60 @@ const services = () => {
       </div>
 
       <div className="container-service">
-        
         <section className="service cloud-service" >
-          <div className="head-service d-flex align-items-center">
-            <img src="/arrow-white.svg" alt="arrow"/>
-            <div className="title-service" data-name="cloud-service" onClick={handleClick}> Soluciones en la nube </div>
-          </div>
-          {
-            services["cloud-service"] &&
-            <p>
-            Usando tecnología de desarrollo de software en la nube,
+          <div>
+            <div className="head-service d-flex align-items-center" >
+              <img src="/arrow-white.svg" alt="arrow" />
+              <div className="title-service" data-name="cloud-service" onClick={handleClick}> Soluciones en la nube </div>
+            </div>
+            {
+              services["cloud-service"] &&
+              <p>
+                Usando tecnología de desarrollo de software en la nube,
                 diseñamos e implementamos aplicaciones sin que necesites
                 infraestructura tecnológica
-            </p>
-          }
-         
+              </p>
+            }
+          </div>
         </section>
 
         <section className="service app-service">
-        <div className="head-service d-flex align-items-center">
-            <img src="/arrow-white.svg" alt="arrow"/>
-            <div className="title-service" data-name="app-service" onClick={handleClick}> Soluciones en la nube </div>
-          </div>
-          {
-            services["app-service"] &&
-            <p>
+          <div>
+            <div className="head-service d-flex align-items-center">
+              <img src="/arrow-white.svg" alt="arrow" />
+              <div className="title-service" data-name="app-service" onClick={handleClick}> Soluciones en la nube </div>
+            </div>
+            {
+              services["app-service"] &&
+              <p>
                 Nos encargamos del diseño y programación de tu página web,
                 haciendo que cada acción cuente
-            </p>
-          }
+              </p>
+            }
+          </div>
         </section>
 
         <section className="service software-service">
-        <div className="head-service d-flex align-items-center">
-            <img src="/arrow-white.svg" alt="arrow"/>
-            <div className="title-service" data-name="software-service" onClick={handleClick}> Soluciones en la nube </div>
-          </div>
-          {
-            services["software-service"] &&
-            <p>
+          <div>
+            <div className="head-service d-flex align-items-center">
+              <img src="/arrow-white.svg" alt="arrow" />
+              <div className="title-service" data-name="software-service" onClick={handleClick}> Soluciones en la nube </div>
+            </div>
+            {
+              services["software-service"] &&
+              <p>
                 Nos enfocamos en tus necesidades y presupuesto para desarrollar
                 software y soluciones digitales
-            </p>
-          }
+              </p>
+            }
+          </div>
         </section>
       </div>
 
       <style jsx>{`
-
         .container-head{
           height: 173px;
           width:100%;
-
           position: relative;
       }
 
@@ -87,21 +89,21 @@ const services = () => {
           transform: skewY(1deg);
           position:absolute;
           bottom:0px;
-
       }
 
       .bg-gray{
           background-color: #F4F4F4;
           height: 86.5px;
           width:100%;
+          padding: 0 1rem;
           transform: skewY(-4deg);
           position:absolute;
           bottom:0px;  
           font-size: 2rem;
           display:flex;
-          justify-content:center;
+          justify-content:start;
           align-items:center;     
-    }
+      }
 
       .service{
         height: auto;
@@ -117,24 +119,31 @@ const services = () => {
       }
 
       .head-service{
-        height: 200px;
+        height:150px;
         color: white;
         justify-content: flex-end;
+        align-content: flex-end;
+        
       }
 
       .title-service {
         font-size: 2rem;
-        margin: auto  4.5rem;
+        margin-left: 4.5rem;
         cursor:pointer;
       }
 
-      .service > p {
-        height:300px;
+      .service > div{
+        width: 95%;
+      }
+      
+      .service > div p {
+        height:18rem;
         color: white;
         width: 66%;
         margin-right: 0;
         margin-left: auto;
-       
+        padding-top:2rem;
+        font-size: 1.5rem;
       }
 
       .app-service{
@@ -146,6 +155,10 @@ const services = () => {
       }
       }
 
+      @media (max-width: 540px) {
+        .container-head{
+          height: 0px;
+      }
       `}</style>
     </main>
   );

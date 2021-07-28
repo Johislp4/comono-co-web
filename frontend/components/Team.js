@@ -1,5 +1,4 @@
 import React from "react";
-
 import { PortableText } from "../lib/sanity";
 
 const Team = ({ bio }) => {
@@ -11,9 +10,6 @@ const Team = ({ bio }) => {
           backgroundImage: `url(${bio.imageTeam})`
         }}>
         <div className="wave-top"></div>
-        {/* <div className="image">
-          <img className="team-image" src={bio.imageTeam} alt="Comono Team" />
-        </div> */}
         <div className="wave-bottom">
           <section className="head-wave-bottom">
             <div className="block"></div>
@@ -24,9 +20,7 @@ const Team = ({ bio }) => {
 
       <div className="description">
         <div className="portableText">
-
           <PortableText blocks={bio?.description} />
-
           <button>
             <span>Descubre más</span>
             <span>
@@ -56,7 +50,6 @@ const Team = ({ bio }) => {
           background-size: cover;
           background-position: top;
           height: 130px;
-          z-index: 3;
         }
 
         .wave-bottom {
@@ -67,14 +60,13 @@ const Team = ({ bio }) => {
           background-image: url("/wave-bottom.svg");
           background-size: cover;
           height: 45%;
-          z-index: 3;
         }
 
         .head-wave-bottom {
           width: 50%;
           height: 100%;
           display: grid;
-          grid-template-columns: [start-full] minmax(1rem, 130px) [main] minmax(
+          grid-template-columns: [start-full] minmax(min-content, max-content) [main] minmax(
               0,
               1fr
             ) [end-full];
@@ -83,7 +75,7 @@ const Team = ({ bio }) => {
 
         .block {
           display: block;
-          width: 100%;
+          width: 130px;
           height: 50px;
           background-color: #383838;
           grid-column: start-full / main;
@@ -91,9 +83,9 @@ const Team = ({ bio }) => {
         }
 
         .bio-title {
-          grid-column: main / end-full;
+          // grid-column: main / end-full;
           align-self: center;
-          font-size: 3rem;
+          font-size: 3.5rem;
         }
 
         .image {
@@ -103,13 +95,10 @@ const Team = ({ bio }) => {
         }
 
         .team-image {
-         
           width: 100%;
         }
 
-
         .description{
-          background: #fff;
           display: grid;
           grid-template-columns: 
           [start-full] minmax(1rem, 130px) [main] minmax(0, 1fr) [end-full];
@@ -120,7 +109,11 @@ const Team = ({ bio }) => {
         .portableText{
           grid-column: main;
           padding: 0 3rem 3rem 0;
-          font-size: 1.4rem;
+          font-size: 1.5rem;
+        }
+
+        .portableText button span:first-child {
+          margin-right: 1rem;
         }
 
         button{
@@ -128,7 +121,36 @@ const Team = ({ bio }) => {
           margin: 2rem 0;
           border:none;
           font-size: 2.5rem;
-          padding: 1rem  1rem 1 1rem 0;
+          padding: 0.5rem  1rem  0.5rem 0;
+        }
+
+        @media (max-width: 540px) {
+          .description{
+           display:flex;
+          }
+
+          .portableText {
+            max-width:90%;
+            margin: 0 auto;
+            padding:0;
+          }
+
+          .portableText button span:first-child {
+            font-size:2rem;
+          }
+
+          .head-wave-bottom {
+            width:100%;
+            margin-top:3rem;
+          }
+
+          .block {
+            width:70px;
+          }
+
+          .wave-bottom {
+            height: 30%;
+          }
         }
       `}</style>
     </>

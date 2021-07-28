@@ -1,46 +1,37 @@
 import React from 'react'
 
 const Technologies = () => {
-    return (
-        <>
-        <div className="container d-flex ">
-            <div className="technologies d-flex justify-content-between align-items-center">
-                <div><img src="/react.svg" alt="react"/></div>
-                <div><img src="/aws.svg" alt="aws"/></div>
-                <div><img src="/python.svg" alt="python"/></div>
-                <div><img src="nodeJs.svg" alt="nodeJs"/></div>   
-            </div>
+  return (
+    <>
+      <div className="container d-flex">
+        <div className="technologies d-flex justify-content-between align-items-center">
+          <img src="/react.svg" alt="react" />
+          <img src="/aws.svg" alt="aws" />
+          <img src="/python.svg" alt="python" />
+          <img src="nodeJs.svg" alt="nodeJs" />
         </div>
-        <style jsx>{`
+      </div>
+      <style jsx>{`
         .container{
-            background-color: #fff;
-            width: 100%;
-            justify-content: center;
+          width: 100%;
+          justify-content: center;
         }
         
-        .technologies{
-         flex-wrap:wrap;
-         width: 64rem;
-         margin: 2rem;
+        .technologies {
+          flex-wrap: wrap;
+          width: 64rem;
+          margin: 2rem;
         }
 
-        @media(max-width: 520px){
-            .container{
-                height: 120px;
-            }
-
-            .technologies{
-                margin: 2rem;
-            }
-            
+        @media(max-width: 540px){
             img{
-                height: 50px;
-                width: 50px;
+                height: 60px;
+                width: 60px;
             }
         }
         `}</style>
-        </>
-    )
+    </>
+  )
 }
 
 export default Technologies

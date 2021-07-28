@@ -21,16 +21,19 @@ const Footer = () => {
       <div className="side social-media">
         <div>
           <h4>Siguenos en nuestras redes sociales</h4>
-          <Link href="https://www.instagram.com">
-            <a>
-              <img src="/instagram.svg" />
-            </a>
-          </Link>
-          <Link href="https://www.facebook.com">
-            <a>
-              <img src="/Facebook-icon.svg" />
-            </a>
-          </Link>
+          <div className='icons'>
+            <Link href="https://www.instagram.com">
+              <a>
+                <img src="/instagram.svg" />
+              </a>
+            </Link>
+            <Link href="https://www.facebook.com">
+              <a>
+                <img src="/Facebook-icon.svg" />
+              </a>
+            </Link>
+            <p>comono.co</p>
+          </div>
         </div>
       </div>
 
@@ -97,6 +100,26 @@ const Footer = () => {
           justify-content: space-between;
         }
 
+        .side h4{
+          margin-bottom:1rem;
+        }
+
+        .right-side{
+          background-color: #84428c;
+          display:flex;
+          justify-content: flex-start;
+          padding: 1rem;
+        }
+
+        .right-side >div{
+          padding: 2rem 1rem;
+        }
+
+        .side a li{
+          color:#ffffff;
+          margin-bottom:0.3rem
+        }
+
         ul{
           height: 100%;
           display:flex;
@@ -105,24 +128,10 @@ const Footer = () => {
           color:white;
         }
 
-        .left-side {
-          grid-row: 1/2;
-          grid-column: 1/2;
-        }
-        .contact {
-          grid-row: 1/2;
-          grid-column: 2/3;
-        }
-
-        .social-media {
-          grid-row: 1/2;
-          grid-column: 3/4;
-        }
-
-        .right-side {
-          background-color: #84428c;
-          grid-row: 1/2;
-          grid-column: 4/5;
+        .social-media > div .icons{
+          display:flex;
+          width:60%;
+          justify-content:space-between;        
         }
 
         .left-side > img {
@@ -133,14 +142,43 @@ const Footer = () => {
         .privacy {
           grid-row: 2/3;
           grid-column: 2/4;
-          align-self: center;
-          
+          align-self: center;  
           color: black;
           width: 100%;
           height: 100%;
           display: flex;
           justify-content: center;
           align-items: center;
+        }
+
+        @media (max-width: 540px) {
+          .footer {
+            display:flex;
+            flex-direction:column;
+          }
+
+          .side {
+            font-size: 2rem;
+            width:90%;
+            margin: 0 auto;
+          }
+
+          .side.contact,.side.social-media {
+            margin-top:2rem;
+          }
+
+          .right-side {
+            width:100%;
+            margin-top:2rem;
+          }
+
+          .side a li{
+            margin-bottom:1rem
+          }
+
+          .privacy {
+            padding:2rem 0;
+            font-size:1.5rem;
         }
       `}</style>
     </div>

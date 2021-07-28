@@ -33,9 +33,7 @@ export default function Home({ data }) {
       <Services />
       <Technologies />
       <Team bio={bio} />
-
       <Project projectList={projects} />
-
       <Contact />
     </div>
   );

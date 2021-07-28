@@ -75,12 +75,14 @@ const Project = ({ projectList }) => {
         .container-project-text {
           display: grid;
           grid-template-columns: [full-start] minmax(1rem, 130px) [main] minmax(1rem, 1fr)  [full-end];
+          // grid-template-columns: 1fr 1fr;
           grid-template-rows: 300px 1fr;
           width: 50%;
           overflow: hidden;
           background-color: black;
           color: white;
           grid-gap: 0 1rem;
+          background:black;
         }
 
         img {
@@ -112,7 +114,7 @@ const Project = ({ projectList }) => {
           grid-row: 1/2;
           margin: auto 0;
           padding-left: 4rem;
-          font-size: 7rem;
+          font-size: 4rem;
         }
 
         .project-text {

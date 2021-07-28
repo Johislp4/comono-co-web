@@ -2,30 +2,29 @@ import React from 'react'
 import Form from '../components/Form'
 
 const Contact = () => {
-    return (
+  return (
     <>
       <div className="container">
-      <h1>Contáctanos</h1>
+        <h1>Contáctanos</h1>
 
-      <section className="container-form">
-        <div className="left-form">
-          <div className="message-one">
-            <h1>Gracias por llegar hasta aquí</h1>
-          </div>
-
-          <div className="message-two">
-            Déjanos tus datos y nos pondremos en contacto contigo
-          </div>
-        </div>
-
-            <div className="right-form">
-            <Form />
+        <section className="container-form">
+          <div className="left-form">
+            <div className="message-one">
+              <h1>Gracias por llegar hasta aquí</h1>
             </div>
-      </section>
-    </div>
 
-    
-    <style jsx>{`
+            <div className="message-two">
+              Déjanos tus datos y nos pondremos en contacto contigo
+            </div>
+          </div>
+
+          <div className="right-form">
+            <Form />
+          </div>
+        </section>
+      </div>
+
+      <style jsx>{`
         .container{
           padding: 2rem 0;
           display: flex;
@@ -42,7 +41,6 @@ const Contact = () => {
         .container-form{
           display:flex;
           height: inherit;
-          
           border: solid thin gray;
           border-radius: 12px;
           width: 70%;
@@ -64,19 +62,16 @@ const Contact = () => {
           height:100%;
         }
 
-        .message-one{
-        
-          margin-bottom:0;
+        .message-one {
           display:flex;
           flex-wrap:wrap;
-          
         }
 
         .message-one > h1 {
           font-size: 4.5rem;
           position: relative;
-          text-align: left;
-          
+          text-align: left;  
+          padding-bottom:1rem;
         }
 
         .message-one > h1::after {
@@ -92,15 +87,42 @@ const Contact = () => {
 
         .message-two{
             font-size: 1.5rem;
-            margin: 2rem 0;
+            margin: 1rem 0;
             padding-right: 1rem;
           
+        }
+
+        @media (max-width: 768px) {
+          .container-form {   
+            width: 80%;
+          }
+          .message-one > h1 {
+            font-size:4rem
+          }
+        }
+
+        @media (max-width: 540px) {
+          .container-form {  
+            flex-direction:column-reverse;
+            width: 90%;
+          }
+          .left-form, .right-form {
+            width: 100%;
+            padding: 1rem;
+            margin: 0;
+          }
+          .container > h1 {
+            font-size: 3.5rem;
+          }
+          .message-one > h1 {
+            font-size:2.5rem
+          }
         }
       
       `}</style>
 
     </>
-    )
+  )
 }
 
 export default Contact
