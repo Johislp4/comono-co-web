@@ -40,7 +40,6 @@ const NavBar = () => {
           background-color: black;
           padding:1rem;
           flex-wrap: wrap;
-  
         }
 
         .menu-list-item {
@@ -92,13 +91,14 @@ const NavBar = () => {
 
           .menu-list {
             flex-direction: column;
-
             width: inherit;
             align-items: center;
             height: 75%;
             justify-content: space-between;
-
             margin-top: 1rem;
+          }
+          .menu-list-item {
+            font-size:3rem;
           }
         }
       `}</style>
