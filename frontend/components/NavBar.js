@@ -40,12 +40,12 @@ const NavBar = () => {
           background-color: black;
           padding:1rem;
           flex-wrap: wrap;
-  
         }
 
         .menu-list-item {
           margin: 0 1rem;
           color: #fff;
+          font-size:3rem;
         }
 
         a {
