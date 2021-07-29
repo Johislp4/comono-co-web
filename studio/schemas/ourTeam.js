@@ -23,13 +23,13 @@ export default {
         },
       },
       {
-        name: "colorBackground",
-        title: "Color Background ",
+        name: "backgroundColor",
+        title: "Background Color",
         type: "string",
       },
       {
-        name: "colorFont",
-        title: "Color Font",
+        name: "fontColor",
+        title: "Font Color ",
         type: "string",
       },
       {
@@ -37,6 +37,11 @@ export default {
         title: "Description Job",
         type: "array",
         of:[{type: "block"}]
+      },
+      {
+        name: "order",
+        title: "Order",
+        type: "number"
       },
       {
         name: "href",
