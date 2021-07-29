@@ -6,11 +6,6 @@ const Slider = ({ Slides }) => {
   const [currentSlide, setCurrentSlide] = React.useState(0);
   const length = Slides.length;
 
-  const [backgroundSlider, setBackgroundSlider] = React.useState('#eee');
-
-  console.log(backgroundSlider)
-
-
   const nextSlide = () => {
     setCurrentSlide(currentSlide === length - 1 ? 0 : currentSlide + 1);
   };
@@ -27,7 +22,7 @@ const Slider = ({ Slides }) => {
 
   return (
     <>
-      <section className="slider" style={{ background: `${backgroundSlider}` }}>
+      <section className="slider" > 
         <div className="left-arrow" onClick={prevSlide}>
           <img src="/arrow-left-slides.svg" className="arrow" />
         </div>
@@ -35,14 +30,14 @@ const Slider = ({ Slides }) => {
           <img src="/arrow-right-slides.svg" className="arrow" />
         </div>
 
-        {Slides.map((slide, index) => {
+        {Slides.sort((a, b) => a.order - b.order).map((slide, index) => {
           return (
             <div
               className={index === currentSlide ? "slide active" : "slide"}
               key={index}
             >
               {index === currentSlide && (
-                <CardEmployee employee={slide }  index={index} setBackgroundSlider={setBackgroundSlider} />
+                <CardEmployee employee={slide }  index={index}  />
               )}
             </div>
           );
@@ -64,13 +59,13 @@ const Slider = ({ Slides }) => {
           display: flex;
           flex-direction: column;
           justify-content: center;
-          align-items: center;
-         
+          align-items: center;   
         }
 
         .slide {
           opacity: 0;
           transition-duration: 10ms ease;
+          width:100%;
         }
 
         .slide.active {
@@ -122,9 +117,11 @@ const Slider = ({ Slides }) => {
           border-radius: 12px;
         }
 
-        .active {
+        .active{
           background: blue;
         }
+
+        
 
         @media(max-width:500px){
             .arrow{

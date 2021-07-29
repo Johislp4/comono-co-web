@@ -2,27 +2,11 @@ import * as React from "react";
 import { useWindowSize } from "../hooks/useWindowSize";
 import { PortableText, urlFor } from "../lib/sanity";
 
-const CardEmployee = ({ employee, index, setBackgroundSlider }) => {
+const CardEmployee = ({ employee, index }) => {
   const slide = React.useRef(null);
+  const size = useWindowSize()
 
-  const size = useWindowSize();
-
-  console.log(size);
-
-  React.useEffect(() => {
-    const observer = new IntersectionObserver(
-      function (entries) {
-        const { isIntersecting } = entries[0];
-
-        if (isIntersecting) {
-          setBackgroundSlider(entries[0].target.dataset.backgroundcolor);
-        }
-      },
-      { threshold: 1 }
-    );
-
-    observer.observe(slide.current);
-  }, [slide]);
+  console.log(employee)
 
   return (
     <>
@@ -37,12 +21,13 @@ const CardEmployee = ({ employee, index, setBackgroundSlider }) => {
         }
         data-backgroundColor={`#${employee.backgroundColor}`}
       >
+      <div className="slide">
         {size.width >= "501" && (
           <div
             className="employee-image"
             style={index % 2 === 0 ? { order: "0" } : { order: "1" }}
           >
-            <img src={urlFor(employee.imageURL).url()} alt={employee.name} />
+            {employee?.imageURL  && <img src={urlFor(employee.imageURL).url()} alt={employee.name} />}
           </div>
         )}
 
@@ -55,7 +40,7 @@ const CardEmployee = ({ employee, index, setBackgroundSlider }) => {
           </div>
           <div className="employee-name">
             {size.width <= "500" && (
-              <img src={urlFor(employee.imageURL).url()} alt={employee.name} />
+              employee?.imageURL && <img src={urlFor(employee.imageURL).url()} alt={employee.name} />
             )}
             <h1
               style={
@@ -66,10 +51,16 @@ const CardEmployee = ({ employee, index, setBackgroundSlider }) => {
             </h1>
           </div>
         </div>
+        </div>
       </div>
 
       <style jsx>{`
-        .container {
+  
+          .container{
+            width:100%;
+          }
+
+          .slide{
           display: flex;
           max-width: 65rem;
           width: 100%;
@@ -77,10 +68,7 @@ const CardEmployee = ({ employee, index, setBackgroundSlider }) => {
           padding: 0 1rem;
           scroll-snap-align: center;
           position: relative;
-        }
-
-        .container:last-child {
-          margin-right: 0;
+          margin:auto;
         }
 
         .employee-image {
@@ -143,7 +131,7 @@ const CardEmployee = ({ employee, index, setBackgroundSlider }) => {
         }
 
         h1 {
-          font-size: 8vw;
+          font-size: 7vw;
         }
 
         @media (max-width: 500px) {

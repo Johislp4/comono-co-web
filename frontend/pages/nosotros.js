@@ -3,12 +3,15 @@ import { sanityClient } from "../lib/sanity";
 import Slider from "../components/Slider";
 
 export default function Nosotros({ data }) {
+
+  
   return ( <Slider Slides={data} />)
 }
 
 const queryOurTeam = `
 *[_type == 'ourTeam']{
 _id,
+order,
 href,
 'imageURL': image.asset._ref,
   name,
@@ -20,6 +23,6 @@ skill
 
 export async function getStaticProps() {
   const data = await sanityClient.fetch(queryOurTeam);
-  console.log(data);
+  console.log(data, 'this is data');
   return { props: { data }, revalidate: 10 };
 }
