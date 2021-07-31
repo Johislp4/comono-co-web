@@ -20,6 +20,5 @@ skill
 
 export async function getStaticProps() {
   const data = await sanityClient.fetch(queryOurTeam);
-  console.log(data);
   return { props: { data }, revalidate: 10 };
 }

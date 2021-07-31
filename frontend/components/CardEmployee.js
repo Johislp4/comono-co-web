@@ -7,8 +7,6 @@ const CardEmployee = ({ employee, index, setBackgroundSlider }) => {
 
   const size = useWindowSize();
 
-  console.log(size);
-
   React.useEffect(() => {
     const observer = new IntersectionObserver(
       function (entries) {

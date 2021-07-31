@@ -162,7 +162,7 @@ const Project = ({ projectList }) => {
       
       @media (max-width: 540px) {
         .article-project {
-          flex-direction: column-reverse;
+          flex-direction: column;
         }
       
         .article-project aside {
