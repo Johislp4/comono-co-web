@@ -26,26 +26,33 @@ const Contact = () => {
 
       <style jsx>{`
         .container{
-          padding: 2rem 0;
           display: flex;
           flex-direction: column;
+          background-image: url('/bg-form.svg');
+          background-size: cover;
+          background-position: 0%;
+          background-repeat: no-repeat;
+         
+
         }
 
         .container > h1 {
            text-align:center;
-           font-size:5rem;
-           margin-bottom: 2rem;
+           font-size:2rem;
+           margin: 2rem;
         }
         
 
         .container-form{
           display:flex;
           height: inherit;
-          border: solid thin gray;
           border-radius: 12px;
-          width: 70%;
+          max-width:50rem;
+          width: 100%;
           margin:auto;
           margin-bottom: 5rem;
+          background: white;
+          box-shadow: 0px 5px 20px 1px;
         }
 
         .left-form{
@@ -68,7 +75,7 @@ const Contact = () => {
         }
 
         .message-one > h1 {
-          font-size: 4.5rem;
+          font-size: 2.5rem;
           position: relative;
           text-align: left;  
           padding-bottom:1rem;
@@ -76,17 +83,17 @@ const Contact = () => {
 
         .message-one > h1::after {
             content: "";
-            height: 1px;
-            width: 100%;
-            background-color: black;
+            height: 3px;
+            width: 80%;
+            background-color:  #59b7f7;
             position: absolute;
-            left: -100px;
+            left: 0px;
             bottom: 0;
 
         }
 
         .message-two{
-            font-size: 1.5rem;
+            font-size: 1rem;
             margin: 1rem 0;
             padding-right: 1rem;
           

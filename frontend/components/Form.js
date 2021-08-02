@@ -83,7 +83,7 @@ const Form = () => {
           onChange={handleInputChange}
         />
       </div>
-      <div>
+      <div className="btn">
         {/* <button>Enviar</button> */}
         <input
           className='formButton'
@@ -108,27 +108,41 @@ const Form = () => {
         }
 
         label{
-            font-size: 1.2rem;
+            font-size: 0.875rem;
         }
 
         input {
-          height: 50px;
+          height: 2rem;
           margin: 0.7rem 0;
+          padding:  0.625rem;
           
         }
 
         textarea {
-          height: 200px;
+          height: 5.5rem;
           margin: 1rem 0;
           border:none;
           border-left: solid thin;
           border-bottom: solid thin;
+          padding:  0.625rem;
           
         }
+
+        .btn{
+          align-items: flex-end;
+        }
+      
         .formButton {
-          height: 40px;
-          width: 100px;
-          margin: auto;
+         
+          padding: 0 2.5rem;
+          background: #59b7f7;
+          border-radius: .5rem;
+          border:none;
+          color:white;
+        }
+        .formButton:hover{
+          cursor: pointer;
+          
         }
       `}</style>
     </form>
