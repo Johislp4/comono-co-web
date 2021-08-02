@@ -1,34 +1,96 @@
-import React from "react";
+import React, { useState } from "react"
 
 const Form = () => {
+
+  const initialContactData = {
+    name: '',
+    email: '',
+    subject: '',
+    message: '',
+  }
+
+  const [contactData, setContactData] = useState(initialContactData)
+
+  const handleInputChange = (e) => {
+    setContactData({
+      ...contactData,
+      [e.target.name]: e.target.value,
+    })
+  }
+
+  const handleSubmmit = (e) => {
+    e.preventDefault();
+    console.log('estoy entrando')
+    fetch('/api/contact', {
+      method: 'POST',
+      body: JSON.stringify(contactData),
+      headers: {
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json'
+      },
+    }).then((res) => {
+      console.log('Response received')
+      if (res.status === 200) {
+        console.log('Response succeeded!')
+        setContactData(initialContactData)
+      }
+    })
+  }
+
   return (
     <form>
       <div>
         <label>
           <b>Nombre</b>
         </label>
-        <input type="text" name="name" />
+        <input
+          type="text"
+          name="name"
+          value={contactData.name}
+          onChange={handleInputChange}
+        />
       </div>
       <div>
         <label>
           <b>Correo Electrónico</b>
         </label>
-        <input type="email" name="email" />
+        <input
+          type="email"
+          name="email"
+          value={contactData.email}
+          onChange={handleInputChange}
+        />
       </div>
       <div>
         <label>
           <b>Asunto</b>
         </label>
-        <input type="text" name="subject" />
+        <input
+          type="text"
+          name="subject"
+          value={contactData.subject}
+          onChange={handleInputChange}
+        />
       </div>
       <div>
         <label>
           <b>Tu mensaje</b>
         </label>
-        <textarea type="text" name="message" />
+        <textarea
+          type="text"
+          name="message"
+          value={contactData.message}
+          onChange={handleInputChange}
+        />
       </div>
       <div>
-        <button> Enviar </button>
+        {/* <button>Enviar</button> */}
+        <input
+          className='formButton'
+          type="submit"
+          name="subject"
+          onClick={handleSubmmit}
+        />
       </div>
 
       <style jsx>{`
@@ -63,7 +125,7 @@ const Form = () => {
           border-bottom: solid thin;
           
         }
-        button {
+        .formButton {
           height: 40px;
           width: 100px;
           margin: auto;

@@ -6,7 +6,26 @@ const CardEmployee = ({ employee, index }) => {
   const slide = React.useRef(null);
   const size = useWindowSize()
 
+<<<<<<< HEAD
   console.log(employee)
+=======
+  const size = useWindowSize();
+
+  React.useEffect(() => {
+    const observer = new IntersectionObserver(
+      function (entries) {
+        const { isIntersecting } = entries[0];
+
+        if (isIntersecting) {
+          setBackgroundSlider(entries[0].target.dataset.backgroundcolor);
+        }
+      },
+      { threshold: 1 }
+    );
+
+    observer.observe(slide.current);
+  }, [slide]);
+>>>>>>> e03f13a843464456968a54c5d7cc2d31395681be
 
   return (
     <>
