@@ -9,6 +9,7 @@ import Project from "../components/Project";
 import Technologies from "../components/Technologies";
 
 export default function Home({ data }) {
+
   const banner = data[0].banner;
   const bio = {
     title: data[0].bioTitle,
@@ -49,6 +50,7 @@ const queryHome = `*[_type == 'home']{
     "link": href 
     }
 }`;
+
 
 export async function getStaticProps() {
   const data = await sanityClient.fetch(queryHome);

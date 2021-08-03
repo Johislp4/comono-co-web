@@ -48,6 +48,7 @@ const Slider = ({ Slides }) => {
             <li
               onClick={() => moveDot(index)}
               className={currentSlide === index ? "dot active" : "dot"}
+              key={index}
             ></li>
           ))}
         </ul>

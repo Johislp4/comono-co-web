@@ -6,8 +6,6 @@ const CardEmployee = ({ employee, index }) => {
   const slide = React.useRef(null);
   const size = useWindowSize()
 
-  console.log(employee)
-
   return (
     <>
       <div
@@ -19,7 +17,6 @@ const CardEmployee = ({ employee, index }) => {
             background: `#${employee?.backgroundColor}`,
           }
         }
-        data-backgroundColor={`#${employee.backgroundColor}`}
       >
       <div className="slide">
         {size.width >= "501" && (
