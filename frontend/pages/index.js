@@ -18,8 +18,6 @@ export default function Home({ data }) {
 
   const projects = data[0].projects;
 
-  console.log(projects);
-
   return (
     <div>
       <Head>

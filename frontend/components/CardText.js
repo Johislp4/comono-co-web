@@ -3,7 +3,6 @@ import { PortableText, urlFor } from "../lib/sanity";
 
 const CardText = ({textProps}) => {
     const {project, i , haveShow, setHaveShow, size} = textProps;
-  console.log(project)
   const element = React.useRef(null);
 
   React.useEffect(()=> {

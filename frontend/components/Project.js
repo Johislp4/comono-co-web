@@ -9,23 +9,19 @@ const Project = ({ projectList }) => {
   const [ haveShow, setHaveShow ] = React.useState({0:false, 1:false, 2:false, 3:false})
   const size = useWindowSize()
 
-  React.useEffect(()=>{
-    console.log(size, 'size projects')
-  }, [size])
-
   return (
     <>
       <main className="container-projects">
        { size.width >= "501" && <div className="left-images">
           {projectList.map((project, i) => (
-            <CardImage imageProp={{ project, i, haveShow, setHaveShow }} />
+            <CardImage imageProp={{ project, i, haveShow, setHaveShow }}  key={i} />
           ))}
         </div>}
 
         <div className="right-text">
          
           {projectList.map((project, i) => (
-            <CardText textProps={{ project, i, haveShow, setHaveShow, size }} />
+            <CardText textProps={{ project, i, haveShow, setHaveShow, size }} key={i}/>
             
           ))}
         </div>

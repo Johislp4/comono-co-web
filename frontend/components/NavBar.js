@@ -25,7 +25,7 @@ const NavBar = () => {
           <ul className="menu-list d-flex">
             {menuItems.map((item) => {
               return (
-                <li className={item.className}>
+                <li className={item.className} key={item.id}>
                   <Link href={item.url}>
                     <a>{item.title}</a>
                   </Link>

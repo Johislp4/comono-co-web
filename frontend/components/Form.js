@@ -1,4 +1,8 @@
 import React, { useState } from "react"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import emailjs from 'emailjs-com'
+import validForm from "../utils/validForm";
 
 const Form = () => {
 
@@ -10,6 +14,7 @@ const Form = () => {
   }
 
   const [contactData, setContactData] = useState(initialContactData)
+  const [error , setError] = useState({})
 
   const handleInputChange = (e) => {
     setContactData({
@@ -18,31 +23,45 @@ const Form = () => {
     })
   }
 
-  const handleSubmmit = (e) => {
+  const notify = () => {
+    toast.success("Formulario enviado exitosamente");
+  };
+
+  const warning = () => {
+    toast.warning("Oush, algo falló en el envío del formulario.");
+  };
+
+
+
+  function sendEmail(e){
     e.preventDefault();
-    console.log('estoy entrando')
-    fetch('/api/contact', {
-      method: 'POST',
-      body: JSON.stringify(contactData),
-      headers: {
-        'Accept': 'application/json, text/plain, */*',
-        'Content-Type': 'application/json'
-      },
-    }).then((res) => {
-      console.log('Response received')
-      if (res.status === 200) {
-        console.log('Response succeeded!')
-        setContactData(initialContactData)
-      }
-    })
+    const resultValidate = validForm(contactData)
+    setError(resultValidate)
+    const isMissingFields = Object.keys(resultValidate).length
+
+    if( !isMissingFields ){
+      emailjs.sendForm('service_7c923xk', 'template_3er037x', e.target, 'user_cdInsAiYl5bD2K9pBp1KJ')
+      .then((result) => {
+          if(result.status === 200){
+            notify()
+            setContactData(initialContactData)
+          }
+         
+      }, (error) => {
+          warning()
+          console.log(error.text);
+      });
+    }
   }
 
   return (
-    <form>
+    <form onSubmit={sendEmail}>
       <div>
         <label>
-          <b>Nombre</b>
+          <b>Nombre:</b>
+          {error.name && <small>{error.name}</small>}
         </label>
+       
         <input
           type="text"
           name="name"
@@ -52,8 +71,10 @@ const Form = () => {
       </div>
       <div>
         <label>
-          <b>Correo Electrónico</b>
+          <b>Correo Electrónico:</b>
+          {error.email && <small>{error.email}</small>}
         </label>
+       
         <input
           type="email"
           name="email"
@@ -63,8 +84,10 @@ const Form = () => {
       </div>
       <div>
         <label>
-          <b>Asunto</b>
+          <b>Asunto:</b>
+          {error.subject && <small>{error.subject}</small>}
         </label>
+       
         <input
           type="text"
           name="subject"
@@ -74,8 +97,10 @@ const Form = () => {
       </div>
       <div>
         <label>
-          <b>Tu mensaje</b>
+          <b>Tu mensaje:</b>
+          {error.message && <small>{error.message}</small>}
         </label>
+        
         <textarea
           type="text"
           name="message"
@@ -84,14 +109,25 @@ const Form = () => {
         />
       </div>
       <div className="btn">
-        {/* <button>Enviar</button> */}
         <input
           className='formButton'
           type="submit"
           name="subject"
-          onClick={handleSubmmit}
+          value="Enviar"
         />
       </div>
+
+      <ToastContainer
+          position="bottom-center"
+          autoClose={5000}
+          hideProgressBar
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover={false}
+        />
 
       <style jsx>{`
         form {
@@ -125,7 +161,11 @@ const Form = () => {
           border-left: solid thin;
           border-bottom: solid thin;
           padding:  0.625rem;
-          
+        }
+
+        small{
+          color:red;
+          margin-left: .5rem;
         }
 
         .btn{
