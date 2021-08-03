@@ -19,7 +19,7 @@ const CardEmployee = ({ employee, index }) => {
         }
       >
       <div className="slide">
-        {size.width >= "501" && (
+        {size.width >= "769" && (
           <div
             className="employee-image"
             style={index % 2 === 0 ? { order: "0" } : { order: "1" }}
@@ -36,7 +36,7 @@ const CardEmployee = ({ employee, index }) => {
             </p>
           </div>
           <div className="employee-name">
-            {size.width <= "500" && (
+            {size.width <= "768" && (
               employee?.imageURL && <img src={urlFor(employee.imageURL).url()} alt={employee.name} />
             )}
             <h1
@@ -131,19 +131,27 @@ const CardEmployee = ({ employee, index }) => {
           font-size: 7vw;
         }
 
-        @media (max-width: 500px) {
-          .container {
+        @media (max-width: 768px) {
+          .slide {
+            min-height: 100%;
+            height:inherit;
           }
 
           .employee-container {
             width: 100%;
-
             display: block;
             min-height: auto;
+           
           }
 
           .employee-image {
             width: 100%;
+          }
+
+          img{
+            width:100%;
+            
+            
           }
           .employee-profile {
             margin: 1rem auto;
@@ -151,7 +159,9 @@ const CardEmployee = ({ employee, index }) => {
           }
 
           .employee-info {
-            margin-bottom: 3rem;
+         
+            padding: 0 1rem;
+            margin: 2rem auto;
           }
           .employee-info > p {
             margin: auto;
@@ -159,6 +169,7 @@ const CardEmployee = ({ employee, index }) => {
           .employee-name > h1 {
             text-align: center;
             font-size: 4rem;
+            margin-bottom: 5rem;
           }
         }
       `}</style>

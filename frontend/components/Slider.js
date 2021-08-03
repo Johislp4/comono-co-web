@@ -1,10 +1,12 @@
 import * as React from "react";
 import CardEmployee from '../components/CardEmployee'
+import { useWindowSize } from "../hooks/useWindowSize";
 
 
 const Slider = ({ Slides }) => {
   const [currentSlide, setCurrentSlide] = React.useState(0);
   const length = Slides.length;
+  const size = useWindowSize()
 
   const nextSlide = () => {
     setCurrentSlide(currentSlide === length - 1 ? 0 : currentSlide + 1);
@@ -23,12 +25,12 @@ const Slider = ({ Slides }) => {
   return (
     <>
       <section className="slider" > 
-        <div className="left-arrow" onClick={prevSlide}>
+       { size.width > 769 && <><div className="left-arrow" onClick={prevSlide}>
           <img src="/arrow-left-slides.svg" className="arrow" />
         </div>
         <div className="right-arrow" onClick={nextSlide}>
           <img src="/arrow-right-slides.svg" className="arrow" />
-        </div>
+        </div></>}
 
         {Slides.sort((a, b) => a.order - b.order).map((slide, index) => {
           return (
@@ -122,18 +124,6 @@ const Slider = ({ Slides }) => {
           background: blue;
         }
 
-        
-
-        @media(max-width:500px){
-            .arrow{
-                width:40px;
-            }
-
-            .left-arrow, 
-            .right-arrow{
-                top:50%;
-            }
-        }
       `}</style>
     </>
   );

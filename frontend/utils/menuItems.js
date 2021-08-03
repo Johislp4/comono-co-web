@@ -3,7 +3,7 @@ const menuItems = [
     id:1,
     title: "Home",
     className: "menu-list-item",
-    url: "#",
+    url: "/",
   },
   {
     id:2,
@@ -11,24 +11,24 @@ const menuItems = [
     className: "menu-list-item",
     url: "/nosotros",
   },
-  {
-    id:3,
-    title: "Servicios",
-    className: "menu-list-item",
-    url: "#",
-  },
+  // {
+  //   id:3,
+  //   title: "Servicios",
+  //   className: "menu-list-item",
+  //   url: "/servicios",
+  // },
   {
     id:4,
     title: "Blog",
     className: "menu-list-item",
-    url: "#",
+    url: "/blog",
   },
-  {
-    id:5,
-    title: "Contacto",
-    className: "menu-list-item",
-    url: "#",
-  }
+  // {
+  //   id:5,
+  //   title: "Contacto",
+  //   className: "menu-list-item",
+  //   url: "#",
+  // }
 ];
 
 export default menuItems;
