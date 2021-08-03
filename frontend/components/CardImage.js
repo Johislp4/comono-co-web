@@ -20,12 +20,17 @@ const CardImage = ({imageProp}) => {
         left:0;
         width: 100%;
         min-height: 100vh;
+        display:flex;
+        align-items: flex-start;
+        justify-content: center;
         }
 
       img{
-        width: 100%;
-        height: 75vh;
+        width: 30rem;
+        height: 30rem;
         animation: fadeIn 2s ease-out;
+      
+  
       }
 
       @keyframes fadeIn{

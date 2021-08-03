@@ -26,6 +26,7 @@ const Project = ({ projectList }) => {
          
           {projectList.map((project, i) => (
             <CardText textProps={{ project, i, haveShow, setHaveShow, size }} />
+            
           ))}
         </div>
       </main>

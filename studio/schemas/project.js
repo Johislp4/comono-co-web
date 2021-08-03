@@ -11,9 +11,22 @@ export default {
       {
         name: "description",
         title: "Description Project",
-        type: "text",
+        type: "array",
         description: "Write about Project",
+        of:[{type:'block'}]
       },
+      {
+        name: 'tagsTechnologies',
+        type: 'array',
+        of: [
+            {
+                type: 'string'
+            },
+        ],
+        options: {
+            layout: 'tags'
+        }
+    },
       {
         name: "image",
         title: "Image",

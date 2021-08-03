@@ -33,9 +33,10 @@ const Team = ({ bio }) => {
       <style jsx>{`
         .parallax-container{
           position:relative;
-          min-height: 700px; 
+          min-height: 110vh; 
+          margin:auto;
           background-attachment: fixed;
-          background-position: center;
+          background-position: top;
           background-repeat: no-repeat;
           background-size: cover;
         }
@@ -85,7 +86,7 @@ const Team = ({ bio }) => {
         .bio-title {
           // grid-column: main / end-full;
           align-self: center;
-          font-size: 3.5rem;
+          font-size:2.2rem;
         }
 
         .image {
@@ -109,7 +110,6 @@ const Team = ({ bio }) => {
         .portableText{
           grid-column: main;
           padding: 0 3rem 3rem 0;
-          font-size: 1.5rem;
         }
 
         .portableText button span:first-child {
@@ -118,7 +118,7 @@ const Team = ({ bio }) => {
 
         button{
           background: #fff;
-          margin: 2rem 0;
+          margin: 1rem 0;
           border:none;
           font-size: 2.5rem;
           padding: 0.5rem  1rem  0.5rem 0;

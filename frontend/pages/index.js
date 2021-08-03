@@ -47,6 +47,7 @@ const queryHome = `*[_type == 'home']{
     "nameProject": name, 
     description,
     "imageProject": image.asset->url,
+    "technologies" : tagsTechnologies,
     "link": href 
     }
 }`;

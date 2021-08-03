@@ -149,6 +149,7 @@ const Footer = () => {
           display: flex;
           justify-content: center;
           align-items: center;
+          font-size:0.8rem;
         }
 
         @media (max-width: 540px) {
@@ -158,7 +159,7 @@ const Footer = () => {
           }
 
           .side {
-            font-size: 2rem;
+            font-size: 1rem;
             width:90%;
             margin: 0 auto;
           }
@@ -178,7 +179,7 @@ const Footer = () => {
 
           .privacy {
             padding:2rem 0;
-            font-size:1.5rem;
+            font-size:0.7rem;
         }
       `}</style>
     </div>

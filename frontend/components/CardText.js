@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { urlFor } from "../lib/sanity";
+import { PortableText, urlFor } from "../lib/sanity";
 
 const CardText = ({textProps}) => {
     const {project, i , haveShow, setHaveShow, size} = textProps;
@@ -28,7 +28,14 @@ const CardText = ({textProps}) => {
      <a href={`https://${project.nameProject}`} target="_blank">
         <h1>{project.nameProject}</h1>
       </a>
-      <div>{project.description}</div>
+      <div className="description-project">{ 
+        <PortableText blocks={project.description} /> 
+       }
+       <div className="technologies-key">
+         <b>Technologies:</b> {project.technologies.map( (techology, index ) => <span key={index}>{techology} &nbsp;</span>)}
+       </div>
+      
+       </div>
      {size.width <= "500" && 
         (<div className="responsive-image">
           <img src={urlFor(project.imageProject).url()} alt={project.nameProject} />
@@ -56,8 +63,22 @@ const CardText = ({textProps}) => {
 
     h1{
       margin-bottom: 2rem;
-      font-size: 6vw;
+      font-size: 2rem;
+      text-decoration: underline;
     }
+
+    h1:hover{
+      color:blue;
+    }
+    .description-project{
+      font-size: 1rem;
+      line-height : 1.5rem;
+    }
+
+    .technologies-key{
+      margin: 2rem 0;
+    }
+    
 
     .responsive-image{
       width:100%;

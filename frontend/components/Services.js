@@ -77,14 +77,14 @@ const services = () => {
 
       <style jsx>{`
         .container-head{
-          height: 173px;
+          height: 100px;
           width:100%;
           position: relative;
       }
 
       .bg-black{
           background-color: black;
-          height: 88.5px;
+          height: 6.5rem;
           width:100%;
           transform: skewY(1deg);
           position:absolute;
@@ -93,15 +93,16 @@ const services = () => {
 
       .bg-gray{
           background-color: #F4F4F4;
-          height: 86.5px;
+          height: 6rem;
           width:100%;
           padding: 0 1rem;
           transform: skewY(-4deg);
           position:absolute;
-          bottom:0px;  
-          font-size: 2rem;
+          bottom:0;  
+          font-size: 1.5rem;
+          font-weight: 700;
           display:flex;
-          justify-content:start;
+          justify-content:center;
           align-items:center;     
       }
 
