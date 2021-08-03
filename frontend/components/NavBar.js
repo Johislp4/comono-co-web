@@ -5,6 +5,12 @@ import menuItems from "../utils/menuItems";
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
+  const hanldeMenu =  () => {
+    setTimeout(() => {
+      setIsMenuOpen(!isMenuOpen)
+    }, 500 )
+  }
+
 
   return (
     <>
@@ -27,7 +33,7 @@ const NavBar = () => {
               return (
                 <li className={item.className} key={item.id}>
                   <Link href={item.url}>
-                    <a>{item.title}</a>
+                    <a onClick={hanldeMenu}>{item.title}</a>
                   </Link>
                 </li>
               );
@@ -94,12 +100,14 @@ const NavBar = () => {
             width: inherit;
             align-items: center;
             height: 75%;
-            justify-content: space-between;
+            
             margin-top: 1rem;
           }
           .menu-list-item {
-            font-size:3rem;
+            font-size:2rem;
+            margin: 1rem 0;
           }
+
         }
       `}</style>
     </>
