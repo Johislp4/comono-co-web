@@ -65,11 +65,12 @@ const CallToAction = () => {
           position:fixed;
           bottom: -500px;
           right:-500px;
-          background: pink;
+          background:#f9f9f9;
           z-index:10;
           width: 500px;
           height:500px;
           border-radius: 50%;
+          box-shadow: 0 3px 4px 0 rgb(94 94 94 / 70%);
         }
 
         .active{
@@ -77,19 +78,23 @@ const CallToAction = () => {
           bottom: -120px;
           right:-100px;
           animation: moveInLeft 0.5s ease-out; 
-
         }
         
         @keyframes moveInLeft{
-    0%{
-        opacity: 0;
+          0%{
+              opacity: 0;
         
-    }
-    100%{
-        opacity:1;
+            }
+          100%{
+              opacity:1;
         
-    }
-}
+            }
+        }
+
+        a{
+          color: black;
+        }
+
 
         .menu-cta, 
         .menu-list{
@@ -106,7 +111,6 @@ const CallToAction = () => {
 
       
         .menu-list{
-            
             justify-content: space-between;
             align-items: center;
         }
