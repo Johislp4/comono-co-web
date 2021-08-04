@@ -170,6 +170,10 @@ const services = ({dataService}) => {
         .container-head{
           height: 0px;
       }
+
+      .bg-gray{
+        font-size:1rem;
+      }
       `}</style>
     </main>
   );

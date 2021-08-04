@@ -89,7 +89,7 @@ const CardText = ({textProps}) => {
       color:blue;
     }
     .description-project{
-      font-size: 1rem;
+      font-size: 1.2rem;
       line-height : 1.5rem;
       font-family: 'Roboto', sans-serif;
     }
@@ -109,10 +109,14 @@ const CardText = ({textProps}) => {
       height: 100%;
     }
 
-    @media(max-width:500px){
+    @media(max-width:540px){
       .container-text{
         min-height: auto;
         padding: 1rem;
+      }
+
+      .description-project{
+        font-size:1rem;
       }
     }
 
