@@ -15,6 +15,12 @@ export default {
       description: "Write about service",
     },
     {
+      name:'completeService',
+      title:'Detalle del servicio',
+      type:'array',
+      of:[{type:'block'}]
+    },
+    {
       name: "image",
       title: "Image",
       type: "image",
