@@ -18,10 +18,10 @@ const Blog = () => {
                 alt
             },
             summary,
-            author->{name},
             publishedAt
         }`)
-      .then((data) => setBlogData(data)).catch(console.error)
+      .then((data) => setBlogData(data))
+      .catch(console.error)
   }, [])
 
   return (
@@ -29,19 +29,25 @@ const Blog = () => {
       <h1>Blog page</h1>
 
       {blogData && blogData.map((post, index) => (
-        <Link href={"/blog/" + post.slug.current} key={index}>
-          <article  >
+        <Link href={'/blog/' + post.slug.current} key={index}>
+          <article>
+            <h2>{post.title}</h2>
             <img
               src={post.mainImage.asset.url}
               alt={post.mainImage.alt} />
-            <h3>{post.title}</h3>
             <p>{post.summary}</p>
-            <p>{post.author.name}</p>
-            <p>{post.publishedAt}</p>
+            <p>{new Date(post.publishedAt).toLocaleDateString()}</p>
           </article>
         </Link>
       ))}
+
+      <style jsx>{`
+      
+          
+       `}</style>
     </>
+
+
   )
 }
 

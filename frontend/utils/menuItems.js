@@ -17,7 +17,7 @@ const menuItems = [
   {
     title: "Blog",
     className: "menu-list-item",
-    url: "#",
+    url: "/blog",
   },
   {
     title: "Contacto",
