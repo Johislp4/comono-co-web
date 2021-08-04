@@ -2,7 +2,7 @@ const menuItems = [
   {
     title: "Home",
     className: "menu-list-item",
-    url: "#",
+    url: "/",
   },
   {
     title: "Nosotros",

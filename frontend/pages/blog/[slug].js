@@ -44,6 +44,11 @@ const Post = () => {
       <img src={urlFor(singlePost.authorImage).url()} alt={singlePost.name} />
       <p>{singlePost.name}</p>
       <p>{new Date(singlePost.publishedAt).toLocaleDateString()}</p>
+
+      <style jsx>{`
+
+          
+      `}</style>
     </>
   )
 }
