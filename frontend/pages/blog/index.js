@@ -66,7 +66,6 @@ const Blog = () => {
         }
 
         article div:nth-child(1){
-          background:blue;
           height:200px;
           background-position: top;
           background-repeat: no-repeat;

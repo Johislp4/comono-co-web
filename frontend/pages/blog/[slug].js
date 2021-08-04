@@ -32,24 +32,77 @@ const Post = () => {
 
   return (
     <>
-      <h1>{singlePost.title}</h1>
-      <img src={urlFor(singlePost.mainImage).url()} alt={singlePost.title} />
-      <div>-------------------BLOCK CONTENT---------------</div>
-      <BlockContent
-        blocks={singlePost.body}
-        projectId='af9rpnm9'
-        dataset='production'
-      />
+      <div className='parallax-container'
+        style={{
+          backgroundImage: `url(${urlFor(singlePost.mainImage).url()})`
+        }}
+      >
+        {/* <img src={urlFor(singlePost.mainImage).url()} alt={singlePost.title} /> */}
+      </div>
+      <div className='container'>
+        <h1>{singlePost.title}</h1>
+        <div className='post-details'>
+          <p>{new Date(singlePost.publishedAt).toLocaleDateString()}</p>
+          <p>{`By ${singlePost.name}`}</p>
+        </div>
+        <div className='block-content'>
+          <BlockContent
+            blocks={singlePost.body}
+            projectId='af9rpnm9'
+            dataset='production'
+          />
+        </div>
 
-      <img src={urlFor(singlePost.authorImage).url()} alt={singlePost.name} />
-      <p>{singlePost.name}</p>
-      <p>{new Date(singlePost.publishedAt).toLocaleDateString()}</p>
+        {/* <img
+        src={urlFor(singlePost.authorImage).url()}
+        alt={singlePost.name}
+        className='img-author'
+      /> */}
 
+      </div>
       <style jsx>{`
+        .container{
+          max-width:60rem;
+          margin:0 auto;
+          padding: 0 1rem
+        }
 
-          
+        .parallax-container{ 
+          background-attachment: fixed;
+          background-position: top;
+          background-repeat: no-repeat;
+          background-size: cover;
+          height:550px;
+        }
+
+        h1{
+          text-align:center;
+          margin-top:1rem;
+          margin-bottom: 0.3rem;
+        }
+
+        .post-details{
+          max-width:230px;
+          margin:0 auto;
+          display:flex;
+          justify-content:space-around
+        }
+       
+        .post-details p{
+          font-size:14px;
+          color:#84428c;
+          margin-bottom:1rem;
+          font-weight:700;
+        }
+    
+        .block-content{
+          word-wrap: break-word;
+        }
+
       `}</style>
     </>
+
+
   )
 }
 
