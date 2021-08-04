@@ -8,6 +8,9 @@ import service from './service'
 import project from './project'
 import infoCompany from './infoCompany'
 import ourTeam from "./ourTeam"
+import post from './post'
+import author from './author'
+import blockContent from './blockContent'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -20,6 +23,9 @@ export default createSchema({
     service,
     project,
     infoCompany,
-    ourTeam
+    ourTeam,
+    post,
+    author,
+    blockContent,
   ]),
 })
