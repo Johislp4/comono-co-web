@@ -1,6 +1,7 @@
-import React, { useRef } from "react";
+import * as React from "react";
+import Button from "../UI/Button";
 
-const services = () => {
+const services = ({dataService}) => {
   const [services, setService] = React.useState({
     ["cloud-service"]: false,
     ["app-service"]: false,
@@ -29,15 +30,16 @@ const services = () => {
           <div>
             <div className="head-service d-flex align-items-center" >
               <img src="/arrow-white.svg" alt="arrow" />
-              <div className="title-service" data-name="cloud-service" onClick={handleClick}> Soluciones en la nube </div>
+              <div className="title-service" data-name="cloud-service" onClick={handleClick}> {dataService[0].name} </div>
             </div>
             {
               services["cloud-service"] &&
+              <div className="text-service">
               <p>
-                Usando tecnología de desarrollo de software en la nube,
-                diseñamos e implementamos aplicaciones sin que necesites
-                infraestructura tecnológica
-              </p>
+              {dataService[0].description}
+              <Button url="/"/>
+              </p> 
+              </div>
             }
           </div>
         </section>
@@ -46,14 +48,16 @@ const services = () => {
           <div>
             <div className="head-service d-flex align-items-center">
               <img src="/arrow-white.svg" alt="arrow" />
-              <div className="title-service" data-name="app-service" onClick={handleClick}> Soluciones en la nube </div>
+              <div className="title-service" data-name="app-service" onClick={handleClick}> {dataService[2].name} </div>
             </div>
             {
               services["app-service"] &&
+              <div className="text-service">
               <p>
-                Nos encargamos del diseño y programación de tu página web,
-                haciendo que cada acción cuente
+              {dataService[2].description}
+              <Button url="/" />
               </p>
+              </div>
             }
           </div>
         </section>
@@ -62,14 +66,17 @@ const services = () => {
           <div>
             <div className="head-service d-flex align-items-center">
               <img src="/arrow-white.svg" alt="arrow" />
-              <div className="title-service" data-name="software-service" onClick={handleClick}> Soluciones en la nube </div>
+              <div className="title-service" data-name="software-service" onClick={handleClick}> {dataService[1].name} </div>
             </div>
             {
               services["software-service"] &&
+              <div className="text-service">
               <p>
-                Nos enfocamos en tus necesidades y presupuesto para desarrollar
-                software y soluciones digitales
+                {dataService[1].description}
+                <Button url="/" />
               </p>
+             
+              </div>
             }
           </div>
         </section>
@@ -99,8 +106,9 @@ const services = () => {
           transform: skewY(-4deg);
           position:absolute;
           bottom:0;  
-          font-size: 1.5rem;
-          font-weight: 700;
+          font-family:'Lexend Exa', sans-serif;
+          font-size: 2.5rem;
+          line-height: 3.125rem;
           display:flex;
           justify-content:center;
           align-items:center;     
@@ -110,6 +118,7 @@ const services = () => {
         height: auto;
         background-size:cover;
         background-position: top;
+        font-weight:bold;
       }
 
       .cloud-service{
@@ -138,6 +147,7 @@ const services = () => {
       }
       
       .service > div p {
+        text-align: right;
         height:18rem;
         color: white;
         width: 66%;

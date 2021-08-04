@@ -8,13 +8,13 @@ const Slider = ({ Slides }) => {
   const length = Slides.length;
   const size = useWindowSize()
 
-  const nextSlide = () => {
-    setCurrentSlide(currentSlide === length - 1 ? 0 : currentSlide + 1);
-  };
+  // const nextSlide = () => {
+  //   setCurrentSlide(currentSlide === length - 1 ? 0 : currentSlide + 1);
+  // };
 
-  const prevSlide = () => {
-    setCurrentSlide(currentSlide === 0 ? length - 1 : currentSlide - 1);
-  };
+  // const prevSlide = () => {
+  //   setCurrentSlide(currentSlide === 0 ? length - 1 : currentSlide - 1);
+  // };
 
   const moveDot = (index) => {
     setCurrentSlide(index);
@@ -25,12 +25,12 @@ const Slider = ({ Slides }) => {
   return (
     <>
       <section className="slider" > 
-       { size.width > 769 && <><div className="left-arrow" onClick={prevSlide}>
+       {/* { size.width > 769 && <><div className="left-arrow" onClick={prevSlide}>
           <img src="/arrow-left-slides.svg" className="arrow" />
         </div>
         <div className="right-arrow" onClick={nextSlide}>
           <img src="/arrow-right-slides.svg" className="arrow" />
-        </div></>}
+        </div></>} */}
 
         {Slides.sort((a, b) => a.order - b.order).map((slide, index) => {
           return (
@@ -113,15 +113,19 @@ const Slider = ({ Slides }) => {
         }
 
         .dot {
-          height: 12px;
-          width: 12px;
-          background: white;
-          margin: 0 0.5rem;
-          border-radius: 12px;
+          height: 10px;
+          width: 10px;
+          background: transparent;
+          
+          background: rgba(255,255,255,0.7);
+          margin: 0 4px;
+          border-radius: 100%;
+          display: inline-block;
         }
 
         .active{
-          background: blue;
+          background: #106bdd;
+          
         }
 
       `}</style>

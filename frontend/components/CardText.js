@@ -24,9 +24,11 @@ const CardText = ({textProps}) => {
     <>
     <div key={i} className="container-text" ref={element} data-project={i} >
      <div className="text">
-     <a href={`https://${project.nameProject}`} target="_blank">
+    <div className="text-head">
+    <a href={`https://${project.nameProject}`} target="_blank">
         <h1>{project.nameProject}</h1>
       </a>
+    </div>
       <div className="description-project">{ 
         <PortableText blocks={project.description} /> 
        }
@@ -53,17 +55,34 @@ const CardText = ({textProps}) => {
       background: black;
     }
 
-    a{ color: white;}
+    a{ 
+      color: white;
+    }
 
     .text{
       min-height: inherit;
       padding: 3rem;
+      font-family: 'Lexend Exa', sans-serif;
+      font-size:2vw;
+    }
+
+    .text-head{
+      position:relative;
     }
 
     h1{
       margin-bottom: 2rem;
-      font-size: 2rem;
-      text-decoration: underline;
+    }
+
+    h1::before{
+     content:"";
+     width:70%;
+     height: 0.2rem;
+     background: white;
+     position:absolute;
+     bottom: 0;
+     left:-3rem;
+     z-index:3;
     }
 
     h1:hover{
@@ -72,6 +91,7 @@ const CardText = ({textProps}) => {
     .description-project{
       font-size: 1rem;
       line-height : 1.5rem;
+      font-family: 'Roboto', sans-serif;
     }
 
     .technologies-key{

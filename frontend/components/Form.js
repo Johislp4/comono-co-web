@@ -136,6 +136,7 @@ const Form = () => {
             flex-direction: column;
             justify-content: space-evenly;
             padding: 2rem;
+            font-family:'Roboto';
         }
 
         form > div {
@@ -151,6 +152,7 @@ const Form = () => {
           height: 2rem;
           margin: 0.7rem 0;
           padding:  0.625rem;
+          font-family:'Roboto';
           
         }
 
@@ -161,6 +163,8 @@ const Form = () => {
           border-left: solid thin;
           border-bottom: solid thin;
           padding:  0.625rem;
+          resize:none;
+          font-family:'Roboto';
         }
 
         small{
@@ -183,6 +187,12 @@ const Form = () => {
         .formButton:hover{
           cursor: pointer;
           
+        }
+
+        @media (max-width: 540px){
+          .btn{
+            margin:auto;
+          }
         }
       `}</style>
     </form>

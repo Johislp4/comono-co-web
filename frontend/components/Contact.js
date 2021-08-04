@@ -38,7 +38,7 @@ const Contact = () => {
 
         .container > h1 {
            text-align:center;
-           font-size:2rem;
+           font-size:3vw;
            margin: 2rem;
         }
         
@@ -75,10 +75,11 @@ const Contact = () => {
         }
 
         .message-one > h1 {
-          font-size: 2.5rem;
           position: relative;
           text-align: left;  
           padding-bottom:1rem;
+          font-family: 'Lexend Exa', sans-serif;
+          font-size:2rem;
         }
 
         .message-one > h1::after {
@@ -103,9 +104,7 @@ const Contact = () => {
           .container-form {   
             width: 80%;
           }
-          .message-one > h1 {
-            font-size:4rem
-          }
+          
         }
 
         @media (max-width: 540px) {
@@ -121,9 +120,13 @@ const Contact = () => {
           .container > h1 {
             font-size: 3.5rem;
           }
-          .message-one > h1 {
-            font-size:2.5rem
+          .message-one > h1,
+          .message-two {
+            width:100%;
+            text-align:center;
+            font-size:1rem;
           }
+          
         }
       
       `}</style>

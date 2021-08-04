@@ -22,7 +22,7 @@ const Team = ({ bio }) => {
         <div className="portableText">
           <PortableText blocks={bio?.description} />
           <button>
-            <span>Descubre más</span>
+            <span className="btn">Descubre más</span>
             <span>
               <img src="/row-right.svg" alt="row-right" />
             </span>
@@ -86,7 +86,8 @@ const Team = ({ bio }) => {
         .bio-title {
           // grid-column: main / end-full;
           align-self: center;
-          font-size:2.2rem;
+          font-family:'Lexend Exa', sans-serif;
+          font-size:3rem;
         }
 
         .image {
@@ -104,7 +105,17 @@ const Team = ({ bio }) => {
           grid-template-columns: 
           [start-full] minmax(1rem, 130px) [main] minmax(0, 1fr) [end-full];
           grid-gap: 1rem;
+          font-family: 'Lexend Tera', sans-serif;
+          font-size: 1.1rem;
+          line-height: 1.5 ;
+          font-weight:400;
           
+        }
+
+        .btn{
+          font-family: 'Lexend Exa', sans-serif;
+          font-size: 1.5rem;
+          font-weight:600;
         }
 
         .portableText{

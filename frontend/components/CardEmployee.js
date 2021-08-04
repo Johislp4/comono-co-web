@@ -94,7 +94,7 @@ const CardEmployee = ({ employee, index }) => {
         }
 
         .employee-info {
-          margin: 5rem 0;
+          margin: 1rem 0;
         }
 
         .employee-info p {

@@ -8,7 +8,7 @@ import Contact from "../components/Contact";
 import Project from "../components/Project";
 import Technologies from "../components/Technologies";
 
-export default function Home({ data }) {
+export default function Home({ data, dataService }) {
 
   const banner = data[0].banner;
   const bio = {
@@ -27,7 +27,7 @@ export default function Home({ data }) {
       </Head>
 
       <Banner text={banner} />
-      <Services />
+      <Services dataService={dataService} />
       <Technologies />
       <Team bio={bio} />
       <Project projectList={projects} />
@@ -51,8 +51,16 @@ const queryHome = `*[_type == 'home']{
     }
 }`;
 
+const queryService = `*[_type == 'service']{
+  _id,
+ name,
+ description,
+ 'detailDescription': completeService
+}`
+
 
 export async function getStaticProps() {
   const data = await sanityClient.fetch(queryHome);
-  return { props: { data }, revalidate: 10 };
+  const dataService = await sanityClient.fetch(queryService);
+  return { props: { data, dataService }, revalidate: 10 };
 }

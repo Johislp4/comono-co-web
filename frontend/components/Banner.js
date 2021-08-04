@@ -47,7 +47,9 @@ const Banner = ({ text }) => {
           color: white;
           font-size: 5vw;
           // font-size:3rem;
-          font-weight: 700;
+          font-family:'Lexend Exa', sans-serif;
+
+    
           width: 120%;
           position: relative;
           padding: 4rem 0;
@@ -58,7 +60,6 @@ const Banner = ({ text }) => {
             top:100px;
             left: 0;
             font-size:2.5vw;
-            // font-size: 1.875rem;
             font-weight: 700;
             width: 50%;
             line-height: 1.5;
