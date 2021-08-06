@@ -1,25 +1,30 @@
 import React from 'react'
 import Form from '../components/Form'
+import EN from '../utils/EN'
+import ES from '../utils/ES'
 
-const Contact = () => {
+const Contact = ({locale}) => {
+
   return (
     <>
       <div className="container">
-        <h1 id="form">Contáctanos</h1>
+        <h1 id="form">{ locale === 'es-CO' ? ES.form.title  : EN.form.title  } </h1>
 
         <section className="container-form">
           <div className="left-form">
             <div className="message-one">
-              <h1>Gracias por llegar hasta aquí</h1>
+              <h1>{ locale === 'es-CO' ? ES.form.messageHead :  EN.form.messageHead }</h1>
             </div>
 
             <div className="message-two">
-              Déjanos tus datos y nos pondremos en contacto contigo
+              {locale === 'es-CO' 
+                ? ES.form.messageDescription
+                : EN.form.messageDescription}
             </div>
           </div>
 
           <div className="right-form">
-            <Form />
+            <Form locale={locale} language={{ES, EN}}/>
           </div>
         </section>
       </div>

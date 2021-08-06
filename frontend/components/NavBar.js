@@ -1,16 +1,23 @@
-import React from "react";
+import * as React from "react";
+import { useRouter } from "next/router";
 import Link from "next/link";
 import menuItems from "../utils/menuItems";
 
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const router = useRouter();
+  const { locale } = router;
 
-  const hanldeMenu =  () => {
+  const changeLanguage = (e) => {
+    const locale = e.target.value;
+    router.push(router.pathname, router.asPath, { locale });
+  };
+
+  const hanldeMenu = () => {
     setTimeout(() => {
-      setIsMenuOpen(!isMenuOpen)
-    }, 500 )
-  }
-
+      setIsMenuOpen(!isMenuOpen);
+    }, 500);
+  };
 
   return (
     <>
@@ -27,7 +34,7 @@ const NavBar = () => {
           <img src="/menu-mobile.svg" alt="menu-mobile" />
         </div>
 
-        <div className={ isMenuOpen ? "nav-menu active" : "nav-menu"}>
+        <div className={isMenuOpen ? "nav-menu active" : "nav-menu"}>
           <ul className="menu-list d-flex">
             {menuItems.map((item) => {
               return (
@@ -38,13 +45,18 @@ const NavBar = () => {
                 </li>
               );
             })}
+
+            <select defaultValue={locale} onChange={changeLanguage}>
+              <option value="es-CO">ES</option>
+              <option value="en-US">EN</option>
+            </select>
           </ul>
         </div>
       </nav>
       <style jsx>{`
         nav {
           background-color: black;
-          padding:1rem;
+          padding: 1rem;
           flex-wrap: wrap;
         }
 
@@ -67,7 +79,7 @@ const NavBar = () => {
             height: 80px;
             position: sticky;
             top: 0;
-            z-index:2;
+            z-index: 2;
           }
 
           .menu-mobile {
@@ -100,14 +112,13 @@ const NavBar = () => {
             width: inherit;
             align-items: center;
             height: 75%;
-            
+
             margin-top: 1rem;
           }
           .menu-list-item {
-            font-size:2rem;
+            font-size: 2rem;
             margin: 1rem 0;
           }
-
         }
       `}</style>
     </>
@@ -115,4 +126,3 @@ const NavBar = () => {
 };
 
 export default NavBar;
-

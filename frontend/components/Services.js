@@ -1,7 +1,13 @@
 import * as React from "react";
 import Button from "../UI/Button";
+import EN from "../utils/EN";
+import ES from "../utils/ES";
 
-const services = ({dataService}) => {
+
+
+const services = ({dataService, locale}) => {
+
+  const phrase = locale === 'es-CO' ?   ES?.service?.title :  EN?.service?.title;
   const [services, setService] = React.useState({
     ["cloud-service"]: false,
     ["app-service"]: false,
@@ -22,7 +28,7 @@ const services = ({dataService}) => {
     <main>
       <div className="container-head">
         <div className="bg-black"></div>
-        <div className="bg-gray"> Conoce como lo hacemos ...</div>
+        <div className="bg-gray"> {phrase}</div>
       </div>
 
       <div className="container-service">
@@ -30,13 +36,13 @@ const services = ({dataService}) => {
           <div>
             <div className="head-service d-flex align-items-center" >
               <img src="/arrow-white.svg" alt="arrow" />
-              <div className="title-service" data-name="cloud-service" onClick={handleClick}> {dataService[0].name} </div>
+              <div className="title-service" data-name="cloud-service" onClick={handleClick}> {dataService[0]?.name} </div>
             </div>
             {
               services["cloud-service"] &&
               <div className="text-service">
               <p>
-              {dataService[0].description}
+              {dataService[0]?.description}
               <Button url="/"/>
               </p> 
               </div>
@@ -48,13 +54,13 @@ const services = ({dataService}) => {
           <div>
             <div className="head-service d-flex align-items-center">
               <img src="/arrow-white.svg" alt="arrow" />
-              <div className="title-service" data-name="app-service" onClick={handleClick}> {dataService[2].name} </div>
+              <div className="title-service" data-name="app-service" onClick={handleClick}> {dataService[2]?.name} </div>
             </div>
             {
               services["app-service"] &&
               <div className="text-service">
               <p>
-              {dataService[2].description}
+              {dataService[2]?.description}
               <Button url="/" />
               </p>
               </div>
@@ -66,13 +72,13 @@ const services = ({dataService}) => {
           <div>
             <div className="head-service d-flex align-items-center">
               <img src="/arrow-white.svg" alt="arrow" />
-              <div className="title-service" data-name="software-service" onClick={handleClick}> {dataService[1].name} </div>
+              <div className="title-service" data-name="software-service" onClick={handleClick}> {dataService[1]?.name} </div>
             </div>
             {
               services["software-service"] &&
               <div className="text-service">
               <p>
-                {dataService[1].description}
+                {dataService[1]?.description}
                 <Button url="/" />
               </p>
              

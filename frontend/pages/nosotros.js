@@ -3,9 +3,7 @@ import { sanityClient } from "../lib/sanity";
 import Slider from "../components/Slider";
 
 export default function Nosotros({ data }) {
-
-  
-  return ( <Slider Slides={data} />)
+  return ( <Slider dataSlides={data} />)
 }
 
 const queryOurTeam = `
@@ -21,7 +19,25 @@ href,
 skill
 }`;
 
+const queryOurTeamEnglish = `
+*[_type == 'ourTeamEnglish']{
+_id,
+order,
+href,
+'imageURL': image.asset._ref,
+  name,
+  fontColor,
+  backgroundColor,
+  profile,
+skill
+}`;
+
 export async function getStaticProps() {
-  const data = await sanityClient.fetch(queryOurTeam);
-  return { props: { data }, revalidate: 10 };
+  const response = await sanityClient.fetch(queryOurTeam);
+  const responseEnglish = await sanityClient.fetch(queryOurTeamEnglish);
+  return { props: { 
+                    'data' : {'es-CO':[...response], 
+                              'en-US':[...responseEnglish]
+                              }
+                  }, revalidate: 10 };
 }

@@ -1,9 +1,15 @@
 import React from "react";
 import Link from "next/link";
 import menuItems from "../utils/menuItems";
-
+import { useRouter } from "next/router";
+import EN from "../utils/EN";
+import ES from "../utils/ES";
 
 const Footer = ({data}) => {
+
+  
+  const router = useRouter()
+  const { locale } = router
 
   return (
     data  ?
@@ -15,7 +21,7 @@ const Footer = ({data}) => {
 
         <div className="side contact">
           <div>
-            <h4>Contacto</h4>
+            <h4> {locale === 'es-CO' ? ES.footer.contact : EN.footer.contact }</h4>
             <p>{data[0]?.city, data[0]?.country}</p>
             <p>{data[0]?.address}</p>
             <p>{data[0]?.phone}</p>
@@ -25,7 +31,7 @@ const Footer = ({data}) => {
 
         <div className="side social-media">
           <div>
-            <h4>Siguenos en nuestras redes sociales</h4>
+            <h4> {locale === 'es-CO' ? ES.footer.socialMedia : EN.footer.socialMedia } </h4>
             <div className="icons">
                 <a href={data[0]?.socialmedia.instagram} target="_blank">
                   <img src="/instagram-icon.svg" />
@@ -61,7 +67,7 @@ const Footer = ({data}) => {
         </div>
 
         <div className="privacy">
-          <p>Políticas de privacidad - 2021 Comono</p>
+          <p>{locale === 'es-CO' ? ES.footer.policy : EN.footer.policy }</p>
         </div>
       </div>
 

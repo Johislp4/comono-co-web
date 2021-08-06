@@ -1,11 +1,20 @@
 import * as React from "react";
+import { useRouter } from "next/router";
 import CardEmployee from '../components/CardEmployee'
 import { useWindowSize } from "../hooks/useWindowSize";
+import { use } from "stylis";
 
 
-const Slider = ({ Slides }) => {
+const Slider = ({ dataSlides }) => {
+
+  const  { locale }  = useRouter();
   const [currentSlide, setCurrentSlide] = React.useState(0);
-  const length = Slides.length;
+  const Slides = locale === 'es-CO' ? dataSlides['es-CO'] : dataSlides['en-US'];
+  console.log(Slides, 'this is slides')
+
+
+
+  const length =   Slides.length;
   const size = useWindowSize()
 
   // const nextSlide = () => {

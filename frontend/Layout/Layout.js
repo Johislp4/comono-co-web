@@ -4,7 +4,10 @@ import Footer from "../components/Footer"
 import CallToAction from '../components/CallToAction'
 import { sanityClient} from "../lib/sanity";
 
+
 const Layout = ({children}) => {
+
+
 
     const [dataFooter, setDataFooter] = React.useState(null);
 
@@ -22,6 +25,7 @@ const Layout = ({children}) => {
             facebook
         } 
       }`
+      
 
     React.useEffect(async() => {
         const dataFetch = await sanityClient.fetch(queryFooter)

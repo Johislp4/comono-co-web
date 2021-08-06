@@ -4,7 +4,9 @@ import 'react-toastify/dist/ReactToastify.css';
 import emailjs from 'emailjs-com'
 import validForm from "../utils/validForm";
 
-const Form = () => {
+const Form = ({locale, language}) => {
+
+  const { EN , ES } = language
 
   const initialContactData = {
     name: '',
@@ -58,7 +60,7 @@ const Form = () => {
     <form onSubmit={sendEmail}>
       <div>
         <label>
-          <b>Nombre:</b>
+          <b>{locale === 'es-CO' ? ES.form.name : EN.form.name }</b>
           {error.name && <small>{error.name}</small>}
         </label>
        
@@ -71,7 +73,7 @@ const Form = () => {
       </div>
       <div>
         <label>
-          <b>Correo Electrónico:</b>
+          <b>{locale === 'es-CO' ? ES.form.email : EN.form.email }</b>
           {error.email && <small>{error.email}</small>}
         </label>
        
@@ -84,7 +86,7 @@ const Form = () => {
       </div>
       <div>
         <label>
-          <b>Asunto:</b>
+          <b>{locale === 'es-CO' ? ES.form.subject : EN.form.subject }</b>
           {error.subject && <small>{error.subject}</small>}
         </label>
        
@@ -97,7 +99,7 @@ const Form = () => {
       </div>
       <div>
         <label>
-          <b>Tu mensaje:</b>
+          <b>{locale === 'es-CO' ? ES.form.message : EN.form.message }</b>
           {error.message && <small>{error.message}</small>}
         </label>
         
@@ -113,7 +115,7 @@ const Form = () => {
           className='formButton'
           type="submit"
           name="subject"
-          value="Enviar"
+          value= {locale === 'es-CO' ? ES.form.button : EN.form.button } 
         />
       </div>
 
