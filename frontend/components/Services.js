@@ -43,7 +43,7 @@ const services = ({dataService, locale}) => {
               <div className="text-service">
               <p>
               {dataService[0]?.description}
-              <Button url="/"/>
+              <Button url="/" locale={locale} />
               </p> 
               </div>
             }

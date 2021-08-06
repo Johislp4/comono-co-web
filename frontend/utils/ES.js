@@ -1,5 +1,7 @@
 const ES = {
-  service: { title: "Conoce  como lo hacemos..." },
+  service: { 
+    title: "Conoce  como lo hacemos...",
+    button: 'Descubre más'},
   form: {
     title: "Contáctanos",
     messageHead: "Gracias por llegar hasta aquí",

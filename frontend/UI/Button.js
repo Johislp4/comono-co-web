@@ -1,14 +1,16 @@
 import React from 'react';
 import Link from 'next/link';
+import EN from '../utils/EN';
+import ES from '../utils/ES';
 
-const Button = ({url}) => {
+const Button = ({url, locale}) => {
     return (
         <>
         <Link href={`${url}`}>
             <a>
             <div className="btn d-flex align-items-center" >
                 <img className="arrow" src="/arrow-white.svg" alt="arrow" />
-                <div> Descubre más </div>
+                <div> { locale === 'es-CO' ? ES.service.button :  EN.service.button} </div>
             </div>
             </a>
         </Link>

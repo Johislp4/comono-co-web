@@ -1,7 +1,7 @@
 import React from "react";
 import { PortableText } from "../lib/sanity";
 
-const Team = ({ bio }) => {
+const Team = ({ bio, locale }) => {
   return (
     <>
       <div
@@ -22,7 +22,7 @@ const Team = ({ bio }) => {
         <div className="portableText">
           <PortableText blocks={bio?.description} />
           <button>
-            <span className="btn">Descubre más</span>
+            <span className="btn">{ locale === 'es-CO' ? 'Descubre más' : 'More' }</span>
             <span>
               <img src="/row-right.svg" alt="row-right" />
             </span>

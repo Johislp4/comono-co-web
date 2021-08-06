@@ -38,7 +38,7 @@ export default function Home({ dataHome  }) {
       <Banner text={banner} />
       <Services dataService={data.dataService} locale={locale} />
       <Technologies />
-      <Team bio={bio} />
+      <Team bio={bio} locale={locale} />
       <Project projectList={projects} />
       <Contact locale={locale} />
     </div>
