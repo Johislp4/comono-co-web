@@ -2,7 +2,6 @@ import * as React from "react";
 import { useRouter } from "next/router";
 import CardEmployee from '../components/CardEmployee'
 import { useWindowSize } from "../hooks/useWindowSize";
-import { use } from "stylis";
 
 
 const Slider = ({ dataSlides }) => {
@@ -10,13 +9,11 @@ const Slider = ({ dataSlides }) => {
   const  { locale }  = useRouter();
   const [currentSlide, setCurrentSlide] = React.useState(0);
   const Slides = locale === 'es-CO' ? dataSlides['es-CO'] : dataSlides['en-US'];
-  console.log(Slides, 'this is slides')
-
-
-
   const length =   Slides.length;
-  const size = useWindowSize()
 
+  //TODO: Befor there was arrow to controll slides, we commented because in future could be applied;
+
+  //const size = useWindowSize()
   // const nextSlide = () => {
   //   setCurrentSlide(currentSlide === length - 1 ? 0 : currentSlide + 1);
   // };
