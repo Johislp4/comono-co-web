@@ -5,6 +5,7 @@ import Link from 'next/link'
 const Blog = () => {
 
   const [blogData, setBlogData] = useState([])
+  const [search, setsearch] = useState("")
 
   useEffect(() => {
     sanityClient.fetch(`*[_type == "post"]{
@@ -24,29 +25,43 @@ const Blog = () => {
       .catch(console.error)
   }, [])
 
+  let filteredPosts = blogData.filter((post) => {
+    return post.title.toLowerCase().includes(search.toLowerCase())
+  })
+
   return (
-    <div className='container'>
-      {blogData && blogData.map((post, index) => (
-        <Link href={'/blog/' + post.slug.current} key={index}>
-          <article>
-            <div
-              className='img-container'
-              style={{
-                backgroundImage: `url(${post.mainImage.asset.url})`
-              }}
-            >
-              {/* <img
+    <>
+      <div className="search-bar">
+        <input
+          type="text"
+          placeholder="Search for something you like"
+          value={search}
+          onChange={(e) => { setsearch(e.target.value) }}
+        />
+      </div>
+      <div className='container'>
+        {filteredPosts && filteredPosts.map((post, index) => (
+          <Link href={'/blog/' + post.slug.current} key={index}>
+            <article>
+              <div
+                className='img-container'
+                style={{
+                  backgroundImage: `url(${post.mainImage.asset.url})`
+                }}
+              >
+                {/* <img
                 src={post.mainImage.asset.url}
                 alt={post.mainImage.alt} /> */}
-            </div>
-            <div>
-              <h2>{post.title}</h2>
-              <p>{post.summary}</p>
-              <p><span>{new Date(post.publishedAt).toLocaleDateString()}</span></p>
-            </div>
-          </article>
-        </Link>
-      ))}
+              </div>
+              <div>
+                <h2>{post.title}</h2>
+                <p>{post.summary}</p>
+                <p><span>{new Date(post.publishedAt).toLocaleDateString()}</span></p>
+              </div>
+            </article>
+          </Link>
+        ))}
+      </div>
 
       <style jsx>{`
         .container{
@@ -55,6 +70,20 @@ const Blog = () => {
           display:flex;
           flex-wrap:wrap;
           justify-content:space-around;
+        }
+
+        .search-bar{
+          max-width:60rem;
+          margin:0 auto;
+          display: flex;
+          align-items: baseline;
+          justify-content: center;
+        }
+
+        .search-bar input{
+          width:80%;
+          padding:0.5rem;
+          margin-top: 2rem;
         }
 
         article{
@@ -88,9 +117,8 @@ const Blog = () => {
           color:gray;
           font-size:0.875rem;
         }
-
        `}</style>
-    </div>
+    </>
   )
 }
 
