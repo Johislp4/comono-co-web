@@ -3,7 +3,9 @@ import Form from '../components/Form'
 import EN from '../utils/EN'
 import ES from '../utils/ES'
 
-const Contact = ({locale}) => {
+const Contact = ({locale, textForm}) => {
+
+  const {head, message} = textForm
 
   return (
     <>
@@ -13,13 +15,11 @@ const Contact = ({locale}) => {
         <section className="container-form">
           <div className="left-form">
             <div className="message-one">
-              <h1>{ locale === 'es-CO' ? ES.form.messageHead :  EN.form.messageHead }</h1>
+              <h1>{head}</h1>
             </div>
 
             <div className="message-two">
-              {locale === 'es-CO' 
-                ? ES.form.messageDescription
-                : EN.form.messageDescription}
+              {message}
             </div>
           </div>
 

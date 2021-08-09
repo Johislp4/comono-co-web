@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { useRouter } from "next/router";
 import NavBar from '../components/NavBar'
 import Footer from "../components/Footer"
 import CallToAction from '../components/CallToAction'
@@ -6,6 +7,9 @@ import { sanityClient} from "../lib/sanity";
 
 
 const Layout = ({children}) => {
+
+    const router = useRouter();
+    const { locale } = router;
 
 
 
@@ -37,7 +41,7 @@ const Layout = ({children}) => {
 
     return (
         <div className="base-layout">
-        <NavBar />
+        <NavBar locale={locale} />
         <CallToAction />
             {children}
         <Footer data={dataFooter}/>

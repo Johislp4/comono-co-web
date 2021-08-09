@@ -26,8 +26,8 @@ export default function Home({ dataHome  }) {
   };
 
   const { projects } = data.dataHome[0];
-
-
+  const { form } =  data.dataHome[0]
+  
   return (
     <div>
       <Head>
@@ -40,7 +40,7 @@ export default function Home({ dataHome  }) {
       <Technologies />
       <Team bio={bio} locale={locale} />
       <Project projectList={projects} />
-      <Contact locale={locale} />
+      <Contact textForm = {form} locale={locale} />
     </div>
   );
 }
@@ -58,7 +58,8 @@ const queryHome = `*[_type == 'home']{
     "imageProject": image.asset->url,
     "technologies" : tagsTechnologies,
     "link": href 
-    }
+    },
+    form
 }`;
 
 const queryHomeEnglish = `*[_type == 'homeEnglish']{
@@ -73,7 +74,8 @@ const queryHomeEnglish = `*[_type == 'homeEnglish']{
     "imageProject": image.asset->url,
     "technologies" : tagsTechnologies,
     "link": href 
-   }
+   },
+   form
 }`;
 
 const queryService = `*[_type == 'service']{

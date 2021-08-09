@@ -1,17 +1,26 @@
 import * as React from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import menuItems from "../utils/menuItems";
+import menuItemsSpanish   from '../utils/menuItemsSpanish';
+import menuItemsEnglish  from '../utils/menuItemsEnglish'
 
-const NavBar = () => {
+
+const NavBar = ({locale}) => {
+
+  const router = useRouter()
+
+  const menuItems = locale === 'es-CO' ? menuItemsSpanish : menuItemsEnglish;
+ 
+ 
+  
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-  const router = useRouter();
-  const { locale } = router;
 
   const changeLanguage = (e) => {
     const locale = e.target.value;
     router.push(router.pathname, router.asPath, { locale });
   };
+
+  
 
   const hanldeMenu = () => {
     setTimeout(() => {
@@ -36,7 +45,7 @@ const NavBar = () => {
 
         <div className={isMenuOpen ? "nav-menu active" : "nav-menu"}>
           <ul className="menu-list d-flex">
-            {menuItems.map((item) => {
+            { menuItems.map((item) => {
               return (
                 <li className={item.className} key={item.id}>
                   <Link href={item.url}>
@@ -58,6 +67,9 @@ const NavBar = () => {
           background-color: black;
           padding: 1rem;
           flex-wrap: wrap;
+          position:sticky;
+          top:0;
+          z-index:20;
         }
 
         .menu-list-item {

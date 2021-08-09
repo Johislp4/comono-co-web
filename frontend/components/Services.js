@@ -34,7 +34,7 @@ const services = ({dataService, locale}) => {
       <div className="container-service">
         <section className="service cloud-service" >
           <div>
-            <div className="head-service d-flex align-items-center" >
+            <div className="head-service d-flex align-items-center"  data-name="cloud-service" onClick={handleClick}>
               <img src="/arrow-white.svg" alt="arrow" />
               <div className="title-service" data-name="cloud-service" onClick={handleClick}> {dataService[0]?.name} </div>
             </div>
@@ -52,7 +52,7 @@ const services = ({dataService, locale}) => {
 
         <section className="service app-service">
           <div>
-            <div className="head-service d-flex align-items-center">
+            <div className="head-service d-flex align-items-center" data-name="app-service" onClick={handleClick}>
               <img src="/arrow-white.svg" alt="arrow" />
               <div className="title-service" data-name="app-service" onClick={handleClick}> {dataService[2]?.name} </div>
             </div>
@@ -70,7 +70,7 @@ const services = ({dataService, locale}) => {
 
         <section className="service software-service">
           <div>
-            <div className="head-service d-flex align-items-center">
+            <div className="head-service d-flex align-items-center" data-name="software-service" onClick={handleClick}>
               <img src="/arrow-white.svg" alt="arrow" />
               <div className="title-service" data-name="software-service" onClick={handleClick}> {dataService[1]?.name} </div>
             </div>
@@ -137,15 +137,31 @@ const services = ({dataService, locale}) => {
       .head-service{
         height:150px;
         color: white;
-        justify-content: flex-end;
+        justify-content: center;
         align-content: flex-end;
-        
+        cursor:pointer;
       }
+
+      @keyframes Scale{
+        0%{
+          transform: scale(1)
+        }
+        100%{
+          transform: scale(1.1)
+        }
+      }
+      
+      .head-service:hover{
+        animation: Scale 0.5s ease-in forwards;
+      }
+
+     
+      
 
       .title-service {
         font-size: 2rem;
         margin-left: 4.5rem;
-        cursor:pointer;
+        
       }
 
       .service > div{

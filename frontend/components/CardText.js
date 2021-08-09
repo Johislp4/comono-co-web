@@ -33,7 +33,7 @@ const CardText = ({textProps}) => {
         <PortableText blocks={project.description} /> 
        }
        <div className="technologies-key">
-         <b>Technologies:</b> {project.technologies.map( (techology, index ) => <span key={index}>{techology} &nbsp;</span>)}
+         <b>Technologies:</b> {project?.technologies  &&  project.technologies.map( (techology, index ) => <span key={index}>{techology} &nbsp;</span>)}
        </div>
       
        </div>

@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
-import menuItems from "../utils/menuItems";
+import menuItemsSpanish from "../utils/menuItemsSpanish";
+import menuItemsEnglish from "../utils/menuItemsEnglish";
 import { useRouter } from "next/router";
 import EN from "../utils/EN";
 import ES from "../utils/ES";
@@ -10,6 +11,8 @@ const Footer = ({data}) => {
   
   const router = useRouter()
   const { locale } = router
+
+  const menuItems = locale === 'es-CO' ? menuItemsSpanish : menuItemsEnglish
 
   return (
     data  ?
