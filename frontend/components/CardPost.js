@@ -2,7 +2,6 @@ import React from 'react'
 import { urlFor } from '../lib/sanity';
 
 const CardPost = ({ post }) => {
-  console.log('post data', post)
   return (
     <article className="mini-card">
       <div>
@@ -24,7 +23,7 @@ const CardPost = ({ post }) => {
       .mini-card {
         display: flex;
         justify-content: space-between;
-        max-width: 200px;
+        max-width: 250px;
         min-height: 300px;
         padding: 1.5rem;
         border-radius: 16px;
@@ -34,6 +33,7 @@ const CardPost = ({ post }) => {
         margin: 0;
         box-shadow: 1px -1px 7px -1px rgba(3, 0, 0, 0.65);
         transform: rotate(353deg);
+        cursor:pointer;
       }
   
       .mini-card:focus-within,
@@ -53,6 +53,8 @@ const CardPost = ({ post }) => {
       .mini-card h2 {
         font-size: 20px;
         margin: .25rem 0 auto;
+        color: #AC3F3F;
+        font-size:1.5rem;
       }
   
       .mini-article-meta {
@@ -60,6 +62,7 @@ const CardPost = ({ post }) => {
         display: grid;
         grid-template-columns: 60px 1fr;
         align-items: center;
+        color: #AC3F3F;
       }
   
       .mini-article-meta .author-avatar img {
