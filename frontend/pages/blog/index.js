@@ -8,7 +8,7 @@ const Blog = () => {
   const [search, setsearch] = useState("")
 
   useEffect(() => {
-    sanityClient.fetch(`*[_type == "post"]{
+    sanityClient.fetch(`*[_type == "post"] | order(publishedAt desc){
             title,
             slug,
             mainImage{
@@ -49,9 +49,6 @@ const Blog = () => {
                   backgroundImage: `url(${post.mainImage.asset.url})`
                 }}
               >
-                {/* <img
-                src={post.mainImage.asset.url}
-                alt={post.mainImage.alt} /> */}
               </div>
               <div>
                 <h2>{post.title}</h2>
@@ -60,6 +57,7 @@ const Blog = () => {
               </div>
             </article>
           </Link>
+
         ))}
       </div>
 
