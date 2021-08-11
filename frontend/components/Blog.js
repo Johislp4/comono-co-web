@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react"
 import { sanityClient } from "../lib/sanity"
 import CardPost from './CardPost'
+import Link from 'next/link'
 
 const Blog = ({ locale }) => {
 
@@ -46,86 +47,129 @@ const Blog = ({ locale }) => {
 						))
 						}
 					</div>
-					<a>
-						<span className="btn">{locale === 'es-CO' ? 'Ver todos' : 'More'}</span>
-						<span>
-							<img src="/row-right.svg" alt="row-right" />
-						</span>
-					</a>
+					<Link href="/blog" passHref>
+						<a>
+							<span className="btn">{locale === 'es-CO' ? 'Ver todos' : 'More'}</span>
+							<span>
+								<img src="/row-right.svg" alt="row-right" />
+							</span>
+						</a>
+					</Link>
+
 				</div>
 			</div>
 
 			<style jsx>{`
-			.bg-green{
-				background:#B3D172;
+			.bg-green {
+				background: #b3d172;
 			}
-
-			.container{
-				display:flex;
-				max-width:60rem;
+			
+			.container {
+				display: flex;
+				max-width: 60rem;
 				height: 100vh;
 				margin: 0 auto;
 			}
-
-			.container > div:first-child{
-				display:flex;
-				position:relative;
-				width:50%;
+			
+			.container > div {
+				width: 50%;
+			}
+			.container > div:first-child {
+				display: flex;
+				position: relative;
 				border-right: 2px solid black;
 				align-items: center;
 			}
-
-			.container > div:nth-child(2){
+			
+			.container > div:nth-child(2) {
 				display: flex;
 				flex-direction: column;
 				justify-content: center;
-				width:50%;
 			}
-
-			.section-title{
+			
+			.section-title {
 				color: white;
 				font-size: 12rem;
 				font-weight: bolder;
 				transform: rotate(270deg);
 				position: absolute;
-    		left: -8rem;
-    		margin-left: 2rem;
+				left: -8rem;
+				margin-left: 2rem;
 			}
-
-			.section-text{
-				display:flex;
-				flex-direction:column;
-				justify-content:space-between;
+			
+			.section-text {
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
 				height: 200px;
 				margin-left: 9rem;
 				margin-top: 9rem;
-				z-index: 200;	
+				z-index: 200;
 			}
-
-			.section-text p:first-child{
-				font-size:2.5rem
+			
+			.section-text p:first-child {
+				font-size: 2.5rem;
 			}
-
-			.section-text > div p:nth-child(2){
-				font-size:3rem;
-				font-weight:bold;
+			
+			.section-text > div p:nth-child(2) {
+				font-size: 3rem;
+				font-weight: bold;
 			}
-
-      .card-container {
+			
+			.section-text > p {
+				font-weight: 500;
+			}
+			
+			.card-container {
 				display: flex;
 				margin-left: -1.5rem;
-				margin-bottom:2rem;
+				margin-bottom: 2rem;
 			}
-
-			.btn{	
+			
+			.btn {
 				font-size: 1.5rem;
-				font-weight:600;
+				font-weight: 600;
 				margin-right: 8px;
 			}
-			a{
+			a {
 				align-self: flex-end;
+				color:black;
 			}
-
+			
+			@media (max-width: 760px) {
+				.container {
+					flex-direction: column;
+					padding-top: 5rem;
+					height: auto;
+					padding-bottom: 3rem;
+				}
+			
+				.container > div {
+					width: 100%;
+				}
+			
+				.container > div:first-child {
+					padding-top: 7rem;
+				}
+			
+				.container > div:nth-child(2) {
+					margin-top: 8rem;
+				}
+			
+				.section-text {
+					margin-top: -50px;
+					height: 150px;
+				}
+			
+				.card-container {
+					flex-direction: column;
+					align-items: center;
+				}
+				a {
+					margin-right: 1rem;
+				}
+			}
+			
       `}</style>
 		</div>
 	)

@@ -29,53 +29,89 @@ const CardPost = ({ post }) => {
         border-radius: 16px;
         background: white;
         flex-direction: column;
-        transition: .2s;
+        transition: 0.2s;
         margin: 0;
         box-shadow: 1px -1px 7px -1px rgba(3, 0, 0, 0.65);
         transform: rotate(353deg);
-        cursor:pointer;
+        cursor: pointer;
       }
-  
+      
       .mini-card:focus-within,
       .mini-card:hover {
         transform: translate(0, -1rem);
       }
-  
-      .mini-card:focus-within~.mini-card,
-      .mini-card:hover~.mini-card {
+      
+      .mini-card:focus-within ~ .mini-card,
+      .mini-card:hover ~ .mini-card {
         transform: translateX(90px);
       }
-  
+      
       .mini-card:not(:first-child) {
         margin-left: -100px;
       }
-  
+      
       .mini-card h2 {
         font-size: 20px;
-        margin: .25rem 0 auto;
-        color: #AC3F3F;
-        font-size:1.5rem;
+        margin: 0.25rem 0 auto;
+        color: #ac3f3f;
+        font-size: 1.5rem;
       }
-  
+      
       .mini-article-meta {
         margin: 2rem 0 0;
         display: grid;
         grid-template-columns: 60px 1fr;
         align-items: center;
-        color: #AC3F3F;
+        color: #ac3f3f;
       }
-  
+      
       .mini-article-meta .author-avatar img {
         width: 40px;
         height: 40px;
       }
-  
+      
       .author-avatar img {
         border-radius: 50%;
         width: 60px;
         height: 60px;
         margin: 12px 10px;
         filter: grayscale(100%);
+      }
+      
+      @media (max-width: 760px) {
+        .mini-card {
+          transform: rotate(0deg);
+          width: 230px;
+        }
+      
+        article.mini-card:first-child {
+          transform: rotate(10deg);
+          margin-top: -60px;
+          margin-left: 80px;
+        }
+      
+        article.mini-card:nth-child(2) {
+          margin-left: -70px;
+          transform: rotate(357deg);
+          margin-top: -170px;
+        }
+      
+        article.mini-card:nth-child(3) {
+          margin-top: -170px;
+          margin-left: 91px;
+          transform: rotate(357deg);
+        }
+      
+        .mini-card:focus-within ~ .mini-card,
+        .mini-card:hover ~ .mini-card {
+          transform: translatey(100px);
+        }
+      }
+
+      @media (max-width: 320px) {
+        .mini-card {
+          width: 200px;
+        }
       }
     
       `}</style>
