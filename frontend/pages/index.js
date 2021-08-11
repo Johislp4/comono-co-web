@@ -1,30 +1,25 @@
 import Head from "next/head";
 import { useRouter } from 'next/router'
-import styles from "../styles/Home.module.css";
-import { sanityClient, urlFor } from "../lib/sanity";
+import { sanityClient } from "../lib/sanity";
 import Banner from "../components/Banner.js";
 import Services from "../components/Services";
 import Team from "../components/Team";
 import Contact from "../components/Contact";
 import Project from "../components/Project";
 import Technologies from "../components/Technologies";
+import Blog from "../components/Blog";
 
-
-
-export default function Home({ dataHome  }) {
+export default function Home({ dataHome }) {
 
   const router = useRouter()
   const { locale } = router
-
-  const data = locale === 'es-CO' ? dataHome['es-CO'] :  dataHome['en-US']
-
+  const data = locale === 'es-CO' ? dataHome['es-CO'] : dataHome['en-US']
   const banner = data.dataHome[0].banner;
   const bio = {
     title: data.dataHome[0].bioTitle,
     imageTeam: data.dataHome[0].imageTeam,
     description: data.dataHome[0].description,
   };
-
   const { projects } = data.dataHome[0];
   const { form } =  data.dataHome[0]
   
@@ -34,17 +29,17 @@ export default function Home({ dataHome  }) {
         <title>Comono Colombia</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
       <Banner text={banner} />
       <Services dataService={data.dataService} locale={locale} />
       <Technologies />
       <Team bio={bio} locale={locale} />
       <Project projectList={projects} />
       <Contact textForm = {form} locale={locale} />
+      <Contact locale={locale} />
+      <Blog locale={locale}/>
     </div>
   );
 }
-
 
 const queryHome = `*[_type == 'home']{
   _id,
@@ -91,23 +86,21 @@ const queryServiceEnglish = `*[_type == 'serviceEnglish']{
  'detailDescription': completeService
 }`
 
-  
-
-
 export async function getStaticProps() {
-  
-  
+
   const dataHome = await sanityClient.fetch(queryHome);
-  const dataHomeEnglish = await  sanityClient.fetch(queryHomeEnglish)
+  const dataHomeEnglish = await sanityClient.fetch(queryHomeEnglish)
   const dataService = await sanityClient.fetch(queryService);
   const dataServiceEnglish = await sanityClient.fetch(queryServiceEnglish);
 
-  return { 
-      props: { 
-              'dataHome': { 'es-CO': {dataHome,dataService}, 
-                      'en-US': {dataHome: dataHomeEnglish, dataService: dataServiceEnglish }
-                    }
-              }, 
-            
-                revalidate: 10 };
+  return {
+    props: {
+      'dataHome': {
+        'es-CO': { dataHome, dataService },
+        'en-US': { dataHome: dataHomeEnglish, dataService: dataServiceEnglish }
+      }
+    },
+
+    revalidate: 10
+  };
 }
