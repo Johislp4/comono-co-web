@@ -35,7 +35,6 @@ export default function Home({ dataHome }) {
       <Team bio={bio} locale={locale} />
       <Project projectList={projects} />
       <Contact textForm = {form} locale={locale} />
-      <Contact locale={locale} />
       <Blog locale={locale}/>
     </div>
   );
