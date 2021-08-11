@@ -149,7 +149,9 @@ const Blog = ({ locale }) => {
 				}
 			
 				.container > div:first-child {
-					padding-top: 7rem;
+					height: 26rem;
+    				border-bottom: 2px solid black;
+   					 border-right: none;
 				}
 			
 				.container > div:nth-child(2) {
@@ -164,6 +166,7 @@ const Blog = ({ locale }) => {
 				.card-container {
 					flex-direction: column;
 					align-items: center;
+					margin-top: -10rem;
 				}
 				a {
 					margin-right: 1rem;
