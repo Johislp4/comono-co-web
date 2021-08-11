@@ -5,8 +5,6 @@ import ES from '../utils/ES'
 
 const Contact = ({locale, textForm}) => {
 
-  const {head, message} = textForm
-
   return (
     <>
       <div className="container">
@@ -15,11 +13,11 @@ const Contact = ({locale, textForm}) => {
         <section className="container-form">
           <div className="left-form">
             <div className="message-one">
-              <h1>{head}</h1>
+              <h1>{textForm?.head}</h1>
             </div>
 
             <div className="message-two">
-              {message}
+              {textForm?.message}
             </div>
           </div>
 
