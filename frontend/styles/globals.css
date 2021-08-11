@@ -80,3 +80,16 @@ div > *{
 }
 
 /*End BlockContent component styles */
+
+input {
+  font-family:inherit;
+  font-size: 1rem;
+}
+
+*::-webkit-input-placeholder {
+  font-size: 1rem;
+}
+
+*::-moz-placeholder {
+  font-size: 1rem;
+}

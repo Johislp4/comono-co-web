@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { sanityClient } from "../lib/sanity"
-import CardPost from './CardPost'
+import CardBlog from './CardBlog'
 import Link from 'next/link'
 
 const Blog = ({ locale }) => {
@@ -43,7 +43,7 @@ const Blog = ({ locale }) => {
 				<div>
 					<div className="card-container">
 						{blogData.map((post, index) => (
-							<CardPost post={post} key={index} />
+							<CardBlog post={post} key={index} />
 						))
 						}
 					</div>
