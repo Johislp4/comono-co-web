@@ -86,6 +86,10 @@ input {
   font-size: 1rem;
 }
 
+input:focus {
+  outline: none;
+}
+
 *::-webkit-input-placeholder {
   font-size: 1rem;
 }
