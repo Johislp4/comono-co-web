@@ -1,32 +1,14 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { sanityClient } from "../../lib/sanity";
+import { useRouter } from "next/router";
 import Link from 'next/link'
 import CardPost from '../../components/CardPost';
 
-const Blog = () => {
+export default function Blog({ data }) {
 
-  const [blogData, setBlogData] = useState([])
+  const { locale } = useRouter();
+  const blogData = locale === 'es-CO' ? data['es-CO'] : data['en-US'];
   const [search, setsearch] = useState("")
-
-  useEffect(() => {
-    sanityClient.fetch(`*[_type == "post"] | order(publishedAt desc){
-            title,
-            slug,
-            mainImage{
-                asset->{
-                    _id,
-                    url
-                },
-                alt
-            },
-            summary,
-            publishedAt,
-            'name': author->name,
-            'authorImage': author->image
-        }`)
-      .then((data) => setBlogData(data))
-      .catch(console.error)
-  }, [])
 
   if (blogData.length === 0) return <div>Loading...</div>
 
@@ -34,11 +16,10 @@ const Blog = () => {
     return post.title.toLowerCase().includes(search.toLowerCase())
   })
 
-
   return (
     <div className="bg-green">
       <div className="main-container">
-        <h1>Artículos</h1>
+        <h1>{locale === 'es-CO' ? 'Artículos' : 'Articles'}</h1>
         <div className="search-bar">
           <input
             type="text"
@@ -47,7 +28,7 @@ const Blog = () => {
           />
           <div>
             <img src="/search.png" alt="search" />
-            <p>Buscar</p>
+            <p>{locale === 'es-CO' ? 'Buscar' : 'Search'}</p>
           </div>
         </div>
         <div className='container-post'>
@@ -60,11 +41,14 @@ const Blog = () => {
               </Link>
             })
           ) : (
-            <h2>No hay resultados para la búsqueda</h2>
+            <h2>{locale === 'es-CO'
+              ? 'No hay resultados para la búsqueda'
+              : 'No search results'}</h2>
           )}
         </div>
 
       </div>
+
       <style jsx>{`
       .bg-green {
         background: #b3d172;
@@ -130,4 +114,47 @@ const Blog = () => {
   )
 }
 
-export default Blog
+const queryBlogData = `*[_type == "post"] | order(publishedAt desc){
+  title,
+  slug,
+  mainImage{
+      asset->{
+          _id,
+          url
+      },
+      alt
+  },
+  summary,
+  publishedAt,
+  'name': author->name,
+  'authorImage': author->image
+}`
+
+const queryBlogDataEnglish = `*[_type == "postEnglish"] | order(publishedAt desc){
+title,
+slug,
+mainImage{
+    asset->{
+        _id,
+        url
+    },
+    alt
+},
+summary,
+publishedAt,
+'name': author->name,
+'authorImage': author->image
+}`
+
+export async function getStaticProps() {
+  const response = await sanityClient.fetch(queryBlogData);
+  const responseEnglish = await sanityClient.fetch(queryBlogDataEnglish);
+  return {
+    props: {
+      'data': {
+        'es-CO': [...response],
+        'en-US': [...responseEnglish]
+      }
+    }, revalidate: 10
+  };
+}
