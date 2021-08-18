@@ -42,5 +42,11 @@ export default {
         description: "Link of the project",
       }
     ],
+    preview: {
+      select: {
+        title: 'name',
+        media: 'image',
+      },
+    }
   };
   

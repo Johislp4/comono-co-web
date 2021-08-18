@@ -29,8 +29,27 @@ export default {
               to: [{ type: "service" }],
             },
           ],
+          preview:{
+            select:{
+              title: "service.name",
+              name: "service.name",
+              media: "service.image",
+            },
+            prepare({
+              title, 
+              name,
+              media
+            }){
+              return{
+                title,
+                name,
+                media
+              }
+            }
+          }
         },
       ],
+     
     },
     {
       name:'bio',
@@ -81,8 +100,27 @@ export default {
               type: 'reference',
               to:[{type:'project'}]
             }
-          ]
-        }
+          ],
+          preview:{
+            select:{
+              title: "project.name",
+              name: "project.name",
+              media: "project.image",
+            },
+            prepare({
+              title, 
+              name,
+              media
+            }){
+              return{
+                title,
+                name,
+                media
+              }
+            }
+          }
+        },
+        
       ]
     },
     {
@@ -105,5 +143,6 @@ export default {
       ],
     },
   ],
+  
   
 };
