@@ -1,12 +1,17 @@
 import React from 'react'
 import { useRouter } from 'next/router'
 import ContactForm from "../components/ContactForm";
+import ES from '../utils/ES'
+import EN from '../utils/EN'
 
 const Contact = () => {
 	const router = useRouter()
 	const { locale } = router
 
-	const textform = { head: 'Gracias por llegar hasta aqui', message: 'Nos comunicaremos lo antes posible' }
+	const textForm = {
+    ES:{head: 'Gracias por llegar hasta aqui', message: 'Nos comunicaremos lo antes posible'},
+    EN:{head: 'Thank you for coming up to here', message: 'Send us your details and we will contact you'}
+  }
 
 	return (
 		<>
@@ -15,22 +20,22 @@ const Contact = () => {
 					<img className="contact-title" src="contact-title.svg" alt="contact-title" />
 				</div>
 				<div className="main-container">
-					<p className="subtitle">Contáctanos</p>
+					<p className="subtitle">{ locale === 'es-CO' ? ES.contact.touch_subtitle  : EN.contact.touch_subtitle}</p>
 				</div>
 				<section className="location-section main-container">
 					<div className="data-container">
 						<div>
 							<div className="contact-data">
-								<p><strong>E-mail</strong></p>
+								<p><strong>{ locale === 'es-CO' ? ES.contact.email  : EN.contact.email}</strong></p>
 								<div >
-									<img src="envelope-icon.svg" alt="" />
+									<img src="envelope-icon.svg" alt="envelope-icon" />
 									<p>hello@comono.co</p>
 								</div>
 							</div>
 							<div className="contact-data">
-								<p><strong>Contacto</strong></p>
+								<p><strong>{ locale === 'es-CO' ? ES.contact.contact  : EN.contact.contact}</strong></p>
 								<div>
-									<img src="/ring-icon.svg" alt="" />
+									<img src="/ring-icon.svg" alt="ring-icon" />
 									<p>keren@comono.co</p>
 								</div>
 							</div>
@@ -38,15 +43,15 @@ const Contact = () => {
 							<div className="contact-data">
 								<p><strong>Whatsapp</strong></p>
 								<div>
-									<img src="/whatsapp.svg" alt="" />
-									<p>+57 310 467 4866</p>
+									<img src="/whatsapp.svg" alt="whats-icon" />
+									<p>+57 313 580 5122</p>
 								</div>
 							</div>
 
 							<div className="contact-data">
-								<p><strong>Ubicación</strong></p>
+								<p><strong>{ locale === 'es-CO' ? ES.contact.location  : EN.contact.location}</strong></p>
 								<div>
-									<img src="/location-button.svg" alt="" />
+									<img src="/location-button.svg" alt="location-icon" />
 									<p>Selina Medellín</p>
 								</div>
 							</div>
@@ -56,14 +61,14 @@ const Contact = () => {
 						<div>
 							<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d991.6052979452919!2d-75.56451626108506!3d6.208044369457274!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e442828108b8341%3A0xddac84f16063b76c!2sSelina%20Medellin!5e0!3m2!1sen!2sco!4v1629244050182!5m2!1sen!2sco" loading="lazy"></iframe>
 						</div>
-						<p>Agenda tu cita previamente</p>
+						<p>{ locale === 'es-CO' ? ES.contact.message  : EN.contact.message}</p>
 					</div>
 				</section>
 
 				<div className="main-container">
-					<p className="subtitle">Déjanos tus datos</p>
+					<p className="subtitle">{ locale === 'es-CO' ? ES.contact.data_subtitle  : EN.contact.data_subtitle}</p>
 				</div>
-				<ContactForm textForm={textform} locale={locale} />
+				<ContactForm textForm={textForm} locale={locale} />
 
 			</div>
 

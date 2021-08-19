@@ -5,21 +5,24 @@ import ES from '../utils/ES'
 
 const ContactForm = ({locale, textForm, title}) => {
 
-  console.log('textForm', textForm)
-
   return (
     <>
       <div className="container">
-        {title && <h1 id="form">{ locale === 'es-CO' ? ES.form.title  : EN.form.title  } </h1>}
-
+        {title && <h1 id="form">{ locale === 'es-CO' ? ES.form.title  : EN.form.title} </h1>}
         <section className="container-form">
           <div className="left-form">
             <div className="message-one">
-              <h1>{textForm?.head}</h1>
+            <h1>{textForm.ES 
+            ? (locale === 'es-CO' ? textForm.ES.head  : textForm.EN.head)
+            :
+            textForm?.head}</h1>
             </div>
 
             <div className="message-two">
-              {textForm?.message}
+            {textForm.ES 
+            ? (locale === 'es-CO' ? textForm.ES.message  : textForm.EN.message)
+            :
+            textForm?.message}
             </div>
           </div>
 
