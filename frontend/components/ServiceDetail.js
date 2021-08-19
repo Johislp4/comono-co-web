@@ -9,7 +9,7 @@ const ServiceDetail = ({ data }) => {
       <section className="service-container"  >
         {serviceInfo ? serviceInfo.map((item) =>
           item.description.length != 0 ? (
-            <div className="d-flex">
+            <div className="service-container-mobile d-flex">
               <div className="service-container-info" style={item.order === 0 ? {order:1} : {order:2}}>
                 <div className={(item.order === 0) ? 'order-one d-flex' : 'order-two d-flex'}>
                   <div className="block"></div>
@@ -76,6 +76,38 @@ const ServiceDetail = ({ data }) => {
         .image > img {
           width: 100%;
           height: 100%;
+        }
+
+        @media(max-width: 540px){
+          .service-container-info,
+          .service-container-image {
+            width: 100%;
+            flex-wrap: wrap;
+            }
+
+            .service-container-mobile{
+              width: 100%;
+            flex-wrap: wrap;
+            }
+
+            .image {
+               max-width: 100%;
+                width: 100%;
+        }
+        .order-one {
+         
+          justify-content: space-evenly;
+        }
+        .order-two {
+          width: 100%;
+          max-width: 100%;
+          
+        }
+
+        .service-container-text{
+          max-width: 100%;
+        }
+
         }
       `}</style>
     </>

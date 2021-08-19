@@ -1,6 +1,15 @@
 import React from "react";
+import { useWindowSize } from "../hooks/useWindowSize";
+
 
 const ServiceSoftware = () => {
+
+  const windowSize = useWindowSize();
+
+
+
+
+
   return (
     <>
       <div className="container d-flex">
@@ -10,7 +19,11 @@ const ServiceSoftware = () => {
         </div>
         <div className="container-custom-soft">
           <div className="container-img">
-            <img alt="custom-soft" src="/apple-fit.png"/>
+            
+           { windowSize.width > 540 ? <img alt="custom-soft" src="/apple-fit.png"/> : null }
+            
+            
+            
           </div>
           <div className="custom-soft">
             <h1>Software a la medida</h1>
@@ -21,8 +34,12 @@ const ServiceSoftware = () => {
               cuáles son funcionales para tu tipo de empresa, así, adquieres el
               que realmente necesites.
             </p>
+         
+           
           </div>
         </div>
+          { windowSize.width < 540 ? <img className="custom-soft-img" alt="custom-soft" src="/apple-fit.png"/> : null }
+        
       </div>
       <style jsx>{`
         .container {
@@ -73,7 +90,7 @@ const ServiceSoftware = () => {
           margin-bottom: 2rem;
         }
 
-        .custom-soft >  p, .jsx-2498948556{
+        .custom-soft >  p{
           line-height: 1.5;
         }
 
@@ -100,6 +117,33 @@ const ServiceSoftware = () => {
         }
         .container-img img{
           width:100%;
+        }
+        @media(max-width: 540px){
+
+          .container{
+            flex-direction: column;
+            align-items: center;
+          }
+          .container-img{
+            width: auto;
+          }
+
+          .container-standard-soft,
+          .container-custom-soft{
+   
+            width: 100%;
+            margin: 3rem auto;
+          }
+
+          .vs{
+            top:-30%;
+            left:30%;
+            height: 50px;
+          }
+
+          .custom-soft-img{
+            width:80%;
+          }
         }
       `}</style>
     </>

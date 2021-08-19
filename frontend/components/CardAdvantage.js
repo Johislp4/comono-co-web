@@ -21,10 +21,10 @@ const CardAdvantage = ({advantageItem}) => {
 
         <style jsx>{`
             .card-container{
-                width:250px;
-         
-                padding: 1rem;
-                margin:1rem auto 1rem .2rem;
+                width:350px;
+                
+                padding: 1.2rem;
+                margin:2rem 1rem 1rem .2rem;
                
             }
             .card-photo{
@@ -77,6 +77,12 @@ const CardAdvantage = ({advantageItem}) => {
             .service-advantage-pic{
                 width: 100%;
                 height: 100%;
+            }
+
+            @media(max-width: 540px){
+                .card-container{
+                width:250px;
+                }
             }
         
         `}</style>

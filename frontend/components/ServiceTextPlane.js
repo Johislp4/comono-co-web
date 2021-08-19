@@ -70,6 +70,13 @@ const ServiceTextPlane = () => {
           -moz-column-gap: 40px;
           column-gap: 40px;
         }
+
+        @media(max-width: 540px){
+          .service-container{
+            padding:2rem;
+          }
+
+        }
       `}</style>
     </>
   );

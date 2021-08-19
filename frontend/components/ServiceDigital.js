@@ -66,8 +66,6 @@ const ServiceDigital = ({
             [col-end];
           position: relative;
           min-height: 100vh;
-        
-          
           margin: auto;
         }
 
@@ -170,6 +168,42 @@ const ServiceDigital = ({
           height: 3px;
           min-width: 7rem;
           background: black;
+        }
+
+        @media(max-width: 540px){
+          .bg{
+            display:flex;
+            flex-wrap: wrap;
+          }
+          .left-side{
+            min-height: 400px;
+          }
+
+          .right-side{
+          overflow: hidden;
+        }
+
+        .title-word{
+          font-size: 2rem;
+        }
+        .one{
+          top:20%;
+        }
+        .two{
+          top:35%;
+        }
+        .three{
+          top:53%;
+        }
+        .four{
+          top:70%;
+        }
+        }
+
+        
+
+
+
         }
       `}</style>
     </>

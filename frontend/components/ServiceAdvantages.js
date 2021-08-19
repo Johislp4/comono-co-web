@@ -13,7 +13,7 @@ const ServiceAdvantages = ({ advantages }) => {
 
         </div>
        
-        <section className="d-flex">
+        <section className="service-advantage-container  d-flex">
            { serviceAdvantage.legth != 0 ? serviceAdvantage.map( ( advantageItem, index) => {
              return (  <CardAdvantage key={index} advantageItem={advantageItem}/> )
            })
@@ -24,17 +24,32 @@ const ServiceAdvantages = ({ advantages }) => {
       <style jsx>{`
         .title{
             position:relative;
-            margin-left: 10rem;
+            margin-left: 5rem;
         }
 
         .title:before{
             content:"";
-            width: 70px;
+            width: 5vw;
+            max-width: 4rem;
             height: 30px;
             background: #7FD9E3;
             position:absolute;
             top:0;
             left:-5rem;
+        }
+
+        .service-advantage-container{
+          margin-left:1rem;
+          overflow-x: scroll;
+        }
+
+        @media(max-width: 540px){
+
+          
+            h1 , h3 {
+              width: 90%;
+            }
+          
         }
       
       `}</style>
