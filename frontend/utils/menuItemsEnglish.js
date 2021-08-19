@@ -27,7 +27,7 @@ const menuItemsEnglish = [
       id:5,
       title: "Contact",
       className: "menu-list-item",
-      url: "#",
+      url: "/contacto",
     }
   ];
 

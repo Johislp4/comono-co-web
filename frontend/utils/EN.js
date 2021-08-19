@@ -17,8 +17,15 @@ const EN = {
         contact: 'Contact',
         socialMedia : 'Follow us on Social Media',
         policy: 'Privacy Policies - 2021 Comono'
+    },
+    contact: {
+      touch_subtitle: 'Get in touch',
+      data_subtitle: 'Your data',
+      email:'Email',
+      contact: 'Contact',
+      location: 'Location',
+      message: 'Schedule your appointment'
     }
   };
-  
   
   export default EN;

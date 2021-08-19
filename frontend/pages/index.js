@@ -4,7 +4,7 @@ import { sanityClient } from "../lib/sanity";
 import Banner from "../components/Banner.js";
 import Services from "../components/Services";
 import Team from "../components/Team";
-import Contact from "../components/Contact";
+import ContactForm from "../components/ContactForm";
 import Project from "../components/Project";
 import Technologies from "../components/Technologies";
 import Blog from "../components/Blog";
@@ -34,7 +34,7 @@ export default function Home({ dataHome }) {
       <Technologies />
       <Team bio={bio} locale={locale} />
       <Project projectList={projects} />
-      <Contact textForm = {form} locale={locale} />
+      <ContactForm textForm = {form} locale={locale} title/>
       <Blog locale={locale}/>
     </div>
   );

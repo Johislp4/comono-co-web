@@ -13,9 +13,17 @@ const ES = {
     button: 'Enviar'
   },
   footer: {
-      contact: 'Contactanos',
+      contact: 'Contáctanos',
       socialMedia : 'Siguenos en nuestras redes sociales',
       policy: 'Polítcas de privacidad - 2021 Comono'
+  },
+  contact: {
+    touch_subtitle: 'Contáctanos',
+    data_subtitle: 'Déjanos tus datos',
+    email:'Correo',
+    contact: 'Contacto',
+    location: 'Ubicación',
+    message: 'Agenda tu cita previamente'
   }
 };
 
