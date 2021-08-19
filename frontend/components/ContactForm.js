@@ -1,14 +1,16 @@
 import React from 'react'
-import Form from '../components/Form'
+import Form from './Form'
 import EN from '../utils/EN'
 import ES from '../utils/ES'
 
-const Contact = ({locale, textForm}) => {
+const ContactForm = ({locale, textForm, title}) => {
+
+  console.log('textForm', textForm)
 
   return (
     <>
       <div className="container">
-        <h1 id="form">{ locale === 'es-CO' ? ES.form.title  : EN.form.title  } </h1>
+        {title && <h1 id="form">{ locale === 'es-CO' ? ES.form.title  : EN.form.title  } </h1>}
 
         <section className="container-form">
           <div className="left-form">
@@ -138,4 +140,4 @@ const Contact = ({locale, textForm}) => {
   )
 }
 
-export default Contact
+export default ContactForm
