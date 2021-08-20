@@ -24,6 +24,13 @@ const ES = {
     contact: 'Contacto',
     location: 'Ubicación',
     message: 'Agenda tu cita previamente'
+  },
+  blog: {
+    title: 'Popular',
+    titleTwo: 'Por Mes',
+    message: "Patrocinado por:",
+    messageTwo: "Comono",
+    button: "Ver todos"
   }
 };
 

@@ -43,7 +43,7 @@ const services = ({dataService, locale}) => {
               <div className="text-service">
               <p>
               {dataService[0]?.description}
-              <Button url="/" locale={locale} />
+              <Button url="/servicios#nube" locale={locale} />
               </p> 
               </div>
             }
@@ -61,7 +61,7 @@ const services = ({dataService, locale}) => {
               <div className="text-service">
               <p>
               {dataService[2]?.description}
-              <Button url="/" />
+              <Button url="/servicios#web-app" />
               </p>
               </div>
             }
@@ -79,7 +79,7 @@ const services = ({dataService, locale}) => {
               <div className="text-service">
               <p>
                 {dataService[1]?.description}
-                <Button url="/" />
+                <Button url="/servicios#software" />
               </p>
              
               </div>
@@ -126,6 +126,9 @@ const services = ({dataService, locale}) => {
         background-position: top;
         font-weight:bold;
       }
+      .text-service{
+        padding-bottom: 1.5rem;
+      }
 
       .cloud-service{
         background-image: url('/services-blue-screen.svg');
@@ -170,11 +173,12 @@ const services = ({dataService, locale}) => {
       
       .service > div p {
         text-align: right;
-        height:18rem;
+        
         color: white;
         width: 66%;
         margin-right: 0;
         margin-left: auto;
+       
         padding-top:2rem;
         font-size: 1.5rem;
       }
@@ -195,6 +199,16 @@ const services = ({dataService, locale}) => {
 
       .bg-gray{
         font-size:1rem;
+      }
+
+      .head-service{
+        min-height: auto;
+      }
+
+      .head-service > img {
+        width: 50px;
+        margin-left: 1rem;
+        
       }
       `}</style>
     </main>

@@ -20,12 +20,14 @@ const Button = ({url, locale}) => {
             color: white;
             font-family:'Lexend Exa', sans-serif;
             font-weight:400;
+            
         }
             .btn{
                 padding: 0.5rem 1rem;
                 padding-right:0;
                 justify-content: flex-end;
                 margin-top: 2rem;
+                
                 
             }
 
@@ -34,6 +36,8 @@ const Button = ({url, locale}) => {
                 width: 3rem;
                 height: 3rem;
             }
+
+           
 
         `}</style>
 

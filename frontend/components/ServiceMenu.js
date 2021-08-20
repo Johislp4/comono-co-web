@@ -20,7 +20,7 @@ const ServiceMenu = () => {
                 <section className="service-container   service-nav  d-flex">
                     <nav>
                         <ul className="menu-list d-flex">
-                            <Link href="/">
+                            <Link href="#web-app">
                                 <a>
                                     <li className="arrow pink"><img src="/pink-arrow.svg" alt="pink-arrow" />
                                         <span>  
@@ -31,12 +31,12 @@ const ServiceMenu = () => {
                                     </li>
                                 </a>
                             </Link>
-                            <Link href="/">
+                            <Link href="#nube">
                                 <a>
                                     <li className="arrow blue"><img src="/blue-arrow.svg" alt="pink-arrow" /><span>Soluciones en la nube</span></li>
                                 </a>
                             </Link>
-                            <Link href="/">
+                            <Link href="#software">
                                 <a>
                                     <li className="arrow green"><img src="/green-arrow.svg" alt="pink-arrow" /><span>Software a la medida</span></li>
                                 </a>

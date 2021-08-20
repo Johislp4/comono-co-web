@@ -32,6 +32,7 @@ const servicios = ({ dataService }) => {
             four: "moviles",
           }}
           info={webSite}
+          id="web-app"
         />
         <section className="sticky">
           <ServiceNavBar />
@@ -46,6 +47,7 @@ const servicios = ({ dataService }) => {
           background="#94D2DD"
           word={{ one: "Soluciones,", two: "en", three: "la", four: "nube:" }}
           info={cloudSolution}
+          id = "nube"
         />
         <ServiceDetail data={cloudSolution} />
         
@@ -66,6 +68,7 @@ const servicios = ({ dataService }) => {
           marginLeft="-3rem"
           word={{ one: "Software,", two: "a", three: "la", four: "medida:" }}
           info={customSoftware}
+          id = "software"
         />
         <ServiceSoftware />
         <ServiceTextPlane />

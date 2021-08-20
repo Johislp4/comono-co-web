@@ -136,6 +136,14 @@ const Team = ({ bio, locale }) => {
         }
 
         @media (max-width: 540px) {
+          .parallax-container{
+            background-size: contain;
+            background-attachment: scroll;
+            width: 100vw;
+            min-height:400px;
+             
+          }
+
           .description{
            display:flex;
           }
@@ -151,16 +159,38 @@ const Team = ({ bio, locale }) => {
           }
 
           .head-wave-bottom {
-            width:100%;
-            margin-top:3rem;
+            width:100%;       
+          }
+
+          .bio-title{
+            font-size: 2rem;
           }
 
           .block {
-            width:70px;
+            width:40px;
+            height: 30px;
+            margin-right:30px;
+          }
+          
+          .wave-top{
+            top:-2px;
+          }
+          .wave-bottom {
+            background-image: none;
           }
 
-          .wave-bottom {
-            height: 30%;
+          .btn{
+            font-size:1.2rem !important;
+
+          }
+
+          button > span > img{
+            width: 20px;
+            padding-bottom: 0.3rem;
+           
+            
+          
+         
           }
         }
       `}</style>

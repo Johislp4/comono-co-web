@@ -6,17 +6,17 @@ const ServiceNavBar = () => {
     <>
       <nav>
         <ul className="d-flex">
-          <Link href="/">
+          <Link href="#nube">
             <a>
               <li className="menu-item-one d-flex">Soluciones en la nube</li>
             </a>
           </Link>
-          <Link href="/">
+          <Link href="#software">
             <a>
               <li className=" menu-item-two d-flex">Software a la medida</li>
             </a>
           </Link>
-          <Link href="/">
+          <Link href="#web-app">
             <a>
               <li className="menu-item-three d-flex">Páginas web, aplicaciones web y móviles</li>
             </a>

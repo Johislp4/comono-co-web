@@ -25,6 +25,13 @@ const EN = {
       contact: 'Contact',
       location: 'Location',
       message: 'Schedule your appointment'
+    },
+    blog: {
+      title: 'Popular',
+      titleTwo: 'By month',
+      message: "Sponsored by",
+      messageTwo: "Comono",
+      button: "Ver todos"
     }
   };
   

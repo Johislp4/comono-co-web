@@ -9,7 +9,8 @@ const ServiceDigital = ({
   rotate = "60deg",
   marginLeft = "0",
   word,
-  info
+  info,
+  id 
 }) => {
 
   
@@ -21,7 +22,7 @@ const ServiceDigital = ({
 
   return (
     <>
-      <section className="bg">
+      <section className="bg" id={id}>
         <div className="left-side">
           <div className="block"></div>
           <div className="service-title"> 

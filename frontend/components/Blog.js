@@ -2,10 +2,14 @@ import React, { useState, useEffect } from "react"
 import { sanityClient } from "../lib/sanity"
 import CardBlog from './CardBlog'
 import Link from 'next/link'
+import ES from "../utils/ES"
+import EN from "../utils/EN"
 
 const Blog = ({ locale }) => {
 
 	const [blogData, setBlogData] = useState([])
+
+	const text = locale === 'es-CO' ?  ES  : EN
 
 	useEffect(() => {
 		sanityClient.fetch(`*[_type == "post"] | order(publishedAt desc){
@@ -34,17 +38,27 @@ const Blog = ({ locale }) => {
 					<p className="section-title" >Blog</p>
 					<div className="section-text">
 						<div>
-							<p>Popular</p>
-							<p>By month</p>
+							<p>{text.blog.title}</p>
+							<p>{text.blog.titleTwo}</p>
 						</div>
-						<p>Sponsored by <br /> Frontend Masters</p>
+						<p>{text.blog.message} <br />{text.blog.messageTwo}</p>
 					</div>
 				</div>
-				<div>
+				<div className="right-side">
 					<div className="card-container">
-						{blogData.map((post, index) => (
-							<CardBlog post={post} key={index} />
-						))
+						{blogData  
+						?
+						blogData.map((post, index) => {
+							return (
+								<Link href={`/blog/${post?.slug?.current}`} passHref key={index}> 
+								<a>
+									<CardBlog post={post} key={index} />
+								</a>
+								</Link>
+							)
+						})
+
+						: 'null'
 						}
 					</div>
 					<Link href="/blog" passHref>
@@ -66,14 +80,16 @@ const Blog = ({ locale }) => {
 			
 			.container {
 				display: flex;
-				max-width: 60rem;
+				max-width: 64rem;
 				height: 100vh;
 				margin: 0 auto;
 			}
 			
 			.container > div {
 				width: 50%;
+				margin: 0 auto;
 			}
+		
 			.container > div:first-child {
 				display: flex;
 				position: relative;
@@ -124,6 +140,7 @@ const Blog = ({ locale }) => {
 				display: flex;
 				margin-left: -1.5rem;
 				margin-bottom: 2rem;
+				flex-wrap: wrap;
 			}
 			
 			.btn {
@@ -136,7 +153,7 @@ const Blog = ({ locale }) => {
 				color:black;
 			}
 			
-			@media (max-width: 760px) {
+			@media (max-width: 768px) {
 				.container {
 					flex-direction: column;
 					padding-top: 5rem;
@@ -167,9 +184,10 @@ const Blog = ({ locale }) => {
 					flex-direction: column;
 					align-items: center;
 					margin-top: -10rem;
+					flex-wrap: wrap;
 				}
 				a {
-					margin-right: 1rem;
+					margin-right: 2rem;
 				}
 			}
 			

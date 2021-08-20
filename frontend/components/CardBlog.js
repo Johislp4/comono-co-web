@@ -23,7 +23,7 @@ const CardBlog = ({ post }) => {
       .mini-card {
         display: flex;
         justify-content: space-between;
-        max-width: 250px;
+        max-width: 170px;
         min-height: 300px;
         padding: 1.5rem;
         border-radius: 16px;
@@ -54,7 +54,7 @@ const CardBlog = ({ post }) => {
         font-size: 20px;
         margin: 0.25rem 0 auto;
         color: #ac3f3f;
-        font-size: 1.5rem;
+        font-size: 1rem;
       }
       
       .mini-article-meta {
