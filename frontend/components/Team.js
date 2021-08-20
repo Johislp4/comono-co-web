@@ -1,4 +1,5 @@
 import React from "react";
+import Link from 'next/link'
 import { PortableText } from "../lib/sanity";
 
 const Team = ({ bio, locale }) => {
@@ -21,12 +22,17 @@ const Team = ({ bio, locale }) => {
       <div className="description">
         <div className="portableText">
           <PortableText blocks={bio?.description} />
+          <Link href ="/nosotros">
+          <a>
           <button>
             <span className="btn">{ locale === 'es-CO' ? 'Descubre más' : 'More' }</span>
             <span>
               <img src="/row-right.svg" alt="row-right" />
             </span>
           </button>
+          </a>
+          
+          </Link>
         </div>
       </div>
 
@@ -116,6 +122,7 @@ const Team = ({ bio, locale }) => {
           font-family: 'Lexend Exa', sans-serif;
           font-size: 1.5rem;
           font-weight:600;
+          cursor: pointer;
         }
 
         .portableText{
@@ -133,6 +140,7 @@ const Team = ({ bio, locale }) => {
           border:none;
           font-size: 2.5rem;
           padding: 0.5rem  1rem  0.5rem 0;
+          cursor: pointer;
         }
 
         @media (max-width: 540px) {

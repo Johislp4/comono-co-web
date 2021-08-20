@@ -1,9 +1,10 @@
 import * as React from 'react';
 import { PortableText, urlFor } from "../lib/sanity";
 
-const CardText = ({textProps}) => {
+const CardText = ({textProps, locale }) => {
     const {project, i , haveShow, setHaveShow, size} = textProps;
   const element = React.useRef(null);
+
 
   React.useEffect(()=> {
     const observer = new  IntersectionObserver( entries => {
@@ -33,7 +34,7 @@ const CardText = ({textProps}) => {
         <PortableText blocks={project.description} /> 
        }
        <div className="technologies-key">
-         <b>Technologies:</b> {project?.technologies  &&  project.technologies.map( (techology, index ) => <span key={index}>{techology} &nbsp;</span>)}
+         <b>{locale === 'es-CO' ? `Tecnologías:`   : `Technologies:`  } </b> {project?.technologies  &&  project.technologies.map( (techology, index ) => <span key={index}>{techology} &nbsp;</span>)}
        </div>
       
        </div>

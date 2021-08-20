@@ -4,7 +4,7 @@ import CardImage from "./CardImage";
 import CardText from "./CardText";
 
 
-const Project = ({ projectList }) => {
+const Project = ({ projectList , locale}) => {
 
   const [ haveShow, setHaveShow ] = React.useState({0:false, 1:false, 2:false, 3:false})
   const size = useWindowSize()
@@ -21,7 +21,7 @@ const Project = ({ projectList }) => {
         <div className="right-text">
          
           {projectList.map((project, i) => (
-            <CardText textProps={{ project, i, haveShow, setHaveShow, size }} key={i}/>
+            <CardText textProps={{ project, i, haveShow, setHaveShow, size }} key={i} locale={locale} />
             
           ))}
         </div>

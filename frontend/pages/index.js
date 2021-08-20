@@ -33,7 +33,7 @@ export default function Home({ dataHome }) {
       <Services dataService={data.dataService} locale={locale} />
       <Technologies />
       <Team bio={bio} locale={locale} />
-      <Project projectList={projects} />
+      <Project projectList={projects} locale={locale}/>
       <ContactForm textForm = {form} locale={locale} title/>
       <Blog locale={locale}/>
     </div>
