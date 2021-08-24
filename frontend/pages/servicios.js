@@ -15,13 +15,12 @@ const servicios = ({ dataService }) => {
   return (
     <>
       <ServiceMenu />
-
-      {/* Website and App */}
-      <>
+ 
+      
         <ServiceDigital
           borderRadius="45%"
-          minHeight="40vh"
-          minWidth="150%"
+          minHeight="70vh"
+          minWidth="100%"
           background="#CEAED6"
           rotate="15deg"
           marginLeft="-2rem"
@@ -30,43 +29,45 @@ const servicios = ({ dataService }) => {
             two: "aplicaciones",
             three: "web y",
             four: "moviles",
+            color: "#C473CB" 
           }}
           info={webSite}
           id="web-app"
         />
-        <section className="sticky">
+        {/* <section className="sticky">
           <ServiceNavBar />
-        </section>
+        </section> */}
+         
 
-        <ServiceDetail data={webSite} />
-      </>
+        <ServiceDetail data={webSite} color="#C473CB" />
+     
 
-      {/* //Cloud Solution */}
+      
       <>
         <ServiceDigital 
           background="#94D2DD"
-          word={{ one: "Soluciones,", two: "en", three: "la", four: "nube:" }}
+          word={{ one: "Soluciones,", two: "en", three: "la", four: "nube:", color: "#04ACC5"}}
           info={cloudSolution}
           id = "nube"
         />
         <ServiceDetail data={cloudSolution} />
         
-        <div className="service-detail">
+        <section className="service-detail">
           <ServiceAdvantages advantages={cloudSolution} />
-        </div>
+        </section>
       </>
 
-      {/* //Custom Software */}
+
 
       <>
         <ServiceDigital
           borderRadius="45%"
           minHeight="60vh"
-          minWidth="150%"
+          minWidth="80%"
           background="#C6ED88"
           rotate="30deg"
           marginLeft="-3rem"
-          word={{ one: "Software,", two: "a", three: "la", four: "medida:" }}
+          word={{ one: "Software,", two: "a", three: "la", four: "medida:", color: "#AFD342" }}
           info={customSoftware}
           id = "software"
         />
@@ -76,18 +77,29 @@ const servicios = ({ dataService }) => {
       </>
       <style jsx>{`
         .sticky {
-          float:right;
+          /* max-width:80rem;
           position: sticky;
-          margin-top: -200px;
-          top: 94vh;
-          z-index: 10;
+          margin-top: -100px;
+          top: 91vh;
+          margin:auto;
+          z-index:1; */
         }
 
         .service-detail {
           overflow-y: none;
-          overflow-x: scroll;
+          overflow-x: hidden;
           padding-top:2rem;
           margin-top:2rem;
+      
+        }
+
+        @media(max-width:540px){
+          .sticky {
+            position:sticky;
+            bottom:0;
+          }
+          
+
         }
       `}</style>
     </>

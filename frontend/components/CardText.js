@@ -81,7 +81,7 @@ const CardText = ({textProps, locale }) => {
      height: 0.2rem;
      background: white;
      position:absolute;
-     bottom: 0;
+     bottom: -5px;
      left:-3rem;
      z-index:3;
     }
@@ -90,8 +90,8 @@ const CardText = ({textProps, locale }) => {
       color:blue;
     }
     .description-project{
-      font-size: 1.2rem;
-      line-height : 1.5rem;
+      font-size: 1rem;
+      line-height : 1.4rem;
       font-family: 'Roboto', sans-serif;
     }
 

@@ -46,8 +46,10 @@ const ContactForm = ({locale, textForm, title}) => {
 
         .container > h1 {
            text-align:center;
-           font-size:3vw;
+           font-size:3.5vw;
            margin: 2rem;
+           font-family:'Lexend Exa', sans-serif;
+           font-weight: 500;
         }
         
 
@@ -61,6 +63,7 @@ const ContactForm = ({locale, textForm, title}) => {
           margin-bottom: 5rem;
           background: white;
           box-shadow: 0px 5px 20px 1px;
+          
         }
 
         .left-form{
@@ -80,6 +83,7 @@ const ContactForm = ({locale, textForm, title}) => {
         .message-one {
           display:flex;
           flex-wrap:wrap;
+         
         }
 
         .message-one > h1 {
@@ -88,6 +92,7 @@ const ContactForm = ({locale, textForm, title}) => {
           padding-bottom:1rem;
           font-family: 'Lexend Exa', sans-serif;
           font-size:2rem;
+          font-weight: 500;
         }
 
         .message-one > h1::after {
@@ -127,6 +132,7 @@ const ContactForm = ({locale, textForm, title}) => {
           }
           .container > h1 {
             font-size: 3.5rem;
+            margin:auto;
           }
           .message-one > h1,
           .message-two {

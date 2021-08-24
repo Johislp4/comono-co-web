@@ -61,7 +61,7 @@ const services = ({dataService, locale}) => {
               <div className="text-service">
               <p>
               {dataService[2]?.description}
-              <Button url="/servicios#web-app" />
+              <Button url="/servicios#web-app"  locale={locale} />
               </p>
               </div>
             }
@@ -79,7 +79,7 @@ const services = ({dataService, locale}) => {
               <div className="text-service">
               <p>
                 {dataService[1]?.description}
-                <Button url="/servicios#software" />
+                <Button url="/servicios#software"  locale={locale} />
               </p>
              
               </div>
@@ -113,7 +113,7 @@ const services = ({dataService, locale}) => {
           position:absolute;
           bottom:0;  
           font-family:'Lexend Exa', sans-serif;
-          font-size: 2.5rem;
+          font-size: 1.5rem;
           line-height: 3.125rem;
           display:flex;
           justify-content:center;
@@ -190,7 +190,7 @@ const services = ({dataService, locale}) => {
       .software-service{
         background-image: url('/services-green-screen.svg');
       }
-      }
+      
 
       @media (max-width: 540px) {
         .container-head{
@@ -208,8 +208,14 @@ const services = ({dataService, locale}) => {
       .head-service > img {
         width: 50px;
         margin-left: 1rem;
-        
       }
+
+      .service > div p {
+        font-size: 1.2rem;
+        padding-top: 0;
+        font-weight: 400;
+      }
+    }
       `}</style>
     </main>
   );

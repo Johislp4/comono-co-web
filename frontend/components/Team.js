@@ -70,7 +70,7 @@ const Team = ({ bio, locale }) => {
         }
 
         .head-wave-bottom {
-          width: 50%;
+          width: 40%;
           height: 100%;
           display: grid;
           grid-template-columns: [start-full] minmax(min-content, max-content) [main] minmax(
@@ -90,10 +90,12 @@ const Team = ({ bio, locale }) => {
         }
 
         .bio-title {
-          // grid-column: main / end-full;
+          grid-column: main / end-full;
           align-self: center;
           font-family:'Lexend Exa', sans-serif;
           font-size:3rem;
+          font-weight: 500;
+          margin-top: 1rem;
         }
 
         .image {
@@ -111,7 +113,7 @@ const Team = ({ bio, locale }) => {
           grid-template-columns: 
           [start-full] minmax(1rem, 130px) [main] minmax(0, 1fr) [end-full];
           grid-gap: 1rem;
-          font-family: 'Lexend Tera', sans-serif;
+          font-family:'Lexend Exa', sans-serif;
           font-size: 1.1rem;
           line-height: 1.5 ;
           font-weight:400;
@@ -121,7 +123,7 @@ const Team = ({ bio, locale }) => {
         .btn{
           font-family: 'Lexend Exa', sans-serif;
           font-size: 1.5rem;
-          font-weight:600;
+          font-weight:500;
           cursor: pointer;
         }
 
@@ -149,6 +151,8 @@ const Team = ({ bio, locale }) => {
             background-attachment: scroll;
             width: 100vw;
             min-height:400px;
+            margin-bottom: 1.5rem;
+            display: flex;
              
           }
 
@@ -185,6 +189,11 @@ const Team = ({ bio, locale }) => {
           }
           .wave-bottom {
             background-image: none;
+            
+            position: relative;
+            display:flex;
+            margin-top:auto;
+            margin-bottom:0;
           }
 
           .btn{

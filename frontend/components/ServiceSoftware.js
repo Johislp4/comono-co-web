@@ -71,9 +71,7 @@ const ServiceSoftware = () => {
          align-items:center;
           color: black;
         }
-        .container-standard-soft h1{
-          font-size:3rem;
-        }
+        
 
         .container-custom-soft {
           width: 50%;
@@ -84,14 +82,14 @@ const ServiceSoftware = () => {
             margin-top:2rem;
         }
 
-        .custom-soft h1{
+         h1{
           font-size:2.5rem;
-          
           margin-bottom: 2rem;
         }
 
         .custom-soft >  p{
           line-height: 1.5;
+          font-family:'Lexend Exa', sans-serif;
         }
 
         .vs{
@@ -101,7 +99,7 @@ const ServiceSoftware = () => {
             right:50%;
             left:40%;
             margin:auto;
-            width: 150px;
+            
             height:150px;
             background-image: url('/against.svg');
             background-size: contain;
@@ -111,8 +109,8 @@ const ServiceSoftware = () => {
 
         .container-img{
          height:auto;
-         max-width:25rem;
-         width:400px;
+         max-width:20rem;
+         
          
         }
         .container-img img{
@@ -123,6 +121,7 @@ const ServiceSoftware = () => {
           .container{
             flex-direction: column;
             align-items: center;
+            position: relative;
           }
           .container-img{
             width: auto;
@@ -136,9 +135,12 @@ const ServiceSoftware = () => {
           }
 
           .vs{
+            position: absolute;
+            width: 80px;
+            left:40%;
             top:-30%;
-            left:30%;
-            height: 50px;
+            
+            
           }
 
           .custom-soft-img{

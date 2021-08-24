@@ -26,6 +26,10 @@ const ServiceNavBar = () => {
 
       <style jsx>{`
 
+        nav{
+          margin-top: -10rem;
+        }
+
         ul{
           height: 60px;
         }
@@ -36,17 +40,31 @@ const ServiceNavBar = () => {
         }
 
         li {
-          
+          color: black;
           height: 100%;
           justify-content: center;
           align-items: center;
+          font-family:'Lexend Exa', sans-serif;
         }
 
         .menu-item-one{
-          background: #CD9AD8
+          background: #A6E2E2
         }
-        .menu-item-two{background: #A6E2E2}
-        .menu-item-three{background: #C6ED88}
+        .menu-item-two{ background:#C6ED88 }
+        .menu-item-three{background: #CD9AD8}
+
+        @media(max-width:540px){
+          nav{
+            margin-top: 0;
+            position: sticky;
+            top: 0;
+
+          }
+
+          ul{
+            flex-direction:column;
+          }
+        }
       `}</style>
     </>
   );

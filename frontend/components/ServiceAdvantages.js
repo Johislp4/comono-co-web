@@ -8,9 +8,8 @@ const ServiceAdvantages = ({ advantages }) => {
     return (
         <>
         <div className="title">
-        <h1>Las ventajas son inmensas,</h1>
-        <h3>Una de las mas significativas es que las soluciones en la nube te permiten:</h3>
-
+          <h1>Las ventajas son inmensas,</h1>
+          <h4>Una de las mas significativas es que las soluciones en la nube te permiten:</h4>
         </div>
        
         <section className="service-advantage-container  d-flex">
@@ -38,9 +37,18 @@ const ServiceAdvantages = ({ advantages }) => {
             left:-5rem;
         }
 
+        h1{
+          font-size:2rem;
+        }
+        h4{
+          font-size: 0.9rem;
+        }
+
         .service-advantage-container{
           margin-left:1rem;
           overflow-x: scroll;
+          width:100%;
+          
         }
 
         @media(max-width: 540px){

@@ -22,7 +22,7 @@ const CardAdvantage = ({advantageItem}) => {
         <style jsx>{`
             .card-container{
                 width:350px;
-                
+                font-family:'Lexend Exa', sans-serif;
                 padding: 1.2rem;
                 margin:2rem 1rem 1rem .2rem;
                
@@ -33,7 +33,7 @@ const CardAdvantage = ({advantageItem}) => {
                 width:inherit;
                 border-radius: 12px;
                 
-                transform: rotate(-5deg);
+                transform: rotate(-1deg);
 
             }
 
@@ -43,10 +43,8 @@ const CardAdvantage = ({advantageItem}) => {
 
             .card-number{
                 position:absolute;
-                top:-50px;
-                left:0;
-                
-               
+                top:-80px;
+                left:20px;
                 font-size: 7rem;
                 color: lightblue;
                
@@ -56,7 +54,7 @@ const CardAdvantage = ({advantageItem}) => {
             .card-number::before{
                 content:"";
                 position:absolute;
-                top:50%;
+                top:60%;
                 left:0;
                 height:1px;
                 width: 50px;
@@ -66,12 +64,15 @@ const CardAdvantage = ({advantageItem}) => {
 
             .card-title{
                 text-align:center;
-                margin: 2rem auto;
-                margin-left: 4rem;
+                margin: 1rem auto 2rem auto;
+                margin-left: 5rem;
+                font-size:0.8rem;
+                font-weight: bold;
             }
 
             .card-excerpt{
-                margin: 1rem auto;
+                margin: 1rem 1rem 0 2rem;
+                font-size:0.8rem;
             }
 
             .service-advantage-pic{

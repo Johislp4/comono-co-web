@@ -17,7 +17,7 @@ const ServiceMenu = () => {
             <div className="bg-white">
             <div className="bg-banner"></div>
 
-                <section className="service-container   service-nav  d-flex">
+                <section className="  service-nav  d-flex">
                     <nav>
                         <ul className="menu-list d-flex">
                             <Link href="#web-app">
@@ -48,9 +48,11 @@ const ServiceMenu = () => {
         </section>
         <style jsx>{`
 
+        
+
         .bg-black{
             background:#191919;
-            height:60vh;
+            height:65vh;
         }
 
         .bg-white{
@@ -71,7 +73,9 @@ const ServiceMenu = () => {
         .service-container{
             max-width:64rem;
             margin:auto;
-            height:100%;
+            outline: solid white;
+            padding:2rem;
+            
         }
 
         .service-title{
@@ -84,7 +88,7 @@ const ServiceMenu = () => {
 
         .service-title-h1{
             font-weight:200;
-            font-size:7rem;
+            font-size:7vw;
         }
 
         .service-title-h2{
@@ -138,7 +142,19 @@ const ServiceMenu = () => {
         }
 
         @media(max-width: 540px){
-            
+
+            .bg-black, .bg-white{
+                height: calc(50vh - 80px);
+            }
+
+            .bg-black{
+                display:flex;
+            }
+
+            .service-nav{
+                height: 100%;
+            }
+
             .service-title{
                 padding:1rem;
             }
@@ -153,11 +169,10 @@ const ServiceMenu = () => {
 
             .bg-banner{
                 top:-56px;
+                z-index: 1;
             }
 
-            nav{
-                
-            }
+           
 
             .menu-list{
                 display:block;

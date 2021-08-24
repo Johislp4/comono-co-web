@@ -120,7 +120,7 @@ const Blog = ({ locale }) => {
 				height: 200px;
 				margin-left: 9rem;
 				margin-top: 9rem;
-				z-index: 200;
+				z-index: 9;
 			}
 			
 			.section-text p:first-child {

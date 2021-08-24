@@ -1,20 +1,41 @@
-import React from "react";
+import * as React from "react";
 import { PortableText, urlFor } from "../lib/sanity";
 
-const ServiceDetail = ({ data }) => {
+const ServiceDetail = ({ data, color}) => {
+
   const { serviceInfo } = data;
+
+ React.useEffect(()=>{
+  const h1 = document.querySelector(".service-container-text div h1")
+  const h2 = document.querySelectorAll(".service-container-text div h2")
+  const ul = document.querySelectorAll(".service-container-text div ul")
+  ul.forEach( ul => ul.style.marginBottom = '2rem' )
+  h2.forEach( h2 => {
+    h2.style.fontSize = '2rem'
+    h2.style.marginBottom = '2rem'
+  })
+  h1.style.color = color
+  h1.style.marginBottom = '2rem'
+  h1.style.fontSize = '2rem'
+  
+
+ }, [])
+
+
+
+
  
   return (
     <>
-      <section className="service-container"  >
+      <div className="service-container"  >
         {serviceInfo ? serviceInfo.map((item) =>
           item.description.length != 0 ? (
-            <div className="service-container-mobile d-flex">
+            <div className="service-container-mobile  d-flex">
               <div className="service-container-info" style={item.order === 0 ? {order:1} : {order:2}}>
                 <div className={(item.order === 0) ? 'order-one d-flex' : 'order-two d-flex'}>
-                  <div className="block"></div>
+                  <div className="block"  style={{ background: color}}></div>
                   <div className="service-container-text">
-                    <PortableText blocks={item.description} key={item._key} />
+                    <PortableText blocks={item.description} key={item._key}  />
                   </div>
                 </div>
               </div>
@@ -28,7 +49,7 @@ const ServiceDetail = ({ data }) => {
           ) : null
         ):
         null}
-      </section>
+      </div>
 
       <style jsx>{`
         .service-container {
@@ -49,27 +70,30 @@ const ServiceDetail = ({ data }) => {
         }
         .order-two {
           width: 100%;
-          max-width: 25rem;
+          max-width: 32rem;
         }
 
         .block {
           width: 5vw;
           height: 30px;
           max-width: 4rem;
-          background: #94d2dd;
           align-self: center;
         }
 
         .service-container-text {
-          max-width: 25rem;
+          max-width: 32rem;
           width: 100%;
           margin-right: 0;
           align-items: center;
-          padding: 2rem;
+          padding: 1.5rem;
+          font-family: Lexend Exa Regular;
+
         }
 
+       
+
         .image {
-          max-width: 25rem;
+          max-width: 32rem;
           width: 100%;
         }
 

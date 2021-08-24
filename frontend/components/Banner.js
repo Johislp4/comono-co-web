@@ -46,13 +46,11 @@ const Banner = ({ text }) => {
           .background-text{
           color: white;
           font-size: 5vw;
-          // font-size:3rem;
           font-family:'Lexend Exa', sans-serif;
-
-    
           width: 120%;
           position: relative;
           padding: 4rem 0;
+          font-weight: 400;
           }
 
           .banner-text{
@@ -60,7 +58,7 @@ const Banner = ({ text }) => {
             top:100px;
             left: 0;
             font-size:2.5vw;
-            font-weight: 700;
+            font-weight: 600;
             width: 50%;
             line-height: 1.5;
             color: black;

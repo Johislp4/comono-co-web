@@ -91,7 +91,7 @@ const NavBar = ({locale}) => {
             height: 80px;
             position: sticky;
             top: 0;
-            z-index: 2;
+            z-index: 10;
           }
 
           .menu-mobile {
