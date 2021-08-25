@@ -42,9 +42,9 @@ div > *{
   align-items: center;
 }
 
-body {
+/* body {
   overflow: overlay;
-}
+} */
 
 body::-webkit-scrollbar {
   width: 1.5rem;

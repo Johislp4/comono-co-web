@@ -8,115 +8,112 @@ const CardEmployee = ({ employee, index }) => {
 
   return (
     <>
-      <div
-        id={employee._id}
-        className="container"
-        ref={slide}
-        style={
+    <div className="container" style={
           employee?.backgroundColor && {
             background: `#${employee?.backgroundColor}`,
           }
-        }
-      >
-      <div className="slide">
-        {size.width >= "769" && (
-          <div
-            className="employee-image"
-            style={index % 2 === 0 ? { order: "0" } : { order: "1" }}
-          >
-            {employee?.imageURL  && <img src={urlFor(employee.imageURL).url()} alt={employee.name} />}
-          </div>
-        )}
+        }>
+      <div className="slider d-flex">
+        <div className="employee d-flex">
+            <div className="employee-info">
+              <h2 className="employee-profile">{employee.profile}</h2>
+              <p>
+                <PortableText blocks={employee?.skill} />
+              </p>
+            </div>
 
-        <div className="employee-container">
-          <div className="employee-info">
-            <h2 className="employee-profile">{employee.profile}</h2>
-            <p>
-              <PortableText blocks={employee?.skill} />
-            </p>
-          </div>
-          <div className="employee-name">
-            {size.width <= "768" && (
-              employee?.imageURL && <img src={urlFor(employee.imageURL).url()} alt={employee.name} />
-            )}
-            <h1
-              style={
-                employee?.fontColor && { color: `#${employee?.fontColor}` }
-              }
-            >
-              {employee.name}
-            </h1>
-          </div>
+            <div className="employee-name">
+              {size.width <= "768" && (
+                employee?.imageURL && <img src={urlFor(employee.imageURL).url()} alt={employee.name} />
+              )}
+              <h1
+                style={
+                  employee?.fontColor && { color: `#${employee?.fontColor}` }
+                }
+              >
+                {employee.name}
+              </h1>
+            </div>
+
         </div>
-        </div>
+
+        {
+          size.width > "768"
+          ?
+          <div className="employee-img" style={index % 2 === 0 ? { order: "-1" } : { order: "1" }} data-index={index}>
+            { employee?.imageURL  && <img src={urlFor(employee.imageURL).url()} alt={employee.name} /> }
+          </div>
+          : null
+        }
       </div>
 
-      <style jsx>{`
-  
-          .container{
-            width:100%;
-          }
+      
+     
 
-          .slide{
+   </div>
+   <style jsx>{`
+   .container{
+     width:100%;
+     height: 100%;
+   }
+
+   .slider{
+     max-width: 70rem;
+     width:100%;
+     margin: auto;
+     height: 100%;
+     display: flex;
+    
+   }
+
+   .employee{
+    
+     max-width:50%;
+     width:100%;
+     padding: 0 2rem ;
+     flex-direction: column;
+     justify-content: space-evenly;
+   }
+
+   .employee-info{
+     margin: 1rem 0;
+     display:flex;
+     flex-direction:column;
+     justify-content: start;
+     padding:1rem;
+   }
+
+   .employee-info p {
           display: flex;
-          max-width: 65rem;
-          width: 100%;
-          height: 90vh;
-          padding: 0 1rem;
-          scroll-snap-align: center;
-          position: relative;
-          margin:auto;
-        }
-
-        .employee-image {
-          width: 50%;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-
-        img {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          width: 90%;
-          height: 90%;
-        }
-
-        .employee-container {
-          width: 50%;
-          position: relative;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          min-height: 50vh;
-          min-width: 300px;
-        }
-
-        .employee-info {
-          margin: 1rem 0;
-        }
-
-        .employee-info p {
-          margin-right: 3rem;
+          flex-flow: column wrap;
           color: white;
+          text-align: left;
+          font-family:'Lexend Exa', sans-serif;
+          font-weight: 100;
+          font-size: 0.85rem;
+          line-height: 1.3;
         }
 
-        .employee-profile {
+   .employee-profile{
+
           color: white;
           background: black;
-          font-size: 1rem;
-          padding: 1rem 1.5rem;
-          margin-bottom: 2rem;
+          font-size: 0.7rem;
+          margin: 0 auto 1rem 0;
           position: relative;
-          width: 70%;
-        }
+          max-width:50%;
+          font-family:'Lexend Exa', sans-serif;
+          font-weight: 200;
+          text-align: start;
+          padding: 0.3rem .7rem;
+          
+   }
 
-        .employee-profile::before {
+   .employee-profile::before {
           content: "";
           background: white;
           position: absolute;
-          width: 80%;
+          width: 50%;
           height: 2px;
           bottom: 0;
           left: 0;
@@ -131,50 +128,63 @@ const CardEmployee = ({ employee, index }) => {
           font-size: 7vw;
         }
 
-        @media (max-width: 768px) {
-          .slide {
-            min-height: 100%;
-            height:inherit;
-          }
+   .employee-img {
+          max-width: 50%;
+          width:100%;
+          align-self: center;
+    }
 
-          .employee-container {
-            width: 100%;
-            display: block;
-            min-height: auto;
+    
+
+    .employee-img img{
+      width:90%;
+    }
+
+        img {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 90%;
            
-          }
-
-          .employee-image {
-            width: 100%;
-          }
-
-          img{
-            width:100%;
-            
-            
-          }
-          .employee-profile {
-            margin: 1rem auto;
-            text-align: center;
-          }
-
-          .employee-info {
-         
-            padding: 0 1rem;
-            margin: 2rem auto;
-          }
-          .employee-info > p {
-            margin: auto;
-          }
-          .employee-name > h1 {
-            text-align: center;
-            font-size: 4rem;
-            margin-bottom: 5rem;
-          }
         }
-      `}</style>
-    </>
+
+   @media( max-width:768px){
+
+    
+
+    .slider{
+      width: 100%;
+      height: 100%;
+    }
+
+    .employee{
+      max-width: 100vw;
+      width: 100%;
+      justify-content: start;
+      
+    }
+
+    .employee-profile{
+      max-width: 100%;
+      font-size:0.9rem;
+    }
+
+    .employee-name img{
+      margin-bottom: 2rem;
+    }
+
+    h1 {
+          font-size: 10vw;
+          margin-bottom: 2rem;
+          
+        }
+
+   }
+   
+   `}</style>
+   </>
   );
 };
+
 
 export default CardEmployee;
