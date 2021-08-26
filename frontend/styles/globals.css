@@ -42,11 +42,12 @@ div > *{
   align-items: center;
 }
 
-/* body {
-  overflow: overlay;
-} */
+body {
+  /* overflow: overlay; */
+  position: relative;
+}
 
-body::-webkit-scrollbar {
+/* body::-webkit-scrollbar {
   width: 1.5rem;
 }
  
@@ -60,7 +61,7 @@ body::-webkit-scrollbar-thumb {
   background-color: #3489CE;
   height: 100px;
   margin-top:80px;
-}
+} */
 
 
 

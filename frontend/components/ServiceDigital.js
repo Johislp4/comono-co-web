@@ -179,6 +179,10 @@ const ServiceDigital = ({
           overflow: hidden;
         }
 
+        .block{
+          width: 5vw;
+        }
+
         .service-container{
           min-height: auto;
         }

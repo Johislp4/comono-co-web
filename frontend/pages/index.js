@@ -27,7 +27,7 @@ export default function Home({ dataHome }) {
     <div>
       <Head>
         <title>Comono Colombia</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon-comono.ico" />
       </Head>
       <Banner text={banner} />
       <Services dataService={data.dataService} locale={locale} />

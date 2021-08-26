@@ -166,6 +166,7 @@ const CardEmployee = ({ employee, index }) => {
 
           .employee-name img {
             margin-bottom: 2rem;
+            max-height: 50%;
           }
 
           h1 {

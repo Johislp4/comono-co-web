@@ -58,7 +58,7 @@ const NavBar = ({locale}) => {
       </nav>
       <style jsx>{`
       .container-header{
-        width:100vw;
+        
         background:black;
         position:sticky;
           top:0;

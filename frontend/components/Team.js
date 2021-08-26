@@ -82,6 +82,7 @@ const Team = ({ bio, locale }) => {
 
         .block {
           display: block;
+          max-width: 4rem;
           width: 130px;
           height: 50px;
           background-color: #383838;
@@ -93,9 +94,10 @@ const Team = ({ bio, locale }) => {
           grid-column: main / end-full;
           align-self: center;
           font-family:'Lexend Exa', sans-serif;
-          font-size:3rem;
-          font-weight: 500;
+          font-size:2rem;
+          font-weight: bold;
           margin-top: 1rem;
+          margin-left: 4rem;
         }
 
         .image {
@@ -150,7 +152,7 @@ const Team = ({ bio, locale }) => {
             background-size: contain;
             background-attachment: scroll;
             width: 100vw;
-            min-height:400px;
+            min-height:350px;
             margin-bottom: 1.5rem;
             display: flex;
              
@@ -176,6 +178,8 @@ const Team = ({ bio, locale }) => {
 
           .bio-title{
             font-size: 2rem;
+            margin-left:0;
+            
           }
 
           .block {

@@ -4,7 +4,7 @@ const Technologies = () => {
   return (
     <>
       <div className="container d-flex">
-        <div className="technologies d-flex justify-content-between align-items-center">
+        <div className="technologies d-flex align-items-center">
           <img src="/react.svg" alt="react" />
           <img src="/aws.svg" alt="aws" />
           <img src="/python.svg" alt="python" />
@@ -13,20 +13,49 @@ const Technologies = () => {
       </div>
       <style jsx>{`
         .container{
-          width: 100%;
-          justify-content: center;
+          margin: auto;
         }
         
         .technologies {
           flex-wrap: wrap;
-          width: 64rem;
-          margin: 2rem;
+          max-width: 70rem;
+          width:100%;
+          padding:2rem 0;
+          margin:auto;
+          justify-content: space-between;
+         
+        }
+
+        img{
+          
+          height: 50px;
+          margin: 0 1rem;
         }
 
         @media(max-width: 540px){
-            img{
-                height: 60px;
-                width: 60px;
+
+          .technologies {
+            justify-content: center;
+          }
+
+          img{
+            margin: 0 1rem;
+          }
+
+          img:nth-child(1),
+          img:nth-child(2){
+              height: 30px;
+              width:30px;
+          }
+
+          img:nth-child(1){
+            width: 23px;
+          }
+            img:nth-child(3),
+            img:nth-child(4){
+                height: 50px;
+                width: 70px;
+                
             }
         }
         `}</style>

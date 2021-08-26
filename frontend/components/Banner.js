@@ -64,6 +64,13 @@ const Banner = ({ text }) => {
             color: black;
           }
 
+          @media(max-width: 768px){
+
+            .banner-text{
+              width: 60%;
+            }
+          }
+
           @media(max-width: 540px){
             .Hero{
               display:flex;

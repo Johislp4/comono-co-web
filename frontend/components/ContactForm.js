@@ -131,8 +131,8 @@ const ContactForm = ({locale, textForm, title}) => {
             margin: 0;
           }
           .container > h1 {
-            font-size: 3.5rem;
-            margin:auto;
+            font-size: 3rem;
+            margin: 1rem auto;
           }
           .message-one > h1,
           .message-two {
