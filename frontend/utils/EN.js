@@ -1,7 +1,17 @@
 const EN = {
     service: { 
       title: "Know how we do it...",
-      button: 'More'
+      button: 'More',
+      section:{
+        customSoftware:{
+          title:"Custom Software",
+          text:`Lorem Ipsu`
+        },
+        standardSoftware:{
+          title:"Standard Software",
+          text:""
+        }
+      }
      },
     form: {
       title: "Contact Us",

@@ -38,7 +38,7 @@ const CardText = ({textProps, locale }) => {
        </div>
       
        </div>
-     {size.width <= "500" && 
+     {size.width <= "768" && 
         (<div className="responsive-image">
           <img src={urlFor(project.imageProject).url()} alt={project.nameProject} />
         </div>)
@@ -110,7 +110,7 @@ const CardText = ({textProps, locale }) => {
       height: 100%;
     }
 
-    @media(max-width:540px){
+    @media(max-width:768px){
       .container-text{
         min-height: auto;
         padding: 1rem;

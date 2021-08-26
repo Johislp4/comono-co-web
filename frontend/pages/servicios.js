@@ -1,4 +1,5 @@
-import React from "react";
+import * as React from "react";
+import { useRouter } from "next/router";
 import ServiceMenu from "../components/ServiceMenu";
 import ServiceDigital from "../components/ServiceDigital";
 import ServiceDetail from "../components/ServiceDetail";
@@ -8,56 +9,77 @@ import ServiceNavBar from "../components/ServiceNavBar";
 import ServiceTextPlane from "../components/ServiceTextPlane";
 import { sanityClient } from "../lib/sanity";
 
-const servicios = ({ dataService }) => {
-  
-  const [cloudSolution, customSoftware, webSite] = dataService;
+const servicios = ({ services }) => {
+  const { locale } = useRouter();
+  const data = locale === "es-CO" ? services["es-CO"] : services["en-US"];
+  const [cloudSolution, customSoftware, webSite] = data.dataService;
 
   return (
     <>
-      <ServiceMenu />
- 
-      
-        <ServiceDigital
-          borderRadius="45%"
-          minHeight="70vh"
-          minWidth="100%"
-          background="#CEAED6"
-          rotate="15deg"
-          marginLeft="-2rem"
-          word={{
-            one: "Páginas web,",
-            two: "aplicaciones",
-            three: "web y",
-            four: "moviles",
-            color: "#C473CB" 
-          }}
-          info={webSite}
-          id="web-app"
-        />
-        {/* <section className="sticky">
-          <ServiceNavBar />
-        </section> */}
-         
+      <ServiceMenu locale={locale}/>
 
-        <ServiceDetail data={webSite} color="#C473CB" />
-     
+      <ServiceDigital
+        borderRadius="45%"
+        minHeight="70vh"
+        minWidth="100%"
+        background="#CEAED6"
+        rotate="15deg"
+        marginLeft="-2rem"
+        word={
+          locale === "es-CO"
+            ? {
+                one: "Páginas web,",
+                two: "aplicaciones",
+                three: "web y",
+                four: "moviles",
+                color: "#C473CB",
+              }
+            : {
+                one: "Web sites,",
+                two: "web mobile",
+                three: "and",
+                four: "apps:",
+                color: "#C473CB",
+              }
+        }
+        info={webSite}
+        id="web-app"
+      />
+      {/* <section className="sticky">
+   <ServiceNavBar />
+ </section> */}
 
-      
+      <ServiceDetail data={webSite} color="#C473CB" />
+
       <>
-        <ServiceDigital 
+        <ServiceDigital
           background="#94D2DD"
-          word={{ one: "Soluciones,", two: "en", three: "la", four: "nube:", color: "#04ACC5"}}
+          word={
+            locale === "es-CO"
+              ? {
+                  one: "Soluciones,",
+                  two: "en",
+                  three: "la",
+                  four: "nube:",
+                  color: "#04ACC5",
+                }
+              : {
+                  one: "Cloud",
+                  two: "",
+                  three: "",
+                  four: "Solution",
+                  color: "#04ACC5",
+                }
+          }
           info={cloudSolution}
-          id = "nube"
+          id="nube"
         />
         <ServiceDetail data={cloudSolution} />
-        
+
         <section className="service-detail">
-          <ServiceAdvantages advantages={cloudSolution} />
+          <ServiceAdvantages advantages={cloudSolution} locale={locale} />
         </section>
       </>
-
-
 
       <>
         <ServiceDigital
@@ -67,13 +89,29 @@ const servicios = ({ dataService }) => {
           background="#C6ED88"
           rotate="30deg"
           marginLeft="-3rem"
-          word={{ one: "Software,", two: "a", three: "la", four: "medida:", color: "#AFD342" }}
+          word={
+            locale === "es-CO"
+              ? {
+                  one: "Software,",
+                  two: "a",
+                  three: "la",
+                  four: "medida:",
+                  color: "#AFD342",
+                }
+              : {
+                  one: "Custom",
+                  two: "",
+                  three: "",
+                  four: "Software:",
+                  color: "#AFD342",
+                }
+          }
           info={customSoftware}
-          id = "software"
+          id="software"
         />
-        <ServiceSoftware />
-        <ServiceTextPlane />
-        <ServiceDetail data={customSoftware}/>
+        <ServiceSoftware locale={locale} />
+        <ServiceTextPlane locale={locale} />
+        <ServiceDetail data={customSoftware} />
       </>
       <style jsx>{`
         .sticky {
@@ -88,18 +126,15 @@ const servicios = ({ dataService }) => {
         .service-detail {
           overflow-y: none;
           overflow-x: hidden;
-          padding-top:2rem;
-          margin-top:2rem;
-      
+          padding-top: 2rem;
+          margin-top: 2rem;
         }
 
-        @media(max-width:540px){
+        @media (max-width: 540px) {
           .sticky {
-            position:sticky;
-            bottom:0;
+            position: sticky;
+            bottom: 0;
           }
-          
-
         }
       `}</style>
     </>
@@ -117,18 +152,25 @@ const queryService = `*[_type == 'service']{
 
   `;
 
+const queryServiceEnglish = `*[_type == 'serviceEnglish']{
+    name,
+   'serviceExtract':descriptionSection.serviceExtract,
+   'serviceAdvantage': descriptionSection.serviceAdvantage,
+   'serviceInfo': descriptionSection.sectionScreen,
+ }
+ 
+   `;
+
 export async function getStaticProps() {
   const dataService = await sanityClient.fetch(queryService);
-
-  //const dataHomeEnglish = await sanityClient.fetch(queryHomeEnglish)
+  const dataServiceEnglish = await sanityClient.fetch(queryServiceEnglish);
 
   return {
     props: {
-      dataService,
-      // 'dataHome': {
-      // //   'es-CO': { dataHome, dataService },
-      // //   'en-US': { dataHome: dataHomeEnglish, dataService: dataServiceEnglish }
-      // }
+      services: {
+        "es-CO": { dataService },
+        "en-US": { dataService: dataServiceEnglish },
+      },
     },
 
     revalidate: 10,

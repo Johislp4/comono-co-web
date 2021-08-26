@@ -3,16 +3,13 @@ import { useRouter } from "next/router";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
 import CardEmployee from '../components/CardEmployee'
-import { useWindowSize } from "../hooks/useWindowSize";
+
 
 
 const Slider = ({ dataSlides }) => {
 
   const  { locale }  = useRouter();
-  const [currentSlide, setCurrentSlide] = React.useState(0);
   const Slides = locale === 'es-CO' ? dataSlides['es-CO'] : dataSlides['en-US'];
-  const length =   Slides.length;
-
 
   return(
     <Carousel 
@@ -20,8 +17,11 @@ const Slider = ({ dataSlides }) => {
     showThumbs={false}
     infiniteLoop={true}
     showStatus={false}
-    swipeable={true}
     showArrows={false}
+    autoPlay={false}
+    stopOnHover={true}
+    swipeable={true}
+    interval={10000000}
     >
       {
         Slides.sort((a, b) => a.order - b.order).map((slide, index) => {

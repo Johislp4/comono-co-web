@@ -171,7 +171,7 @@ const ServiceDigital = ({
           }
           .left-side, 
           .right-side{
-            min-height: 400px;
+            min-height: 300px;
             width:100%;
           }
 

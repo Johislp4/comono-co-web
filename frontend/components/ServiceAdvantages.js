@@ -1,19 +1,19 @@
 import React from 'react'
 import CardAdvantage from './CardAdvantage'
 
-const ServiceAdvantages = ({ advantages }) => {
+const ServiceAdvantages = ({ advantages, locale }) => {
 
     const { serviceAdvantage } = advantages;
 
     return (
         <>
         <div className="title">
-          <h1>Las ventajas son inmensas,</h1>
-          <h4>Una de las mas significativas es que las soluciones en la nube te permiten:</h4>
+          <h1>{locale === "es-CO" ? 'Las ventajas son inmensas,' : 'lorem ipsum'} </h1>
+          <h4>{locale === "es-CO" ? 'Una de las mas significativas es que las soluciones en la nube te permiten:' : 'lorem ipsum'} </h4>
         </div>
        
         <section className="service-advantage-container  d-flex">
-           { serviceAdvantage.legth != 0 ? serviceAdvantage.map( ( advantageItem, index) => {
+           { (serviceAdvantage && serviceAdvantage.legth != 0) ? serviceAdvantage.map( ( advantageItem, index) => {
              return (  <CardAdvantage key={index} advantageItem={advantageItem}/> )
            })
             : 'Cargando...'
@@ -54,8 +54,14 @@ const ServiceAdvantages = ({ advantages }) => {
         @media(max-width: 540px){
 
           
-            h1 , h3 {
+            h1 , h4 {
               width: 90%;
+            }
+            h1{
+              font-size:1rem;
+            }
+            h4{
+              font-size:0.85rem;
             }
           
         }

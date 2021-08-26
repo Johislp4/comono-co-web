@@ -12,7 +12,7 @@ const Project = ({ projectList , locale}) => {
   return (
     <>
       <main className="container-projects">
-       { size.width >= "501" && <div className="left-images">
+       { size.width > "768" && <div className="left-images">
           {projectList.map((project, i) => (
             <CardImage imageProp={{ project, i, haveShow, setHaveShow }}  key={i} />
           ))}
@@ -44,7 +44,7 @@ const Project = ({ projectList , locale}) => {
     }
    
 
-    @media(max-width:500px){
+    @media(max-width:768px){
       .right-text{
         max-width: 100%;
       }
@@ -118,7 +118,7 @@ const Project = ({ projectList , locale}) => {
         font-size: 1.2rem;
       }
       
-      @media (max-width: 540px) {
+      @media (max-width: 768px) {
         .article-project {
           flex-direction: column;
         }

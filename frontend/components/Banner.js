@@ -29,7 +29,7 @@ const Banner = ({ text }) => {
 
           .block {
             grid-column: [full-start]/[first-main];
-            width: 8rem;
+            max-width: 4rem;
             height: 3rem;
             background-color: #383838;
             margin-top: 150px;

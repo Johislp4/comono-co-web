@@ -2,15 +2,15 @@ import Link from 'next/link'
 import React from 'react'
 
 
-const ServiceMenu = () => {
+const ServiceMenu = ({locale}) => {
     return (
         <>
         <section className="bg">
             <div className="bg-black">
                 <section className="service-container">   
                     <div className="service-title d-flex">
-                        <h1 className="service-title-h1">Servicios</h1>
-                        <h2 className="service-title-h2">de transformación digital</h2>
+                        <h1 className="service-title-h1">{locale === "es-CO" ? 'Servicios' : 'Transformation'}</h1>
+                        <h2 className="service-title-h2">{locale === "es-CO" ? 'de transformación digital' : 'Digital'}</h2>
                     </div>
                 </section>
             </div>
@@ -22,23 +22,37 @@ const ServiceMenu = () => {
                         <ul className="menu-list d-flex">
                             <Link href="#web-app">
                                 <a>
-                                    <li className="arrow pink"><img src="/pink-arrow.svg" alt="pink-arrow" />
+                                    <div className="menu-item hoverPink">
+                                    <li className="arrow pink">
+                                        <img src="/pink-arrow.svg" alt="pink-arrow" />
                                         <span>  
-                                            <div>Páginas web,</div>
-                                            <div>aplicaciones web y móviles</div>
-                                         
+                                            <div>{locale === "es-CO" ? 'Páginas web,' : 'Web site'}</div>
+                                            <div>{locale === "es-CO" ? 'aplicaciones web y móviles' : 'Web mobile and apps'}</div>
                                         </span>
                                     </li>
+                                    </div>
+                                    
+                                  
                                 </a>
                             </Link>
                             <Link href="#nube">
                                 <a>
-                                    <li className="arrow blue"><img src="/blue-arrow.svg" alt="pink-arrow" /><span>Soluciones en la nube</span></li>
+                                    <div className="menu-item hoverBlue">
+                                    <li className="arrow blue">
+                                        <img src="/blue-arrow.svg" alt="pink-arrow" />
+                                        <span>{locale === "es-CO" ? 'Soluciones en la nube' : 'Cloud Solution'}</span>
+                                    </li>
+                                    </div>
                                 </a>
                             </Link>
                             <Link href="#software">
                                 <a>
-                                    <li className="arrow green"><img src="/green-arrow.svg" alt="pink-arrow" /><span>Software a la medida</span></li>
+                                    <div className="menu-item hoverGreen">
+                                    <li className="arrow green">
+                                        <img src="/green-arrow.svg" alt="pink-arrow" />
+                                        <span>{locale === "es-CO" ? 'Software a la medida' : 'Custom Software'}</span>
+                                    </li>
+                                    </div>
                                 </a>
                             </Link>
                         </ul>
@@ -73,7 +87,6 @@ const ServiceMenu = () => {
         .service-container{
             max-width:64rem;
             margin:auto;
-            outline: solid white;
             padding:2rem;
             
         }
@@ -114,6 +127,7 @@ const ServiceMenu = () => {
             display:flex;
             position:relative;
            
+           
         }
 
         li{
@@ -125,19 +139,48 @@ const ServiceMenu = () => {
             font-family: 'Roboto', sans-serif;
             font-weight:700;
             color: black;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position:  100%;
+            height: 70%;
         }
+
+        .menu-item{
+            width:100%;
+            height: 100%;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            padding-right:1rem;
+        }
+
+      
         .arrow img{
             width:30px;
             margin-right: 1rem;
         }
 
         .pink{
-            background: #F7EDF9;
+            background-image: url('/icon-service-web.svg');
         }
+
+        .hoverPink:hover{
+            background: #F7EDF9; 
+        }
+
         .blue{
+            background-image: url('/icon-service-cloud.svg')
+        }
+
+        .hoverBlue:hover{
             background: #EBF6F7;
         }
+
         .green{
+            background-image: url('/icon-service-medida.svg')
+        }
+
+        .hoverGreen:hover{
             background: #F3F9E4;
         }
 
@@ -160,7 +203,7 @@ const ServiceMenu = () => {
             }
             
             .service-title-h1{
-                font-size:3rem;
+                font-size:2rem;
             }
 
             .service-title-h2{

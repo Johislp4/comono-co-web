@@ -14,9 +14,14 @@ const ServiceDetail = ({ data, color}) => {
     h2.style.fontSize = '2rem'
     h2.style.marginBottom = '2rem'
   })
-  h1.style.color = color
+
+  if(h1){
+    h1.style.color = color
   h1.style.marginBottom = '2rem'
   h1.style.fontSize = '2rem'
+
+  }
+  
   
 
  }, [])

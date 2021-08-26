@@ -8,19 +8,13 @@ import menuItemsEnglish  from '../utils/menuItemsEnglish'
 const NavBar = ({locale}) => {
 
   const router = useRouter()
-
   const menuItems = locale === 'es-CO' ? menuItemsSpanish : menuItemsEnglish;
- 
- 
-  
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
   const changeLanguage = (e) => {
     const locale = e.target.value;
     router.push(router.pathname, router.asPath, { locale });
   };
-
-  
 
   const hanldeMenu = () => {
     setTimeout(() => {
@@ -29,7 +23,7 @@ const NavBar = ({locale}) => {
   };
 
   return (
-    <>
+    <div className="container-header">
       <nav className="d-flex justify-content-between align-items-center">
         <Link href="/">
           <a>
@@ -63,13 +57,20 @@ const NavBar = ({locale}) => {
         </div>
       </nav>
       <style jsx>{`
-        nav {
-          background-color: black;
-          padding: 1rem;
-          flex-wrap: wrap;
-          position:sticky;
+      .container-header{
+        width:100vw;
+        background:black;
+        position:sticky;
           top:0;
           z-index:20;
+
+      }
+        nav {
+         max-width:70rem;
+         padding: 1rem;
+          flex-wrap: wrap;
+          margin:auto;
+         
         }
 
         .menu-list-item {
@@ -88,10 +89,11 @@ const NavBar = ({locale}) => {
 
         @media (max-width: 520px) {
           nav {
-            height: 80px;
+            height: 70px;
             position: sticky;
             top: 0;
-            z-index: 10;
+            z-index: 20;
+            
           }
 
           .menu-mobile {
@@ -106,7 +108,7 @@ const NavBar = ({locale}) => {
             background-color: #000000;
             height: 100vh;
             position: absolute;
-            top: 80px;
+            top: 70px;
             opacity: 0.9;
             transition: all 0.5s ease;
             right: 100%;
@@ -133,7 +135,7 @@ const NavBar = ({locale}) => {
           }
         }
       `}</style>
-    </>
+    </div>
   );
 };
 

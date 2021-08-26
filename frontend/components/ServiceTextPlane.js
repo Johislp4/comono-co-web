@@ -1,27 +1,42 @@
 import React from "react";
 
-const ServiceTextPlane = () => {
+const ServiceTextPlane = ({locale}) => {
   return (
+
+    
     <>
-      <div className="service-container">
+     <div className="service-container">
+        {locale === "es-CO" ?
         <div className="service-title">
           <h1 className="title one">¿Por qué un </h1>
           <h1 className="title two">software a la medida</h1>
           <h1 className="title three">es tu mejor opción?</h1>
         </div>
-        <p>
-          Un software <b>estándar o “cerrado”</b> es un software genérico, con
+        :
+        <div className="service-title">
+          <h1 className="title one">Why choose</h1>
+          <h1 className="title two">custom software as</h1>
+          <h1 className="title three">the best option?</h1>
+        </div>
+        }
+        {
+          locale === "es-CO" ?
+          <p> Un software <b>estándar o “cerrado”</b> es un software genérico, con
           un costo más bajo, sin embargo, tiene muchas funciones que
-          probablemente tu empresa no requiera y por ende, no vayas a utilizar.{" "}
+          probablemente tu empresa no requiera y por ende, no vayas a utilizar.
           <br /> <br />
           Un <b>software a la medida, </b> se adapta a tu tipo de empresa y los
           procesos que ya funcionan, incluso si ya existe un sistema
           implementado. Porque se lleva a cabo un proceso de análisis y estudio
           de tus necesidades para que tu software se pueda desarrollar, crear,
           implementar u optimizar. Básicamente, lo que tienes en tu mente, lo
-          llevamos a la realidad.
-        </p>
+          llevamos a la realidad.</p> 
+          : 
+          <p></p>
+        }
+      
       </div>
+     
       <style jsx>{`
         .service-container {
           min-height: 30rem;

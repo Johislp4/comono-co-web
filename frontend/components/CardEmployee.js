@@ -3,18 +3,20 @@ import { useWindowSize } from "../hooks/useWindowSize";
 import { PortableText, urlFor } from "../lib/sanity";
 
 const CardEmployee = ({ employee, index }) => {
-  const slide = React.useRef(null);
-  const size = useWindowSize()
+  const size = useWindowSize();
 
   return (
     <>
-    <div className="container" style={
+      <div
+        className="container"
+        style={
           employee?.backgroundColor && {
             background: `#${employee?.backgroundColor}`,
           }
-        }>
-      <div className="slider d-flex">
-        <div className="employee d-flex">
+        }
+      >
+        <div className="slider d-flex">
+          <div className="employee d-flex">
             <div className="employee-info">
               <h2 className="employee-profile">{employee.profile}</h2>
               <p>
@@ -23,8 +25,11 @@ const CardEmployee = ({ employee, index }) => {
             </div>
 
             <div className="employee-name">
-              {size.width <= "768" && (
-                employee?.imageURL && <img src={urlFor(employee.imageURL).url()} alt={employee.name} />
+              {size.width <= "768" && employee?.imageURL && (
+                <img
+                  src={urlFor(employee.imageURL).url()}
+                  alt={employee.name}
+                />
               )}
               <h1
                 style={
@@ -34,82 +39,79 @@ const CardEmployee = ({ employee, index }) => {
                 {employee.name}
               </h1>
             </div>
-
-        </div>
-
-        {
-          size.width > "768"
-          ?
-          <div className="employee-img" style={index % 2 === 0 ? { order: "-1" } : { order: "1" }} data-index={index}>
-            { employee?.imageURL  && <img src={urlFor(employee.imageURL).url()} alt={employee.name} /> }
           </div>
-          : null
-        }
+
+          {size.width > "768" ? (
+            <div
+              className="employee-img"
+              style={index % 2 === 0 ? { order: "-1" } : { order: "1" }}
+              data-index={index}
+            >
+              {employee?.imageURL && (
+                <img
+                  src={urlFor(employee.imageURL).url()}
+                  alt={employee.name}
+                />
+              )}
+            </div>
+          ) : null}
+        </div>
       </div>
+      <style jsx>{`
+        .container {
+          width: 100%;
+          height: 100%;
+        }
 
-      
-     
+        .slider {
+          max-width: 70rem;
+          width: 100%;
+          margin: auto;
+          height: 100%;
+          display: flex;
+        }
 
-   </div>
-   <style jsx>{`
-   .container{
-     width:100%;
-     height: 100%;
-   }
+        .employee {
+          max-width: 50%;
+          width: 100%;
+          padding: 0 2rem;
+          flex-direction: column;
+          justify-content: space-evenly;
+        }
 
-   .slider{
-     max-width: 70rem;
-     width:100%;
-     margin: auto;
-     height: 100%;
-     display: flex;
-    
-   }
+        .employee-info {
+          margin: 1rem 0;
+          display: flex;
+          flex-direction: column;
+          justify-content: start;
+          padding: 1rem;
+        }
 
-   .employee{
-    
-     max-width:50%;
-     width:100%;
-     padding: 0 2rem ;
-     flex-direction: column;
-     justify-content: space-evenly;
-   }
-
-   .employee-info{
-     margin: 1rem 0;
-     display:flex;
-     flex-direction:column;
-     justify-content: start;
-     padding:1rem;
-   }
-
-   .employee-info p {
+        .employee-info p {
           display: flex;
           flex-flow: column wrap;
           color: white;
           text-align: left;
-          font-family:'Lexend Exa', sans-serif;
+          font-family: "Lexend Exa", sans-serif;
           font-weight: 100;
           font-size: 0.85rem;
           line-height: 1.3;
         }
 
-   .employee-profile{
-
+        .employee-profile {
           color: white;
           background: black;
           font-size: 0.7rem;
           margin: 0 auto 1rem 0;
           position: relative;
-          max-width:50%;
-          font-family:'Lexend Exa', sans-serif;
+          max-width: 50%;
+          font-family: "Lexend Exa", sans-serif;
           font-weight: 200;
           text-align: start;
-          padding: 0.3rem .7rem;
-          
-   }
+          padding: 0.3rem 0.7rem;
+        }
 
-   .employee-profile::before {
+        .employee-profile::before {
           content: "";
           background: white;
           position: absolute;
@@ -128,63 +130,52 @@ const CardEmployee = ({ employee, index }) => {
           font-size: 7vw;
         }
 
-   .employee-img {
+        .employee-img {
           max-width: 50%;
-          width:100%;
+          width: 100%;
           align-self: center;
-    }
+        }
 
-    
-
-    .employee-img img{
-      width:90%;
-    }
+        .employee-img img {
+          width: 90%;
+        }
 
         img {
           display: flex;
           justify-content: center;
           align-items: center;
           width: 90%;
-           
         }
 
-   @media( max-width:768px){
+        @media (max-width: 768px) {
+          .slider {
+            width: 100%;
+            height: 100%;
+          }
 
-    
+          .employee {
+            max-width: 100vw;
+            width: 100%;
+            justify-content: start;
+          }
 
-    .slider{
-      width: 100%;
-      height: 100%;
-    }
+          .employee-profile {
+            max-width: 100%;
+            font-size: 0.9rem;
+          }
 
-    .employee{
-      max-width: 100vw;
-      width: 100%;
-      justify-content: start;
-      
-    }
+          .employee-name img {
+            margin-bottom: 2rem;
+          }
 
-    .employee-profile{
-      max-width: 100%;
-      font-size:0.9rem;
-    }
-
-    .employee-name img{
-      margin-bottom: 2rem;
-    }
-
-    h1 {
-          font-size: 10vw;
-          margin-bottom: 2rem;
-          
+          h1 {
+            font-size: 10vw;
+            margin-bottom: 2rem;
+          }
         }
-
-   }
-   
-   `}</style>
-   </>
+      `}</style>
+    </>
   );
 };
-
 
 export default CardEmployee;

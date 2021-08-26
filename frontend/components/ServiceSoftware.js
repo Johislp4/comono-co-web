@@ -1,10 +1,14 @@
 import React from "react";
 import { useWindowSize } from "../hooks/useWindowSize";
+import EN from "../utils/EN";
+import ES from "../utils/ES";
 
 
-const ServiceSoftware = () => {
+const ServiceSoftware = ({locale}) => {
 
   const windowSize = useWindowSize();
+
+  const data = locale === "es-CO" ? ES.service.section : EN.service.section ;
 
 
 
@@ -15,7 +19,7 @@ const ServiceSoftware = () => {
       <div className="container d-flex">
         <div className="vs"></div>
         <div className="container-standard-soft d-flex">
-          <h1>Software estándar</h1>
+          <h1>{data.standardSoftware.title}</h1>
         </div>
         <div className="container-custom-soft">
           <div className="container-img">
@@ -26,13 +30,9 @@ const ServiceSoftware = () => {
             
           </div>
           <div className="custom-soft">
-            <h1>Software a la medida</h1>
+            <h1>{data.customSoftware.title}</h1>
             <p>
-              Es importante que conozcas sobre el desarrollo de los productos
-              digitales y de los servicios que vas a adquirir; que reconozcas
-              cuál es el que mejor se ajusta a las soluciones que necesitas y
-              cuáles son funcionales para tu tipo de empresa, así, adquieres el
-              que realmente necesites.
+              {data.customSoftware.text}
             </p>
          
            
