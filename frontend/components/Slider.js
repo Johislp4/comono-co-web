@@ -17,7 +17,7 @@ const Slider = ({ dataSlides }) => {
     showThumbs={false}
     infiniteLoop={true}
     showStatus={false}
-    showArrows={false}
+    showArrows={true}
     autoPlay={false}
     stopOnHover={true}
     swipeable={true}

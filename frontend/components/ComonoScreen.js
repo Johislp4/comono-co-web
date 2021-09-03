@@ -5,7 +5,7 @@ const ComonoScreen = () => {
 
   return (
     <>
-      <div className="bg" ref={screenComono}>
+      <div className="bg blue" ref={screenComono}>
         <div className="container d-flex">
           {/* <img src={"/comono-screen.svg"} alt="somos comono" /> */}
           <SomosComono />

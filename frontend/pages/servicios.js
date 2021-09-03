@@ -32,13 +32,11 @@ const servicios = ({ services }) => {
                 two: "aplicaciones",
                 three: "web y",
                 four: "moviles",
+                servicename: 'Páginas web, aplicaciones web y móviles',
                 color: "#C473CB",
               }
             : {
-                one: "Web sites,",
-                two: "web mobile",
-                three: "and",
-                four: "apps:",
+                servicename: 'Web sites, web mobil and apps',
                 color: "#C473CB",
               }
         }
@@ -57,17 +55,11 @@ const servicios = ({ services }) => {
           word={
             locale === "es-CO"
               ? {
-                  one: "Soluciones,",
-                  two: "en",
-                  three: "la",
-                  four: "nube:",
+                  servicename: 'Soluciones en la nube',
                   color: "#04ACC5",
                 }
               : {
-                  one: "Cloud",
-                  two: "",
-                  three: "",
-                  four: "Solution",
+                  servicename: 'Cloud Solution',
                   color: "#04ACC5",
                 }
           }
@@ -92,17 +84,11 @@ const servicios = ({ services }) => {
           word={
             locale === "es-CO"
               ? {
-                  one: "Software,",
-                  two: "a",
-                  three: "la",
-                  four: "medida:",
+                  servicename: 'Software a la medida',
                   color: "#AFD342",
                 }
               : {
-                  one: "Custom",
-                  two: "",
-                  three: "",
-                  four: "Software:",
+                  servicename: 'Custom Software',
                   color: "#AFD342",
                 }
           }

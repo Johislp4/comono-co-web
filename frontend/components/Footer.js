@@ -70,7 +70,11 @@ const Footer = ({data}) => {
         </div>
 
         <div className="privacy">
-          <p>{locale === 'es-CO' ? ES.footer.policy : EN.footer.policy }</p>
+          <p>{locale === 'es-CO' ? ES.footer.policy : EN.footer.policy }</p> <span>|</span> &nbsp; &nbsp; 
+           {locale === 'es-CO' ?
+           (<p> De Comono con <span className="icon-heart">&#10084;</span> para el mundo </p>) 
+           : (<p>By Comono with <span className="icon-heart">&#10084;</span> to world</p>) 
+          }
         </div>
       </div>
 
@@ -79,7 +83,7 @@ const Footer = ({data}) => {
         .footer{
           display: grid;
           grid-template-columns: repeat(4, 1fr);
-          grid-template-rows: 1fr 80px;
+          grid-template-rows: 1fr 40px;
           background-color: #f4f4f4;
         }
 
@@ -88,6 +92,7 @@ const Footer = ({data}) => {
           display: flex;
           justify-content: center;
           align-items: center;
+          padding: 0.5rem;
         }
 
         .side > div {
@@ -133,6 +138,11 @@ const Footer = ({data}) => {
           display:flex;
           width:60%;
           justify-content:space-between;
+          
+        }
+
+        .social-media > div{
+          justify-content:flex-start;
         }
 
         .icons img{
@@ -157,6 +167,15 @@ const Footer = ({data}) => {
           justify-content: center;
           align-items: center;
           font-size:0.8rem;
+        }
+
+        .privacy p {
+          margin-right: 1rem;
+        }
+
+        .icon-heart{
+          color: red;
+          margin: 0 10px;
         }
 
         @media(max-width: 540px){

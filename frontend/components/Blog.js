@@ -50,7 +50,7 @@ const Blog = ({ locale }) => {
 						?
 						blogData.map((post, index) => {
 							return (
-								<Link href={`/blog/${post?.slug?.current}`} passHref key={index}> 
+								<Link href={`/blog/${post?.slug?.current}`} key={index}> 
 								<a>
 									<CardBlog post={post} key={index} />
 								</a>
@@ -80,7 +80,7 @@ const Blog = ({ locale }) => {
 			
 			.container {
 				display: flex;
-				max-width: 64rem;
+				max-width: 70rem;
 				height: 100vh;
 				margin: 0 auto;
 			}
@@ -144,13 +144,18 @@ const Blog = ({ locale }) => {
 			}
 			
 			.btn {
-				font-size: 1.5rem;
-				font-weight: 600;
+				font-size: 1rem;
+    			font-weight: 500;
 				margin-right: 8px;
 			}
 			a {
 				align-self: flex-end;
 				color:black;
+			}
+
+			img{
+				width: 20px;
+    			margin-bottom: 3px;
 			}
 			
 			@media (max-width: 768px) {
@@ -172,23 +177,32 @@ const Blog = ({ locale }) => {
 				}
 			
 				.container > div:nth-child(2) {
-					margin-top: 8rem;
+			
+					overflow:hidden;
+					min-width:100%;
+				
+				}
+
+				.card-container {	
+					display:flex;
+					min-width:100%;
+					flex-wrap:nowrap;
+					margin:0;
+					padding:1rem;
+					overflow-x:scroll;	
 				}
 			
 				.section-text {
 					margin-top: -50px;
 					height: 150px;
 				}
+
+				a{
+					text-align: right;
+					margin-right: 1rem;
+				}
 			
-				.card-container {
-					flex-direction: column;
-					align-items: center;
-					margin-top: -10rem;
-					flex-wrap: wrap;
-				}
-				a {
-					margin-right: 2rem;
-				}
+				
 			}
 			
       `}</style>

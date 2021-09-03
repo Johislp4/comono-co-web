@@ -1,27 +1,34 @@
-import React from "react";
+import * as React from "react";
+import Aos from 'aos'
+import "aos/dist/aos.css"
 
 const Banner = ({ text }) => {
+
+  React.useEffect( () => {
+    Aos.init({duration:2000})
+
+  }, [])
 
   return (
 
     <section className="Hero">
       <div className="block"></div>
       <div className="background-text"> {text}
-        <div className="banner-text"> {text} </div>
+        <div data-aos="fade-right" className="banner-text"> {text} </div>
       </div>
 
-      <div className="bg-pieces"></div>
+      <div data-aos="fade-left" className="bg-pieces"></div>
 
       <style jsx>{`
           .Hero{
             display:grid;
             grid-template-columns:
-              [full-start] minmax(0, 130px)
-              [first-main] minmax(0, 1fr)
-              [second-main] minmax(0, 1fr)
-              [thrid-main] minmax(1rem, 130px)
+              [full-start] minmax(0, 1fr)
+              [first-main] minmax(0, 35rem)
+              [second-main] minmax(0, 35rem)
+              [thrid-main] minmax(1rem, 1fr)
               [full-end];
-            grid-gap: 1rem;
+           
             width:100%;
             position: relative;
             background-color: #f4f4f4;
@@ -51,6 +58,7 @@ const Banner = ({ text }) => {
           position: relative;
           padding: 4rem 0;
           font-weight: 400;
+          margin-left:1rem;
           }
 
           .banner-text{
@@ -83,7 +91,7 @@ const Banner = ({ text }) => {
 
             .background-text{
               font-size: 3.5rem;
-              margin-left:50px;
+              margin-left:22px;
               margin-rigth:0;
               padding: 3rem 0;
             }

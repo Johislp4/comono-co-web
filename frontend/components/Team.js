@@ -1,8 +1,13 @@
-import React from "react";
+import * as React from "react";
 import Link from 'next/link'
 import { PortableText } from "../lib/sanity";
-
+import Aos from "aos";
+import "aos/dist/aos.css"
 const Team = ({ bio, locale }) => {
+
+  React.useEffect(() => {
+    Aos.init()
+  }, [])
   return (
     <>
       <div
@@ -14,14 +19,14 @@ const Team = ({ bio, locale }) => {
         <div className="wave-bottom">
           <section className="head-wave-bottom">
             <div className="block"></div>
-            <h1 className="bio-title">{bio.title}</h1>
+            <h1 data-aos="fade-up" className="bio-title">{bio.title}</h1>
           </section>
         </div>
       </div>
 
       <div className="description">
-        <div className="portableText">
-          <PortableText blocks={bio?.description} />
+        <div className="portableText" data-aos="fade-up">
+          <PortableText blocks={bio?.description}  />
           <Link href ="/nosotros">
           <a>
           <button>
@@ -94,7 +99,7 @@ const Team = ({ bio, locale }) => {
           grid-column: main / end-full;
           align-self: center;
           font-family:'Lexend Exa', sans-serif;
-          font-size:2rem;
+          font-size:3.5rem;
           font-weight: bold;
           margin-top: 1rem;
           margin-left: 4rem;
@@ -122,6 +127,14 @@ const Team = ({ bio, locale }) => {
           
         }
 
+        .description img {
+          width: 35px;
+          margin-bottom: 2px;
+        }
+
+
+        }
+
         .btn{
           font-family: 'Lexend Exa', sans-serif;
           font-size: 1.5rem;
@@ -146,6 +159,7 @@ const Team = ({ bio, locale }) => {
           padding: 0.5rem  1rem  0.5rem 0;
           cursor: pointer;
         }
+
 
         @media (max-width: 540px) {
           .parallax-container{

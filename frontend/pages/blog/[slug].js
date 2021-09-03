@@ -43,7 +43,7 @@ const Post = () => {
         <h1>{singlePost.title}</h1>
         <div className='post-details'>
           <p>{new Date(singlePost.publishedAt).toLocaleDateString()}</p>
-          <p>{`By ${singlePost.name}`}</p>
+          <p>{`by  ${singlePost.name}`}</p>
         </div>
         <div className='block-content'>
           <BlockContent
@@ -76,9 +76,10 @@ const Post = () => {
         }
 
         h1{
-          text-align:center;
-          margin-top:1rem;
-          margin-bottom: 0.3rem;
+          text-align: left;
+          margin: 2rem 0;
+          font-size: 2.5rem;
+
         }
 
         .post-details{
@@ -90,13 +91,16 @@ const Post = () => {
        
         .post-details p{
           font-size:14px;
-          color:#84428c;
+          color: black;
           margin-bottom:1rem;
           font-weight:700;
         }
     
         .block-content{
           word-wrap: break-word;
+          line-height: 2;
+          text-align:justify;
+          
         }
 
       `}</style>
@@ -107,3 +111,4 @@ const Post = () => {
 }
 
 export default Post
+

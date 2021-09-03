@@ -9,6 +9,7 @@ import Project from "../components/Project";
 import Technologies from "../components/Technologies";
 import Blog from "../components/Blog";
 
+
 export default function Home({ dataHome }) {
 
   const router = useRouter()
@@ -22,7 +23,8 @@ export default function Home({ dataHome }) {
   };
   const { projects } = data.dataHome[0];
   const { form } =  data.dataHome[0]
-  
+
+
   return (
     <div>
       <Head>
@@ -35,7 +37,7 @@ export default function Home({ dataHome }) {
       <Team bio={bio} locale={locale} />
       <Project projectList={projects} locale={locale}/>
       <ContactForm textForm = {form} locale={locale} title/>
-      <Blog locale={locale}/>
+      {locale === 'es-CO' ? <Blog locale={locale}/> : null}
     </div>
   );
 }

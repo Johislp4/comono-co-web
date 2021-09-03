@@ -78,7 +78,7 @@ const CardText = ({textProps, locale }) => {
     h1::before{
      content:"";
      width:70%;
-     height: 0.2rem;
+     height: 2px;
      background: white;
      position:absolute;
      bottom: -5px;
@@ -93,6 +93,7 @@ const CardText = ({textProps, locale }) => {
       font-size: 1rem;
       line-height : 1.4rem;
       font-family: 'Roboto', sans-serif;
+      text-align: justify;
     }
 
     .technologies-key{

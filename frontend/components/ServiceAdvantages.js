@@ -8,8 +8,8 @@ const ServiceAdvantages = ({ advantages, locale }) => {
     return (
         <>
         <div className="title">
-          <h1>{locale === "es-CO" ? 'Las ventajas son inmensas,' : 'lorem ipsum'} </h1>
-          <h4>{locale === "es-CO" ? 'Una de las mas significativas es que las soluciones en la nube te permiten:' : 'lorem ipsum'} </h4>
+          <h1>{locale === "es-CO" ? 'Las ventajas son inmensas,' : 'The benefits are vast'} </h1>
+          <h4>{locale === "es-CO" ? 'Una de las mas significativas es que las soluciones en la nube te permiten:' : 'The most significant are cloud-based solutions that allow you to:'} </h4>
         </div>
        
         <section className="service-advantage-container  d-flex">

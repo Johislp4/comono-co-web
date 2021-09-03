@@ -25,6 +25,7 @@ const CardBlog = ({ post }) => {
         justify-content: space-between;
         max-width: 170px;
         min-height: 300px;
+        max-height:300px;
         padding: 1.5rem;
         border-radius: 16px;
         background: white;
@@ -74,19 +75,23 @@ const CardBlog = ({ post }) => {
       }
       
       @media (max-width: 760px) {
+
+       
         .mini-card {
           transform: rotate(0deg);
-          width: 230px;
+          
+          max-width:150px;
+          box-shadow: -2rem 0 3rem -2rem #000;
         }
       
         article.mini-card:first-child {
-          transform: rotate(10deg);
-          margin-top: -60px;
-          margin-left: 80px;
+          /* transform: rotate(3deg); */
+          /* margin-top: -60px;
+          margin-left: 80px; */
         }
       
         article.mini-card:nth-child(2) {
-          margin-left: -70px;
+          margin-left: -20px;
           transform: rotate(357deg);
           margin-top: -170px;
         }
@@ -99,7 +104,7 @@ const CardBlog = ({ post }) => {
       
         .mini-card:focus-within ~ .mini-card,
         .mini-card:hover ~ .mini-card {
-          transform: translatey(100px);
+          transform: translatey(50px);
         }
       }
 

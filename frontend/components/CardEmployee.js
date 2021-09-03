@@ -91,7 +91,7 @@ const CardEmployee = ({ employee, index }) => {
           display: flex;
           flex-flow: column wrap;
           color: white;
-          text-align: left;
+          text-align: justify;
           font-family: "Lexend Exa", sans-serif;
           font-weight: 100;
           font-size: 0.85rem;
@@ -127,17 +127,27 @@ const CardEmployee = ({ employee, index }) => {
         }
 
         h1 {
-          font-size: 7vw;
+          font-size: 6vw;
+          text-align: left;
+          padding-left: 1rem;
+          font-family:'Lexend Exa', sans-serif;
         }
+        
 
         .employee-img {
           max-width: 50%;
           width: 100%;
           align-self: center;
+          background-image: url("/rayas-blancas-about-us.svg");
+          background-repeat: no-repeat;
+          height: 500px;
+          background-position: 50%;
+          background-size: contain;
         }
 
         .employee-img img {
           width: 90%;
+          
         }
 
         img {
@@ -172,6 +182,7 @@ const CardEmployee = ({ employee, index }) => {
           h1 {
             font-size: 10vw;
             margin-bottom: 2rem;
+            text-align: center;
           }
         }
       `}</style>

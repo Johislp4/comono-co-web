@@ -28,7 +28,9 @@ const services = ({dataService, locale}) => {
     <main>
       <div className="container-head">
         <div className="bg-black"></div>
-        <div className="bg-gray"> {phrase}</div>
+        <div className="bg-gray">
+          <div className="head-phrase"> {phrase}</div>
+        </div>
       </div>
 
       <div className="container-service">
@@ -120,6 +122,12 @@ const services = ({dataService, locale}) => {
           align-items:center;     
       }
 
+      .head-phrase{
+        max-width: 70rem;
+        width: 100%;
+        padding: 0 1rem;
+      }
+
       .service{
         height: auto;
         background-size:cover;
@@ -140,9 +148,13 @@ const services = ({dataService, locale}) => {
       .head-service{
         height:150px;
         color: white;
-        justify-content: center;
-        align-content: flex-end;
+        justify-content: flex-end;
+        align-content: center;
         cursor:pointer;
+      }
+
+      .head-service > img{
+        width:45px;
       }
 
       @keyframes Scale{
@@ -150,7 +162,7 @@ const services = ({dataService, locale}) => {
           transform: scale(1)
         }
         100%{
-          transform: scale(1.1)
+          transform: scale(1.05)
         }
       }
       
@@ -164,11 +176,16 @@ const services = ({dataService, locale}) => {
       .title-service {
         font-size: 2rem;
         margin-left: 4.5rem;
+        text-align:left;
         
       }
 
       .service > div{
-        width: 95%;
+        width: 100%;
+        max-width: 70rem;
+        margin:auto;
+        padding: 0 1rem;
+
       }
       
       .service > div p {
@@ -179,8 +196,8 @@ const services = ({dataService, locale}) => {
         margin-right: 0;
         margin-left: auto;
        
-        padding-top:2rem;
-        font-size: 1.5rem;
+       
+        font-size: 1.2rem;
       }
 
       .app-service{
@@ -206,14 +223,29 @@ const services = ({dataService, locale}) => {
       }
 
       .head-service > img {
-        width: 50px;
+        width: 35px;
         margin-left: 1rem;
+      }
+
+      .title-service {
+        font-size: 2rem;
+        margin-left: 2rem;
+        text-align:center;
       }
 
       .service > div p {
         font-size: 1.2rem;
         padding-top: 0;
         font-weight: 400;
+      }
+
+      @keyframes Scale{
+        0%{
+          transform: scale(1)
+        }
+        100%{
+          transform: scale(1.03)
+        }
       }
     }
       `}</style>

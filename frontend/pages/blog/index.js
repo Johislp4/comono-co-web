@@ -54,7 +54,7 @@ export default function Blog({ data }) {
         background: #b3d172;
       }
       .main-container {
-        max-width: 50rem;
+        max-width: 70rem;
         padding: 0 1rem;
         margin: 0 auto;
       }

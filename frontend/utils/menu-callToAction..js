@@ -3,7 +3,7 @@ export const menuCallToActionsSpanish = [
     title: "Te llamamos",
     icon: "/call-icon.svg",
     className: "menu-list call-icon",
-    href: "/#form",
+    href: "/contacto/#form",
   },
   {
     title: "Escríbenos",
@@ -30,7 +30,7 @@ export const menuCallToActionsEnglish = [
     title: "We call you",
     icon: "/call-icon.svg",
     className: "menu-list call-icon",
-    href: "/#form",
+    href: "/contact/#form",
   },
   {
     title: "Write Us",

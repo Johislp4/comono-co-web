@@ -1,16 +1,21 @@
+import * as React from 'react'
 import Link from 'next/link'
-import React from 'react'
+import Aos from 'aos';
+import "aos/dist/aos.css"
 
 
 const ServiceMenu = ({locale}) => {
+
+    React.useEffect(() => Aos.init( { duration:2000 } ), []);
+
     return (
         <>
         <section className="bg">
             <div className="bg-black">
                 <section className="service-container">   
                     <div className="service-title d-flex">
-                        <h1 className="service-title-h1">{locale === "es-CO" ? 'Servicios' : 'Transformation'}</h1>
-                        <h2 className="service-title-h2">{locale === "es-CO" ? 'de transformación digital' : 'Digital'}</h2>
+                        <h1 data-aos="fade-right" className="service-title-h1">{locale === "es-CO" ? 'Servicios' : 'Digital Transformation'}</h1>
+                        <h2 data-aos="fade-left" className="service-title-h2">{locale === "es-CO" ? 'de transformación digital' : 'Services'}</h2>
                     </div>
                 </section>
             </div>
@@ -67,6 +72,8 @@ const ServiceMenu = ({locale}) => {
         .bg-black{
             background:#191919;
             height:65vh;
+            display:flex;
+
         }
 
         .bg-white{
@@ -85,9 +92,10 @@ const ServiceMenu = ({locale}) => {
         }
 
         .service-container{
-            max-width:64rem;
+            max-width:70rem;
             margin:auto;
             padding:2rem;
+            width:100%;
             
         }
 

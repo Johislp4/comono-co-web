@@ -73,7 +73,7 @@ const CallToAction = () => {
                       {copySuccess && <span>{locale === 'es-CO' ? 'Copiado' : 'Copied' }</span>}
                     </div>
 
-                    <div className="d-flex">
+                    <div className="container-img d-flex">
                       <img src={item.icon} alt="icon" className="img-cta" />
                     </div>
                   </div>
@@ -91,7 +91,7 @@ const CallToAction = () => {
                       >
                         <div>{item.title}</div>
 
-                        <div className="d-flex">
+                        <div className="container-img d-flex">
                           <img src={item.icon} alt="icon" className="img-cta" />
                         </div>
                       </div>
@@ -108,7 +108,7 @@ const CallToAction = () => {
                       onClick={handleCta}
                     >
                       <p>{item.title}</p>
-                      <div className="d-flex">
+                      <div className="container-img d-flex">
                         <img src={item.icon} alt="icon" className="img-cta" />
                       </div>
                     </div>
@@ -131,6 +131,7 @@ const CallToAction = () => {
           height: 500px;
           border-radius: 50%;
           box-shadow: 0 3px 4px 0 rgb(94 94 94 / 70%);
+          
         }
 
         .active {
@@ -184,15 +185,28 @@ const CallToAction = () => {
         }
 
         .opt-cta {
-          box-shadow: 0 3px 12px 0 rgb(0 0 0 / 12%),
-            0 9px 8px 0 rgb(0 0 0 / 11%);
-          padding: 0.5rem 1rem;
+          font-family:'Lexend Exa', sans-serif;
+          padding: 0.5rem 0.5rem;
+          color:black;
+          
         }
 
         .img-cta {
           width: 35px;
           height: 35px;
           position: relative;
+        }
+
+        .container-img{
+          
+          background: #F4F4F4;
+          border-radius: 50%;
+         
+          display:flex;
+          justify-content:center;
+          align-items:center;
+          padding:1rem;
+          box-shadow: 1px -0px 7px -0px rgb(3 0 0 / 65%);
         }
 
         .menu-list > * {

@@ -1,15 +1,19 @@
-import React from 'react'
+import * as React from 'react'
 import Form from './Form'
 import EN from '../utils/EN'
 import ES from '../utils/ES'
+import Aos from 'aos'
+import "aos/dist/aos.css"
 
 const ContactForm = ({locale, textForm, title}) => {
 
+  React.useEffect(()=> Aos.init(), [])
+
   return (
     <>
-      <div className="container">
+      <div className="container" >
         {title && <h1 id="form">{ locale === 'es-CO' ? ES.form.title  : EN.form.title} </h1>}
-        <section className="container-form">
+        <section data-aos="fade-right" className="container-form">
           <div className="left-form">
             <div className="message-one">
             <h1>{textForm.ES 
@@ -62,7 +66,7 @@ const ContactForm = ({locale, textForm, title}) => {
           margin:auto;
           margin-bottom: 5rem;
           background: white;
-          box-shadow: 0px 5px 20px 1px;
+          box-shadow: 1px -1px 7px -1px rgb(3 0 0 / 65%);
           
         }
 
@@ -97,7 +101,7 @@ const ContactForm = ({locale, textForm, title}) => {
 
         .message-one > h1::after {
             content: "";
-            height: 3px;
+            height: 2px;
             width: 80%;
             background-color:  #59b7f7;
             position: absolute;

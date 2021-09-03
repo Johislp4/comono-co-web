@@ -20,9 +20,11 @@ const Button = ({url, locale}) => {
             color: white;
             font-family:'Lexend Exa', sans-serif;
             font-weight:400;
+            font-size: 22px;
             
         }
             .btn{
+                
                 padding: 0.5rem 1rem;
                 padding-right:0;
                 justify-content: flex-end;
@@ -33,8 +35,25 @@ const Button = ({url, locale}) => {
 
             .arrow{
                 margin-right: 1rem;
-                width: 3rem;
+                width: 2.5rem;
                 height: 3rem;
+            }
+
+            @media (max-width: 540px) {
+                .arrow{
+                margin-right: 1rem;
+                width: 2rem;
+                
+            }
+
+
+                a{
+            color: white;
+            font-family:'Lexend Exa', sans-serif;
+            font-weight:400;
+            font-size: 16px;
+            
+        }
             }
 
            

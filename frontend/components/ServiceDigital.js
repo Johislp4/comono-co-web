@@ -1,4 +1,6 @@
-import React from "react";
+import * as React from "react";
+import Aos from 'aos';
+import "aos/dist/aos.css"
 import { useWindowSize } from "../hooks/useWindowSize";
 import { PortableText, urlFor } from "../lib/sanity";
 
@@ -16,8 +18,9 @@ const ServiceDigital = ({
 
   
 
-  const { serviceExtract } = info
-  const size = useWindowSize()
+  const { serviceExtract } = info;
+  const size = useWindowSize();
+  React.useEffect(() => Aos.init( { duration:2000 } ), []);
 
 
 
@@ -27,11 +30,8 @@ const ServiceDigital = ({
       <section className="bg" id={id}>
         <div className="left-side">
           <div className="block" style={{background}}></div>
-          <div className="service-title"> 
-            <div className="title-word one d-flex" style={{color: word?.color}}>{word?.one}</div>
-            <div className="title-word two d-flex" style={{color: word?.color}}>{word?.two}</div>
-            <div className="title-word three d-flex" style={{color: word?.color}}>{word?.three}</div>
-            <div className="title-word four d-flex" style={{color: word?.color}}>{word?.four}</div>
+          <div className="service-title" data-aos="fade-right"> 
+            <div  className="title-word  d-flex" style={{color: word?.color}}>{word?.servicename}</div>
           </div>
         </div>
         <div className="right-side" style={{background}} >
@@ -49,6 +49,9 @@ const ServiceDigital = ({
               <div
                 className="service-info"
                 style={{ transform: `rotate(-${rotate})` }}
+                data-aos="fade-up-left"
+                data-aos-duration="300"
+               
               >
                 <PortableText blocks={serviceExtract} />
               </div>
@@ -98,6 +101,7 @@ const ServiceDigital = ({
           flex-direction: column;
           justify-content:center;
           height: 100%;
+
         }
 
         .title-word{
@@ -106,19 +110,10 @@ const ServiceDigital = ({
           font-weight:700;
           color: #04ACC5;
           margin: 1rem 0;
-        }
-
-        .one{
-          margin-left:2rem;
-        }
-
-        .three{
-          justify-content: flex-end;
-          margin-right: 3rem;
-        }
-
-        .four{
-          justify-content: center;
+ 
+          max-width: 70%;
+          margin:auto;
+          text-align:center;
         }
 
         .service-container {
@@ -134,9 +129,6 @@ const ServiceDigital = ({
         .service-shape {
           background: white;
           max-width:32rem;
-          
-        
-         
           display: flex;
           justify-content: center;
           align-items: center;

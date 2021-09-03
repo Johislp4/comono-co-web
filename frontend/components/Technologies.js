@@ -22,14 +22,14 @@ const Technologies = () => {
           width:100%;
           padding:2rem 0;
           margin:auto;
-          justify-content: space-between;
+          justify-content: center;
          
         }
 
         img{
           
-          height: 50px;
-          margin: 0 1rem;
+          height: 40px;
+          margin: 0 1.5rem;
         }
 
         @media(max-width: 540px){

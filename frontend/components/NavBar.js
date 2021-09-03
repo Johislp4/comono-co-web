@@ -67,9 +67,9 @@ const NavBar = ({locale}) => {
       }
         nav {
          max-width:70rem;
+         margin:auto;
          padding: 1rem;
           flex-wrap: wrap;
-          margin:auto;
          
         }
 

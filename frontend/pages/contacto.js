@@ -1,4 +1,6 @@
-import React from 'react'
+import * as React from 'react'
+import Aos from 'aos'
+import 'aos/dist/aos.css'
 import { useRouter } from 'next/router'
 import ContactForm from "../components/ContactForm";
 import ES from '../utils/ES'
@@ -13,17 +15,19 @@ const Contact = () => {
     EN:{head: 'Thank you for coming up to here', message: 'Send us your details and we will contact you'}
   }
 
+  React.useEffect( () => Aos.init({duration:2000}), [])
+
 	return (
 		<>
 			<div>
 				<div className="main-container" >
-					<img className="contact-title" src="contact-title.svg" alt="contact-title" />
+					<img className="contact-title" src="contact-title.svg" alt="contact-title" data-aos="fade-down"/>
 				</div>
 				<div className="main-container">
-					<p className="subtitle">{ locale === 'es-CO' ? ES.contact.touch_subtitle  : EN.contact.touch_subtitle}</p>
+					<p className="subtitle" data-aos="fade-right">{ locale === 'es-CO' ? ES.contact.touch_subtitle  : EN.contact.touch_subtitle}</p>
 				</div>
-				<section className="location-section main-container">
-					<div className="data-container">
+				<section className="location-section main-container" >
+					<div className="data-container" data-aos="fade-right">
 						<div>
 							<div className="contact-data">
 								<p><strong>{ locale === 'es-CO' ? ES.contact.email  : EN.contact.email}</strong></p>
@@ -57,15 +61,15 @@ const Contact = () => {
 							</div>
 						</div>
 					</div>
-					<div className="map-container">
+					<div className="map-container" data-aos="fade-left">
 						<div>
 							<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d991.6052979452919!2d-75.56451626108506!3d6.208044369457274!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e442828108b8341%3A0xddac84f16063b76c!2sSelina%20Medellin!5e0!3m2!1sen!2sco!4v1629244050182!5m2!1sen!2sco" loading="lazy"></iframe>
 						</div>
-						<p>{ locale === 'es-CO' ? ES.contact.message  : EN.contact.message}</p>
+						<p id="form">{ locale === 'es-CO' ? ES.contact.message  : EN.contact.message}</p>
 					</div>
 				</section>
 
-				<div className="main-container">
+				<div className="main-container" >
 					<p className="subtitle">{ locale === 'es-CO' ? ES.contact.data_subtitle  : EN.contact.data_subtitle}</p>
 				</div>
 				<ContactForm textForm={textForm} locale={locale} />
@@ -143,7 +147,7 @@ const Contact = () => {
   padding: 1rem;
   margin-top: 1rem;
   text-align: center;
-  box-shadow: 1px -1px 7px -1px rgba(3, 0, 0, 0.65);
+  box-shadow: 1px -1px 7px -1px rgb(3 0 0 / 65%);
   font-family: "Lexend Exa", sans-serif;
 }
 
