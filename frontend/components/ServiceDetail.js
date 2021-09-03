@@ -39,9 +39,9 @@ const ServiceDetail = ({ data, color}) => {
   return (
     <>
       <div className="service-container"  >
-        {serviceInfo ? serviceInfo.map((item) =>
+        {serviceInfo ? serviceInfo.map((item, index) =>
           item.description.length != 0 ? (
-            <div className="service-container-mobile  d-flex">
+            <div className="service-container-mobile  d-flex" key={index}>
               <div className="service-container-info" style={item.order === 0 ? {order:1} : {order:2}}>
                 <div className={(item.order === 0) ? 'order-one d-flex' : 'order-two d-flex'}>
                   <div className="block"  style={{ background: color}}></div>
