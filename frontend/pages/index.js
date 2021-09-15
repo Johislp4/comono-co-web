@@ -8,6 +8,7 @@ import ContactForm from "../components/ContactForm";
 import Project from "../components/Project";
 import Technologies from "../components/Technologies";
 import Blog from "../components/Blog";
+import ProjectTitle from "../components/ProjectTitle";
 
 
 export default function Home({ dataHome }) {
@@ -29,12 +30,13 @@ export default function Home({ dataHome }) {
     <div>
       <Head>
         <title>Comono Colombia</title>
-        <link rel="icon" href="/favicon-comono.ico" />
+       
       </Head>
       <Banner text={banner} />
       <Services dataService={data.dataService} locale={locale} />
       <Technologies />
       <Team bio={bio} locale={locale} />
+      <ProjectTitle locale={locale} /> 
       <Project projectList={projects} locale={locale}/>
       <ContactForm textForm = {form} locale={locale} title/>
       {locale === 'es-CO' ? <Blog locale={locale}/> : null}
