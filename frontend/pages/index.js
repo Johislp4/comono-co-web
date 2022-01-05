@@ -25,6 +25,7 @@ export default function Home({ dataHome }) {
   const { projects } = data.dataHome[0];
   const { form } =  data.dataHome[0]
 
+  console.log('test')
 
   return (
     <div>
