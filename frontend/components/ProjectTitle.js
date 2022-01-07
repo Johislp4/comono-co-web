@@ -5,7 +5,7 @@ const ProjectTitle = ({locale}) => {
         <>
         <div className="bg">
             <div className="container">
-                <h1>{ locale === 'es-CO' ? 'PROYECTOS ' : `COMONO'S PROJECTS`}</h1>
+                <h1>{ locale === 'es-CO' ? 'Proyectos ' : `Comono's projects`}</h1>
             </div> 
             <style jsx>{`
 
