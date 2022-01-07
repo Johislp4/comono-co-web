@@ -162,8 +162,8 @@ const Form = ({locale, language}) => {
           height: 5.5rem;
           margin: 1rem 0;
           border:none;
-          border-left: solid thin;
-          border-bottom: solid thin;
+          border-left: solid thin gray;
+          border-bottom: solid thin gray;
           padding:  0.625rem;
           resize:none;
           font-family:'Roboto';

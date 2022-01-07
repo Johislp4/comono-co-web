@@ -7,7 +7,7 @@ const menuItemsEnglish = [
     },
     {
       id:2,
-      title: "About-us",
+      title: "About Us",
       className: "menu-list-item",
       url: "/nosotros",
     },
