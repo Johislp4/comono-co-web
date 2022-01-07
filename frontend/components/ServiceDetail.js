@@ -97,7 +97,7 @@ const ServiceDetail = ({ data, color}) => {
           margin-right: 0;
           align-items: center;
           padding: 1.5rem;
-          font-family: Lexend Exa Regular;
+          font-family: 'Lexend Exa',sans-serif;
 
         }
 

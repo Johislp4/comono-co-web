@@ -13,7 +13,7 @@ export default function Blog({ data }) {
   if (blogData.length === 0) return <div>Loading...</div>
 
   let filteredPosts = blogData.filter((post) => {
-    return post.title.toLowerCase().includes(search.toLowerCase())
+    return post.title && post.title.toLowerCase().includes(search.toLowerCase())
   })
 
   return (

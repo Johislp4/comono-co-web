@@ -47,7 +47,7 @@ const CallToAction = () => {
               alt="close-button"
             />
           ) : (
-            <img className="btn btn-close" src="/cta.svg" alt="cta-button" />
+            <img className="btn btn-close" src="/chat.png" alt="cta-button" />
           )}
         </div>
         {isOpenCTA && (
@@ -231,8 +231,9 @@ const CallToAction = () => {
         }
 
         .btn-close {
-          width: 80px;
-          height: 80px;
+          width: 60px;
+          height: 60px;
+          cursor:pointer;
         }
       `}</style>
     </>

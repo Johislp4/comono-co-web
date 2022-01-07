@@ -18,10 +18,10 @@ const Slider = ({ dataSlides }) => {
     infiniteLoop={true}
     showStatus={false}
     showArrows={true}
-    autoPlay={false}
+    autoPlay={true}
     stopOnHover={true}
     swipeable={true}
-    interval={10000000}
+    interval={3000}
     >
       {
         Slides.sort((a, b) => a.order - b.order).map((slide, index) => {
